@@ -36,6 +36,7 @@
 #define _CUDA_COMPILER_
 
 #include "support/common.h"
+#include <cuda/atomic>
 
 // CUDA kernel ------------------------------------------------------------------------------------------
 __global__ void TQHistogram_gpu(task_t *queues, int *n_task_in_queue,
@@ -58,17 +59,22 @@ __global__ void TQHistogram_gpu(task_t *queues, int *n_task_in_queue,
             bool not_done = true;
 
             do {
-                if(atomicAdd_system(n_consumed_tasks + idx_queue, 0) == atomicAdd_system(n_written_tasks + idx_queue, 0)) {
+                cuda::atomic_ref<int, cuda::thread_scope_system> consumed_ref(n_consumed_tasks[idx_queue]);
+                cuda::atomic_ref<int, cuda::thread_scope_system> written_ref(n_written_tasks[idx_queue]);
+                cuda::atomic_ref<int, cuda::thread_scope_system> in_queue_ref(n_task_in_queue[idx_queue]);
+                
+                if(consumed_ref.load(cuda::memory_order_acquire) == written_ref.load(cuda::memory_order_acquire)) {
                     idx_queue = (idx_queue + 1) % NUM_TASK_QUEUES;
+                    __nanosleep(100);  // Yield to prevent busy-wait starvation
                 } else {
-                    if(atomicAdd_system(n_task_in_queue + idx_queue, 0) > 0) {
-                        j = atomicAdd_system(n_task_in_queue + idx_queue, -1) - 1;
+                    if(in_queue_ref.load(cuda::memory_order_acquire) > 0) {
+                        j = in_queue_ref.fetch_sub(1, cuda::memory_order_acq_rel) - 1;
                         if(j >= 0) {
                             t->id    = (queues + idx_queue * gpuQueueSize + j)->id;
                             t->op    = (queues + idx_queue * gpuQueueSize + j)->op;
-                            jj       = atomicAdd_system(n_consumed_tasks + idx_queue, 1) + 1;
+                            jj       = consumed_ref.fetch_add(1, cuda::memory_order_acq_rel) + 1;
                             not_done = false;
-                            if(jj == atomicAdd_system(n_written_tasks + idx_queue, 0)) {
+                            if(jj == written_ref.load(cuda::memory_order_acquire)) {
                                 idx_queue = (idx_queue + 1) % NUM_TASK_QUEUES;
                             }
                             *last_queue = idx_queue;
@@ -77,6 +83,7 @@ __global__ void TQHistogram_gpu(task_t *queues, int *n_task_in_queue,
                         }
                     } else {
                         idx_queue = (idx_queue + 1) % NUM_TASK_QUEUES;
+                        __nanosleep(100);
                     }
                 }
             } while(not_done);
@@ -101,9 +108,10 @@ __global__ void TQHistogram_gpu(task_t *queues, int *n_task_in_queue,
                 }
 
                 __syncthreads();
-                // Store in global memory
+                // Store in global memory (use atomic_ref for system-scope visibility)
                 for(int i = tid; i < n_bins; i += tile_size) {
-                    histo[t->id * n_bins + i] = l_histo[i];
+                    cuda::atomic_ref<int, cuda::thread_scope_system> histo_ref(histo[t->id * n_bins + i]);
+                    histo_ref.store(l_histo[i], cuda::memory_order_release);
                 }
             }
         }

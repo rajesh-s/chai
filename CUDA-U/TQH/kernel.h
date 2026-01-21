@@ -34,18 +34,21 @@
  */
 
 #include "cuda_runtime.h"
-#include <atomic>
+#include <cuda/atomic>
 #include <string>
 #include "support/common.h"
 using namespace std;
 
-void host_insert_tasks(task_t *queues, task_t *task_pool, std::atomic_int *n_consumed_tasks,
-    std::atomic_int *n_written_tasks, std::atomic_int *n_task_in_queue, int *last_queue, int *n_tasks,
-    int gpuQueueSize, int *offset);
-void run_cpu_threads(int n_threads, task_t *queues, std::atomic_int *n_task_in_queue,
-    std::atomic_int *n_written_tasks, std::atomic_int *n_consumed_tasks, task_t *task_pool,
-    int *data, int gpuQueueSize, int *offset, int *last_queue, int *n_tasks, int tpi, int poolSize,
-    int n_work_groups);
+// Type alias for system-scope atomic int (for CPU-GPU coherent access on GH200)
+using atomic_int_sys = cuda::atomic<int, cuda::thread_scope_system>;
+
+void host_insert_tasks(task_t *queues, task_t *task_pool, atomic_int_sys *n_consumed_tasks,
+    atomic_int_sys *n_written_tasks, atomic_int_sys *n_task_in_queue, atomic_int_sys *last_queue, 
+    int n_tasks_to_insert, int gpuQueueSize, int pool_offset);
+void run_cpu_threads(int n_threads, task_t *queues, atomic_int_sys *n_task_in_queue,
+    atomic_int_sys *n_written_tasks, atomic_int_sys *n_consumed_tasks, task_t *task_pool,
+    int *data, int gpuQueueSize, atomic_int_sys *offset, atomic_int_sys *last_queue, 
+    int tpi, int poolSize, int n_work_groups);
 
 cudaError_t call_TQHistogram_gpu(int blocks, int threads, task_t *queues, int *n_task_in_queue,
     int *n_written_tasks, int *n_consumed_tasks, int *histo, int *data, int gpuQueueSize, 

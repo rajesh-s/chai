@@ -34,9 +34,9 @@
 
 CXX=nvcc
 ifndef CHAI_OPENCV
-CXX_FLAGS=-std=c++11 -arch=sm_61
+CXX_FLAGS=-std=c++11 -arch=sm_90a
 else
-CXX_FLAGS=-std=c++11 -arch=sm_61 -D CHAI_OPENCV 
+CXX_FLAGS=-std=c++11 -arch=sm_90a -D CHAI_OPENCV 
 endif
 
 ifndef CHAI_CUDA_LIB

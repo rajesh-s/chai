@@ -179,12 +179,12 @@ int main(int argc, char **argv) {
     cudaStatus = cudaMallocManaged(&data, p.pool_size * p.n_gpu_threads * sizeof(int));
     task_t *task_queues;
     cudaStatus = cudaMallocManaged(&task_queues, NUM_TASK_QUEUES * p.queue_size * sizeof(task_t));
-    std::atomic_int *n_tasks_in_queue;
-    cudaStatus = cudaMallocManaged(&n_tasks_in_queue, sizeof(std::atomic_int) * NUM_TASK_QUEUES);
-    std::atomic_int *n_written_tasks;
-    cudaStatus = cudaMallocManaged(&n_written_tasks, sizeof(std::atomic_int) * NUM_TASK_QUEUES);
-    std::atomic_int *n_consumed_tasks;
-    cudaStatus = cudaMallocManaged(&n_consumed_tasks, sizeof(std::atomic_int) * NUM_TASK_QUEUES);
+    atomic_int_sys *n_tasks_in_queue;
+    cudaStatus = cudaMallocManaged(&n_tasks_in_queue, sizeof(atomic_int_sys) * NUM_TASK_QUEUES);
+    atomic_int_sys *n_written_tasks;
+    cudaStatus = cudaMallocManaged(&n_written_tasks, sizeof(atomic_int_sys) * NUM_TASK_QUEUES);
+    atomic_int_sys *n_consumed_tasks;
+    cudaStatus = cudaMallocManaged(&n_consumed_tasks, sizeof(atomic_int_sys) * NUM_TASK_QUEUES);
     task_t *task_pool_backup = (task_t *)malloc(p.pool_size * sizeof(task_t));
     cudaDeviceSynchronize();
     CUDA_ERR();
@@ -198,13 +198,13 @@ int main(int argc, char **argv) {
     read_input(pattern, task_pool, p);
     memset((void *)data, 0, p.pool_size * p.n_gpu_threads * sizeof(int));
     for(int i = 0; i < NUM_TASK_QUEUES; i++) {
-        n_tasks_in_queue[i].store(0);
+        n_tasks_in_queue[i].store(0, cuda::memory_order_relaxed);
     }
     for(int i = 0; i < NUM_TASK_QUEUES; i++) {
-        n_written_tasks[i].store(0);
+        n_written_tasks[i].store(0, cuda::memory_order_relaxed);
     }
     for(int i = 0; i < NUM_TASK_QUEUES; i++) {
-        n_consumed_tasks[i].store(0);
+        n_consumed_tasks[i].store(0, cuda::memory_order_relaxed);
     }
     timer.stop("Initialization");
     timer.print("Initialization", 1);
@@ -216,23 +216,28 @@ int main(int argc, char **argv) {
         memcpy(task_pool, task_pool_backup, p.pool_size * sizeof(task_t));
         memset((void *)data, 0, p.pool_size * p.n_gpu_threads * sizeof(int));
         for(int i = 0; i < NUM_TASK_QUEUES; i++) {
-            n_tasks_in_queue[i].store(0);
+            n_tasks_in_queue[i].store(0, cuda::memory_order_relaxed);
         }
         for(int i = 0; i < NUM_TASK_QUEUES; i++) {
-            n_written_tasks[i].store(0);
+            n_written_tasks[i].store(0, cuda::memory_order_relaxed);
         }
         for(int i = 0; i < NUM_TASK_QUEUES; i++) {
-            n_consumed_tasks[i].store(0);
+            n_consumed_tasks[i].store(0, cuda::memory_order_relaxed);
         }
-        int num_tasks  = p.queue_size;
-        int last_queue = 0;
-        int offset     = 0;
+        // Memory fence after initialization
+        cuda::atomic_thread_fence(cuda::memory_order_release, cuda::thread_scope_system);
+        
+        // Use system-scope atomics for shared state between CPU threads
+        // Initialize last_queue to NUM_TASK_QUEUES-1 so first insertion goes to queue 0
+        // (since host_insert_tasks starts at (last_queue + 1) % NUM_TASK_QUEUES)
+        atomic_int_sys last_queue(NUM_TASK_QUEUES - 1);
+        atomic_int_sys offset(0);
 
         if(rep >= p.n_warmup)
             timer.start("Kernel");
 
         std::thread main_thread(run_cpu_threads, p.n_threads, task_queues, n_tasks_in_queue, n_written_tasks,
-            n_consumed_tasks, task_pool, data, p.queue_size, &offset, &last_queue, &num_tasks, p.queue_size,
+            n_consumed_tasks, task_pool, data, p.queue_size, &offset, &last_queue, p.queue_size,
             p.pool_size, p.n_gpu_blocks);
 
         // Kernel launch

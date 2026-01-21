@@ -40,111 +40,130 @@
 #include <thread>
 #include <vector>
 #include <algorithm>
+#include <cuda/atomic>
+#include <mutex>
+
+// Type alias for system-scope atomic int
+using atomic_int_sys = cuda::atomic<int, cuda::thread_scope_system>;
+
+// Mutex for protecting shared state between CPU threads
+static std::mutex g_insert_mutex;
 
 //----------------------------------------------------------------------------
-// CPU: Host enqueue task
+// CPU: Host enqueue task (thread-safe version)
 //----------------------------------------------------------------------------
-void host_insert_tasks(task_t *queues, task_t *task_pool, std::atomic_int *n_consumed_tasks,
-    std::atomic_int *n_written_tasks, std::atomic_int *n_task_in_queue, int *last_queue, int *n_tasks,
-    int gpuQueueSize, int *offset) {
-    int i                     = (*last_queue + 1) % NUM_TASK_QUEUES;
-    int n_total_tasks         = *n_tasks;
-    int n_remaining_tasks     = *n_tasks;
+void host_insert_tasks(task_t *queues, task_t *task_pool, atomic_int_sys *n_consumed_tasks,
+    atomic_int_sys *n_written_tasks, atomic_int_sys *n_task_in_queue, atomic_int_sys *last_queue, 
+    int n_tasks_to_insert, int gpuQueueSize, int pool_offset) {
+    
+    int i = (last_queue->load(cuda::memory_order_acquire) + 1) % NUM_TASK_QUEUES;
+    int n_total_tasks         = n_tasks_to_insert;
+    int n_remaining_tasks     = n_tasks_to_insert;
     int n_tasks_to_write_next = (n_remaining_tasks > gpuQueueSize) ? gpuQueueSize : n_remaining_tasks;
-    *n_tasks                  = n_tasks_to_write_next;
+    int n_tasks_this_batch    = n_tasks_to_write_next;
 #if PRINT
     printf("Inserting Tasks...\t");
 #endif
     do {
-        if(n_consumed_tasks[i].load() == n_written_tasks[i].load()) {
+        if(n_consumed_tasks[i].load(cuda::memory_order_acquire) == n_written_tasks[i].load(cuda::memory_order_acquire)) {
 #if PRINT
-            printf("Inserting Tasks... %d (%d) in queue %d\n", n_remaining_tasks, *n_tasks, i);
+            printf("Inserting Tasks... %d (%d) in queue %d\n", n_remaining_tasks, n_tasks_this_batch, i);
 #endif
             // Insert tasks in queue i
-            memcpy(&queues[i * gpuQueueSize], &task_pool[(*offset) + n_total_tasks - n_remaining_tasks],
-                (*n_tasks) * sizeof(task_t));
+            memcpy(&queues[i * gpuQueueSize], &task_pool[pool_offset + n_total_tasks - n_remaining_tasks],
+                n_tasks_this_batch * sizeof(task_t));
+            // Memory fence to ensure memcpy is visible before updating atomics
+            cuda::atomic_thread_fence(cuda::memory_order_release, cuda::thread_scope_system);
             // Update number of tasks in queue i
-            n_task_in_queue[i].store(*n_tasks);
+            n_task_in_queue[i].store(n_tasks_this_batch, cuda::memory_order_release);
             // Total number of tasks written in queue i
-            n_written_tasks[i].fetch_add(*n_tasks);
+            n_written_tasks[i].fetch_add(n_tasks_this_batch, cuda::memory_order_release);
             // Next queue
             i = (i + 1) % NUM_TASK_QUEUES;
             // Remaining tasks
             n_remaining_tasks -= n_tasks_to_write_next;
             n_tasks_to_write_next = (n_remaining_tasks > gpuQueueSize) ? gpuQueueSize : n_remaining_tasks;
-            *n_tasks              = n_tasks_to_write_next;
+            n_tasks_this_batch    = n_tasks_to_write_next;
         } else {
             i = (i + 1) % NUM_TASK_QUEUES;
         }
     } while(n_tasks_to_write_next > 0);
-    *last_queue = i;
+    
+    last_queue->store(i, cuda::memory_order_release);
 }
 
-void run_cpu_threads(int n_threads, task_t *queues, std::atomic_int *n_task_in_queue,
-    std::atomic_int *n_written_tasks, std::atomic_int *n_consumed_tasks, task_t *task_pool,
-    int *data, int gpuQueueSize, int *offset, int *last_queue, int *n_tasks, int tpi, int poolSize,
-    int n_work_groups) {
+void run_cpu_threads(int n_threads, task_t *queues, atomic_int_sys *n_task_in_queue,
+    atomic_int_sys *n_written_tasks, atomic_int_sys *n_consumed_tasks, task_t *task_pool,
+    int *data, int gpuQueueSize, atomic_int_sys *offset, atomic_int_sys *last_queue, 
+    int tpi, int poolSize, int n_work_groups) {
 ///////////////// Run CPU worker threads /////////////////////////////////
 #if PRINT
-    printf("Starting 1 CPU thread\n");
+    printf("Starting %d CPU threads\n", n_threads);
 #endif
+
+    // Atomic flag to track if stop tasks have been sent
+    atomic_int_sys stop_sent(0);
 
     std::vector<std::thread> cpu_threads;
     for(int i = 0; i < n_threads; i++) {
 
-        cpu_threads.push_back(std::thread([=]() {
+        cpu_threads.push_back(std::thread([&, i]() {
 
             int maxConcurrentBlocks = n_work_groups;
 
-            // Insert tasks in queue
-            host_insert_tasks(queues, task_pool, n_consumed_tasks, n_written_tasks,
-                n_task_in_queue, last_queue, n_tasks, gpuQueueSize, offset);
-            *offset += tpi;
+            while(true) {
+                int my_offset;
+                int tasks_to_insert;
+                bool should_stop = false;
+                
+                // Critical section: atomically claim a batch of tasks
+                {
+                    std::lock_guard<std::mutex> lock(g_insert_mutex);
+                    my_offset = offset->load(cuda::memory_order_acquire);
+                    
+                    if(my_offset >= poolSize) {
+                        // No more regular tasks - check if we need to send stop tasks
+                        if(stop_sent.load(cuda::memory_order_acquire) == 0) {
+                            // First thread to reach here sends stop tasks
+                            stop_sent.store(1, cuda::memory_order_release);
+                            
+                            // Create stop tasks
+                            for(int j = 0; j < maxConcurrentBlocks; j++) {
+                                (task_pool + j)->id = -1;
+                                (task_pool + j)->op = SIGNAL_STOP_KERNEL;
+                            }
+                            cuda::atomic_thread_fence(cuda::memory_order_release, cuda::thread_scope_system);
+                            
+                            // Insert stop tasks
+                            host_insert_tasks(queues, task_pool, n_consumed_tasks, n_written_tasks,
+                                n_task_in_queue, last_queue, maxConcurrentBlocks, gpuQueueSize, 0);
 #if PRINT
-            for(int i = 0; i < NUM_TASK_QUEUES; i++) {
-                int task_in_queue = (n_task_in_queue + i)->load();
-                int written       = (n_written_tasks + i)->load();
-                int consumed      = (n_consumed_tasks + i)->load();
-                printf("Queue = %i, written = %i, task_in_queue = %i, consumed = %i\n", i, written, task_in_queue,
-                    consumed);
-            }
+                            printf("Thread %d sent STOP tasks\n", i);
 #endif
-
-            while(poolSize > *offset) {
-                *n_tasks = tpi;
-                // Insert tasks in queue
-                host_insert_tasks(queues, task_pool, n_consumed_tasks, n_written_tasks,
-                    n_task_in_queue, last_queue, n_tasks, gpuQueueSize, offset);
-                *offset += tpi;
-#if PRINT
-                for(int i = 0; i < NUM_TASK_QUEUES; i++) {
-                    int task_in_queue = (n_task_in_queue + i)->load();
-                    int written       = (n_written_tasks + i)->load();
-                    int consumed      = (n_consumed_tasks + i)->load();
-                    printf("Queue = %i, written = %i, task_in_queue = %i, consumed = %i, offset = %i\n", i, written,
-                        task_in_queue, consumed, *offset);
+                        }
+                        should_stop = true;
+                    } else {
+                        // Claim tasks
+                        tasks_to_insert = (poolSize - my_offset >= tpi) ? tpi : (poolSize - my_offset);
+                        offset->fetch_add(tasks_to_insert, cuda::memory_order_acq_rel);
+                    }
                 }
-#endif
-            }
-            // Create stop tasks
-            for(int i = 0; i < maxConcurrentBlocks; i++) {
-                (task_pool + i)->id = -1;
-                (task_pool + i)->op = SIGNAL_STOP_KERNEL;
-            }
-            *n_tasks = maxConcurrentBlocks;
-            *offset    = 0;
-            // Insert stop tasks in queue
-            host_insert_tasks(queues, task_pool, n_consumed_tasks, n_written_tasks,
-                n_task_in_queue, last_queue, n_tasks, gpuQueueSize, offset);
+                
+                if(should_stop) {
+                    break;
+                }
+                
+                // Insert tasks (serialized due to queue state)
+                {
+                    std::lock_guard<std::mutex> lock(g_insert_mutex);
+                    host_insert_tasks(queues, task_pool, n_consumed_tasks, n_written_tasks,
+                        n_task_in_queue, last_queue, tasks_to_insert, gpuQueueSize, my_offset);
+                }
+                
 #if PRINT
-            for(int i = 0; i < NUM_TASK_QUEUES; i++) {
-                int task_in_queue = (n_task_in_queue + i)->load();
-                int written       = (n_written_tasks + i)->load();
-                int consumed      = (n_consumed_tasks + i)->load();
-                printf("Queue = %i, written = %i, task_in_queue = %i, consumed = %i, offset = %i\n", i, written,
-                    task_in_queue, consumed, *offset);
-            }
+                printf("Thread %d inserted %d tasks at offset %d\n", i, tasks_to_insert, my_offset);
 #endif
+            }
 
         }));
     }

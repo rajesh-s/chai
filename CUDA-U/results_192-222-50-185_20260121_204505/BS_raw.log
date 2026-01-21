@@ -1,0 +1,399 @@
+--- threads=1 gpu_blocks=8 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.077120
+Error opening file
+--- threads=1 gpu_blocks=8 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066848
+Error opening file
+--- threads=1 gpu_blocks=8 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069152
+Error opening file
+--- threads=1 gpu_blocks=8 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.092704
+Error opening file
+--- threads=1 gpu_blocks=8 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.077696
+Error opening file
+--- threads=1 gpu_blocks=8 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.063648
+Error opening file
+--- threads=1 gpu_blocks=8 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.063200
+Error opening file
+--- threads=1 gpu_blocks=16 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065024
+Error opening file
+--- threads=1 gpu_blocks=16 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.088128
+Error opening file
+--- threads=1 gpu_blocks=16 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.092032
+Error opening file
+--- threads=1 gpu_blocks=16 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.063072
+Error opening file
+--- threads=1 gpu_blocks=16 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.060512
+Error opening file
+--- threads=1 gpu_blocks=16 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066720
+Error opening file
+--- threads=1 gpu_blocks=16 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.075552
+Error opening file
+--- threads=1 gpu_blocks=32 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064832
+Error opening file
+--- threads=1 gpu_blocks=32 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.086944
+Error opening file
+--- threads=1 gpu_blocks=32 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.106720
+Error opening file
+--- threads=1 gpu_blocks=32 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.062528
+Error opening file
+--- threads=1 gpu_blocks=32 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064704
+Error opening file
+--- threads=1 gpu_blocks=32 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.060800
+Error opening file
+--- threads=1 gpu_blocks=32 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.063872
+Error opening file
+--- threads=1 gpu_blocks=64 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.081120
+Error opening file
+--- threads=1 gpu_blocks=64 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064384
+Error opening file
+--- threads=1 gpu_blocks=64 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.090272
+Error opening file
+--- threads=1 gpu_blocks=64 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064000
+Error opening file
+--- threads=1 gpu_blocks=64 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066528
+Error opening file
+--- threads=1 gpu_blocks=64 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.076768
+Error opening file
+--- threads=1 gpu_blocks=64 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.061824
+Error opening file
+--- threads=4 gpu_blocks=8 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.075936
+Error opening file
+--- threads=4 gpu_blocks=8 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.063104
+Error opening file
+--- threads=4 gpu_blocks=8 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066144
+Error opening file
+--- threads=4 gpu_blocks=8 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.078272
+Error opening file
+--- threads=4 gpu_blocks=8 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.071840
+Error opening file
+--- threads=4 gpu_blocks=8 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064512
+Error opening file
+--- threads=4 gpu_blocks=8 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.061536
+Error opening file
+--- threads=4 gpu_blocks=16 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.062400
+Error opening file
+--- threads=4 gpu_blocks=16 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066176
+Error opening file
+--- threads=4 gpu_blocks=16 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064352
+Error opening file
+--- threads=4 gpu_blocks=16 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.094176
+Error opening file
+--- threads=4 gpu_blocks=16 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064896
+Error opening file
+--- threads=4 gpu_blocks=16 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.061664
+Error opening file
+--- threads=4 gpu_blocks=16 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064672
+Error opening file
+--- threads=4 gpu_blocks=32 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.075712
+Error opening file
+--- threads=4 gpu_blocks=32 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.073984
+Error opening file
+--- threads=4 gpu_blocks=32 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065504
+Error opening file
+--- threads=4 gpu_blocks=32 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.063872
+Error opening file
+--- threads=4 gpu_blocks=32 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.072064
+Error opening file
+--- threads=4 gpu_blocks=32 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.093184
+Error opening file
+--- threads=4 gpu_blocks=32 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067104
+Error opening file
+--- threads=4 gpu_blocks=64 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064128
+Error opening file
+--- threads=4 gpu_blocks=64 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.058432
+Error opening file
+--- threads=4 gpu_blocks=64 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064064
+Error opening file
+--- threads=4 gpu_blocks=64 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.078656
+Error opening file
+--- threads=4 gpu_blocks=64 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064416
+Error opening file
+--- threads=4 gpu_blocks=64 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.075744
+Error opening file
+--- threads=4 gpu_blocks=64 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064384
+Error opening file
+--- threads=16 gpu_blocks=8 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.074336
+Error opening file
+--- threads=16 gpu_blocks=8 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064928
+Error opening file
+--- threads=16 gpu_blocks=8 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.073824
+Error opening file
+--- threads=16 gpu_blocks=8 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067008
+Error opening file
+--- threads=16 gpu_blocks=8 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065664
+Error opening file
+--- threads=16 gpu_blocks=8 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.077696
+Error opening file
+--- threads=16 gpu_blocks=8 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.061920
+Error opening file
+--- threads=16 gpu_blocks=16 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.068256
+Error opening file
+--- threads=16 gpu_blocks=16 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.073024
+Error opening file
+--- threads=16 gpu_blocks=16 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.061504
+Error opening file
+--- threads=16 gpu_blocks=16 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.073856
+Error opening file
+--- threads=16 gpu_blocks=16 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.086080
+Error opening file
+--- threads=16 gpu_blocks=16 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.074912
+Error opening file
+--- threads=16 gpu_blocks=16 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065664
+Error opening file
+--- threads=16 gpu_blocks=32 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.068928
+Error opening file
+--- threads=16 gpu_blocks=32 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.075840
+Error opening file
+--- threads=16 gpu_blocks=32 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.062880
+Error opening file
+--- threads=16 gpu_blocks=32 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069600
+Error opening file
+--- threads=16 gpu_blocks=32 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.086208
+Error opening file
+--- threads=16 gpu_blocks=32 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.080416
+Error opening file
+--- threads=16 gpu_blocks=32 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.061568
+Error opening file
+--- threads=16 gpu_blocks=64 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066048
+Error opening file
+--- threads=16 gpu_blocks=64 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.062720
+Error opening file
+--- threads=16 gpu_blocks=64 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.062784
+Error opening file
+--- threads=16 gpu_blocks=64 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066496
+Error opening file
+--- threads=16 gpu_blocks=64 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066048
+Error opening file
+--- threads=16 gpu_blocks=64 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.071648
+Error opening file
+--- threads=16 gpu_blocks=64 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064064
+Error opening file
+--- threads=32 gpu_blocks=8 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.074880
+Error opening file
+--- threads=32 gpu_blocks=8 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064064
+Error opening file
+--- threads=32 gpu_blocks=8 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.061600
+Error opening file
+--- threads=32 gpu_blocks=8 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064352
+Error opening file
+--- threads=32 gpu_blocks=8 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.074816
+Error opening file
+--- threads=32 gpu_blocks=8 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.068512
+Error opening file
+--- threads=32 gpu_blocks=8 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.078080
+Error opening file
+--- threads=32 gpu_blocks=16 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065568
+Error opening file
+--- threads=32 gpu_blocks=16 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.080320
+Error opening file
+--- threads=32 gpu_blocks=16 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.103136
+Error opening file
+--- threads=32 gpu_blocks=16 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065792
+Error opening file
+--- threads=32 gpu_blocks=16 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.075776
+Error opening file
+--- threads=32 gpu_blocks=16 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067808
+Error opening file
+--- threads=32 gpu_blocks=16 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064160
+Error opening file
+--- threads=32 gpu_blocks=32 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.075168
+Error opening file
+--- threads=32 gpu_blocks=32 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065408
+Error opening file
+--- threads=32 gpu_blocks=32 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.085088
+Error opening file
+--- threads=32 gpu_blocks=32 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.062752
+Error opening file
+--- threads=32 gpu_blocks=32 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065600
+Error opening file
+--- threads=32 gpu_blocks=32 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.063872
+Error opening file
+--- threads=32 gpu_blocks=32 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.070016
+Error opening file
+--- threads=32 gpu_blocks=64 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.062816
+Error opening file
+--- threads=32 gpu_blocks=64 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064160
+Error opening file
+--- threads=32 gpu_blocks=64 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.063456
+Error opening file
+--- threads=32 gpu_blocks=64 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.076704
+Error opening file
+--- threads=32 gpu_blocks=64 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064512
+Error opening file
+--- threads=32 gpu_blocks=64 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.072352
+Error opening file
+--- threads=32 gpu_blocks=64 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067872
+Error opening file
+--- threads=64 gpu_blocks=8 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.063712
+Error opening file
+--- threads=64 gpu_blocks=8 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.079456
+Error opening file
+--- threads=64 gpu_blocks=8 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066144
+Error opening file
+--- threads=64 gpu_blocks=8 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064576
+Error opening file
+--- threads=64 gpu_blocks=8 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064992
+Error opening file
+--- threads=64 gpu_blocks=8 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.079008
+Error opening file
+--- threads=64 gpu_blocks=8 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.086784
+Error opening file
+--- threads=64 gpu_blocks=16 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.060480
+Error opening file
+--- threads=64 gpu_blocks=16 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.063456
+Error opening file
+--- threads=64 gpu_blocks=16 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064896
+Error opening file
+--- threads=64 gpu_blocks=16 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.063648
+Error opening file
+--- threads=64 gpu_blocks=16 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.075360
+Error opening file
+--- threads=64 gpu_blocks=16 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.087584
+Error opening file
+--- threads=64 gpu_blocks=16 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065952
+Error opening file
+--- threads=64 gpu_blocks=32 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.061600
+Error opening file
+--- threads=64 gpu_blocks=32 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.062816
+Error opening file
+--- threads=64 gpu_blocks=32 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.085792
+Error opening file
+--- threads=64 gpu_blocks=32 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.076864
+Error opening file
+--- threads=64 gpu_blocks=32 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.089728
+Error opening file
+--- threads=64 gpu_blocks=32 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069632
+Error opening file
+--- threads=64 gpu_blocks=32 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.078784
+Error opening file

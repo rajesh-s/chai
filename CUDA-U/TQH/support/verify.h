@@ -35,8 +35,12 @@
 
 #include "common.h"
 #include <math.h>
+#include <cuda/atomic>
 
-inline void verify(std::atomic_int *histo, int *data, int poolSize, int frame_size, int n_bins) {
+// Use system-scope atomics for CPU-GPU coherence on GH200
+using atomic_int_sys = cuda::atomic<int, cuda::thread_scope_system>;
+
+inline void verify(atomic_int_sys *histo, int *data, int poolSize, int frame_size, int n_bins) {
     int error = 0;
     for(int i = 0; i < poolSize; ++i) {
         int histogram[n_bins];
@@ -47,7 +51,7 @@ inline void verify(std::atomic_int *histo, int *data, int poolSize, int frame_si
             histogram[(data[i * frame_size + j] * n_bins) >> 8]++;
         }
         for(int j = 0; j < n_bins; j++) {
-            if(histogram[j] != histo[i * n_bins + j].load())
+            if(histogram[j] != histo[i * n_bins + j].load(cuda::memory_order_relaxed))
                 ++error;
         }
     }
