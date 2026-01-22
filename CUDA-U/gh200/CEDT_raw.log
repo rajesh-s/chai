@@ -1,0 +1,40 @@
+--- threads=1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.547136
+Initialization Time (ms): 420.793030
+Total Proxies Time (ms): 73.882370
+CPU Proxy: Kernel Time (ms): 71.503975
+GPU Proxy: Kernel Time (ms): 11.344576
+Deallocation Time (ms): 1.073792
+Test Passed
+--- threads=4 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.465792
+Initialization Time (ms): 363.492859
+Total Proxies Time (ms): 34.298111
+CPU Proxy: Kernel Time (ms): 31.757633
+GPU Proxy: Kernel Time (ms): 11.934304
+Deallocation Time (ms): 1.049344
+Test Passed
+--- threads=16 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.443104
+Initialization Time (ms): 369.485046
+Total Proxies Time (ms): 63.828831
+CPU Proxy: Kernel Time (ms): 61.424198
+GPU Proxy: Kernel Time (ms): 13.817568
+Deallocation Time (ms): 1.139488
+Test Passed
+--- threads=32 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.494432
+Initialization Time (ms): 362.353302
+Total Proxies Time (ms): 100.940834
+CPU Proxy: Kernel Time (ms): 97.929825
+GPU Proxy: Kernel Time (ms): 13.329086
+Deallocation Time (ms): 1.130656
+Test Passed
+--- threads=64 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.508256
+Initialization Time (ms): 364.031036
+Total Proxies Time (ms): 171.591751
+CPU Proxy: Kernel Time (ms): 169.627304
+GPU Proxy: Kernel Time (ms): 12.376736
+Deallocation Time (ms): 1.109472
+Test Passed

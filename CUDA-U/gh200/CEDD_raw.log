@@ -1,0 +1,420 @@
+--- threads=1 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.213280
+Initialization Time (ms): 371.324219
+Total Proxies Time (ms): 4.265152
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 0.000000
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 2.563392
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.293408
+Test Passed
+--- threads=1 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.214880
+Initialization Time (ms): 385.125519
+Total Proxies Time (ms): 42.506496
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 42.238144
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 2.228192
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.290848
+Test Passed
+--- threads=1 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.212576
+Initialization Time (ms): 368.218658
+Total Proxies Time (ms): 127.522461
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 126.975105
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 1.680448
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.318272
+Test Passed
+--- threads=1 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.207904
+Initialization Time (ms): 369.484955
+Total Proxies Time (ms): 253.405212
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 252.655334
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 1.621568
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.303424
+Test Passed
+--- threads=1 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.219072
+Initialization Time (ms): 401.421936
+Total Proxies Time (ms): 380.576721
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 379.756378
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 1.437088
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.292896
+Test Passed
+--- threads=1 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.234784
+Initialization Time (ms): 378.461426
+Total Proxies Time (ms): 465.497223
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 464.389679
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 1.308320
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.312160
+Test Passed
+--- threads=1 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.240288
+Initialization Time (ms): 368.313873
+Total Proxies Time (ms): 528.048157
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 526.911499
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 0.000000
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.201952
+Test Passed
+--- threads=4 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.241440
+Initialization Time (ms): 371.494598
+Total Proxies Time (ms): 4.162400
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 0.000000
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 2.505953
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.300032
+Test Passed
+--- threads=4 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.249184
+Initialization Time (ms): 377.905029
+Total Proxies Time (ms): 12.374080
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 12.051519
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 1.712000
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.306336
+Test Passed
+--- threads=4 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.244192
+Initialization Time (ms): 380.749420
+Total Proxies Time (ms): 36.179810
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 35.708511
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 1.742880
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.297824
+Test Passed
+--- threads=4 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.230112
+Initialization Time (ms): 390.454987
+Total Proxies Time (ms): 70.752960
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 69.914688
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 1.633152
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.313824
+Test Passed
+--- threads=4 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.262144
+Initialization Time (ms): 386.478516
+Total Proxies Time (ms): 106.742653
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 105.793686
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 2.512224
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.334848
+Test Passed
+--- threads=4 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.251584
+Initialization Time (ms): 403.157440
+Total Proxies Time (ms): 129.357895
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 128.333740
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 1.500224
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.356192
+Test Passed
+--- threads=4 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.242816
+Initialization Time (ms): 370.451569
+Total Proxies Time (ms): 146.818970
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 145.619461
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 0.000000
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.219616
+Test Passed
+--- threads=16 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.220992
+Initialization Time (ms): 376.321808
+Total Proxies Time (ms): 3.553184
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 0.000000
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 1.953856
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.299264
+Test Passed
+--- threads=16 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.212608
+Initialization Time (ms): 366.523773
+Total Proxies Time (ms): 12.038720
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 11.531680
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 2.656000
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.327936
+Test Passed
+--- threads=16 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.207040
+Initialization Time (ms): 381.579407
+Total Proxies Time (ms): 32.332607
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 31.820768
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 3.129024
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.356800
+Test Passed
+--- threads=16 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.221536
+Initialization Time (ms): 383.251648
+Total Proxies Time (ms): 63.190174
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 62.443619
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 2.651584
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.342688
+Test Passed
+--- threads=16 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.236512
+Initialization Time (ms): 379.735168
+Total Proxies Time (ms): 91.969917
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 90.857445
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 1.863648
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.369568
+Test Passed
+--- threads=16 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.215840
+Initialization Time (ms): 376.989502
+Total Proxies Time (ms): 112.596222
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 111.451553
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 2.427904
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.383712
+Test Passed
+--- threads=16 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.266304
+Initialization Time (ms): 370.520538
+Total Proxies Time (ms): 127.008995
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 125.674004
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 0.000000
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.237856
+Test Passed
+--- threads=32 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.261728
+Initialization Time (ms): 364.399109
+Total Proxies Time (ms): 3.414720
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 0.000000
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 1.802752
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.303328
+Test Passed
+--- threads=32 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.220608
+Initialization Time (ms): 379.640900
+Total Proxies Time (ms): 19.647873
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 19.170879
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 4.334592
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.325920
+Test Passed
+--- threads=32 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.199744
+Initialization Time (ms): 369.084625
+Total Proxies Time (ms): 47.418049
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 46.758148
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 2.864897
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.346272
+Test Passed
+--- threads=32 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.260544
+Initialization Time (ms): 371.732971
+Total Proxies Time (ms): 95.492737
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 94.574684
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 4.165728
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.376480
+Test Passed
+--- threads=32 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.240288
+Initialization Time (ms): 372.825409
+Total Proxies Time (ms): 137.663910
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 136.544479
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 2.473952
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.348288
+Test Passed
+--- threads=32 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.197920
+Initialization Time (ms): 379.536835
+Total Proxies Time (ms): 166.518692
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 165.336487
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 2.451328
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.388096
+Test Passed
+--- threads=32 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.257440
+Initialization Time (ms): 384.202972
+Total Proxies Time (ms): 188.271866
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 186.938248
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 0.000000
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.244032
+Test Passed
+--- threads=64 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.229568
+Initialization Time (ms): 378.108948
+Total Proxies Time (ms): 3.745952
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 0.000000
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 2.114176
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.321280
+Test Passed
+--- threads=64 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.203040
+Initialization Time (ms): 371.510193
+Total Proxies Time (ms): 28.502720
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 28.147297
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 2.558337
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.347552
+Test Passed
+--- threads=64 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.253472
+Initialization Time (ms): 374.898132
+Total Proxies Time (ms): 84.083229
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 83.584801
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 2.958464
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.388192
+Test Passed
+--- threads=64 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.227488
+Initialization Time (ms): 387.906250
+Total Proxies Time (ms): 164.876160
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 164.107620
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 3.604448
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.370880
+Test Passed
+--- threads=64 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.220032
+Initialization Time (ms): 369.503815
+Total Proxies Time (ms): 248.219193
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 247.075104
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 3.776256
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.392096
+Test Passed
+--- threads=64 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.226048
+Initialization Time (ms): 367.862030
+Total Proxies Time (ms): 292.271851
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 291.098053
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 1.683904
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.417152
+Test Passed
+--- threads=64 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.228192
+Initialization Time (ms): 363.426056
+Total Proxies Time (ms): 333.477753
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 332.107086
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 0.000000
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.239552
+Test Passed

@@ -1,0 +1,120 @@
+--- threads=1 gpu_blocks=8 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.135136
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 112.638527
+Kernel Time (ms): 6.297332
+Deallocation Time (ms): 0.867968
+Test Passed
+--- threads=1 gpu_blocks=16 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.119936
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 111.677917
+Kernel Time (ms): 6.118007
+Deallocation Time (ms): 0.861152
+Test Passed
+--- threads=1 gpu_blocks=32 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.126080
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 111.836510
+Kernel Time (ms): 6.157042
+Deallocation Time (ms): 0.841952
+Test Passed
+--- threads=1 gpu_blocks=64 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.121280
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 116.034180
+Kernel Time (ms): 6.111183
+Deallocation Time (ms): 0.857568
+Test Passed
+--- threads=4 gpu_blocks=8 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.125984
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 112.536957
+Kernel Time (ms): 6.924415
+Deallocation Time (ms): 0.849440
+Test Passed
+--- threads=4 gpu_blocks=16 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.116352
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 112.709312
+Kernel Time (ms): 6.814359
+Deallocation Time (ms): 0.894208
+Test Passed
+--- threads=4 gpu_blocks=32 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.132736
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 113.531906
+Kernel Time (ms): 6.859590
+Deallocation Time (ms): 0.882240
+Test Passed
+--- threads=4 gpu_blocks=64 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.130208
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 112.519203
+Kernel Time (ms): 6.750819
+Deallocation Time (ms): 0.827616
+Test Passed
+--- threads=16 gpu_blocks=8 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.141600
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 114.334595
+Kernel Time (ms): 7.737279
+Deallocation Time (ms): 0.849056
+Test Passed
+--- threads=16 gpu_blocks=16 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.118464
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 114.829506
+Kernel Time (ms): 7.550767
+Deallocation Time (ms): 0.854336
+Test Passed
+--- threads=16 gpu_blocks=32 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.125248
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 126.532738
+Kernel Time (ms): 7.638136
+Deallocation Time (ms): 0.894016
+Test Passed
+--- threads=16 gpu_blocks=64 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.151712
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 112.490051
+Kernel Time (ms): 7.705833
+Deallocation Time (ms): 0.867744
+Test Passed
+--- threads=32 gpu_blocks=8 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.123936
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 111.741470
+Kernel Time (ms): 9.360282
+Deallocation Time (ms): 0.770368
+Test Passed
+--- threads=32 gpu_blocks=16 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.127104
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 115.615295
+Kernel Time (ms): 9.292257
+Deallocation Time (ms): 0.807008
+Test Passed
+--- threads=32 gpu_blocks=32 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.127072
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 113.033058
+Kernel Time (ms): 9.322481
+Deallocation Time (ms): 0.830752
+Test Passed
+--- threads=32 gpu_blocks=64 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.119328
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 112.327492
+Kernel Time (ms): 9.353028
+Deallocation Time (ms): 0.785280
+Test Passed
+--- threads=64 gpu_blocks=8 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.133056
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 111.577309
+Kernel Time (ms): 2396.853027
+Deallocation Time (ms): 0.894816
+Test Passed
+--- threads=64 gpu_blocks=16 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.124800
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 111.942818
+Kernel Time (ms): 2400.372559
+Deallocation Time (ms): 0.849312
+Test Passed
+--- threads=64 gpu_blocks=32 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.120000
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 114.936066
+Kernel Time (ms): 2417.948975
+Deallocation Time (ms): 0.848512
+Test Passed
+--- threads=64 gpu_blocks=64 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.135232
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 113.367645
+Kernel Time (ms): 2392.298096
+Deallocation Time (ms): 0.927264
+Test Passed

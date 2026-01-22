@@ -65,90 +65,143 @@ def load_results(results_dir):
 def plot_benchmark_fig3_style(df, bench_name, output_dir, system_name="System"):
     """
     Plot single benchmark in Figure 3 style.
-    X-axis: GPU (x blocks) + CPU (y threads) configurations
+    Creates separate subplots for each GPU block count.
+    X-axis: CPU threads
     Y-axis: Execution time (ms)
-    Different lines for each partition ratio
+    Different markers/lines for each partition ratio (α)
     """
-    fig, ax = plt.subplots(figsize=(14, 7))
     
-    # Check if we have gpu_blocks column
-    has_gpu_blocks = 'gpu_blocks' in df.columns and df['gpu_blocks'].notna().any()
-    
-    # Create configuration labels for x-axis
-    if has_gpu_blocks:
-        # Create unique (gpu_blocks, threads) combinations
-        df = df.copy()
-        df['config'] = df.apply(lambda r: f"GPU({int(r['gpu_blocks'])}) + CPU({int(r['threads'])})", axis=1)
-        df['config_order'] = df['gpu_blocks'] * 1000 + df['threads']  # For sorting
-        configs = df.sort_values('config_order')['config'].unique()
-        config_to_x = {c: i for i, c in enumerate(configs)}
-        df['x_pos'] = df['config'].map(config_to_x)
-    else:
-        # Fallback to just threads
-        df = df.copy()
-        df['config'] = df['threads'].apply(lambda t: f"CPU({int(t)})")
-        threads = sorted(df['threads'].unique())
-        config_to_x = {f"CPU({int(t)})": i for i, t in enumerate(threads)}
-        df['x_pos'] = df['config'].map(config_to_x)
-        configs = [f"CPU({int(t)})" for t in threads]
+    # Check if we have numeric gpu_blocks column (not 'default')
+    has_gpu_blocks = False
+    if 'gpu_blocks' in df.columns:
+        # Try to convert to numeric, treating 'default' as NaN
+        numeric_gpu = pd.to_numeric(df['gpu_blocks'], errors='coerce')
+        has_gpu_blocks = numeric_gpu.notna().any()
+        if has_gpu_blocks:
+            df = df.copy()
+            df['gpu_blocks'] = numeric_gpu
     
     # Check if this is a partition-based benchmark
-    if 'partition' in df.columns and df['partition'].notna().any():
+    has_partitions = 'partition' in df.columns and df['partition'].notna().any()
+    
+    if has_gpu_blocks and has_partitions:
+        # Create subplots - one per GPU block count
+        gpu_blocks_vals = sorted(df['gpu_blocks'].dropna().unique())
+        n_subplots = len(gpu_blocks_vals)
+        
+        # Determine grid layout
+        if n_subplots <= 2:
+            nrows, ncols = 1, n_subplots
+        elif n_subplots <= 4:
+            nrows, ncols = 2, 2
+        elif n_subplots <= 6:
+            nrows, ncols = 2, 3
+        else:
+            nrows, ncols = 3, 3
+        
+        fig, axes = plt.subplots(nrows, ncols, figsize=(6*ncols, 5*nrows), squeeze=False)
+        axes = axes.flatten()
+        
         partitions = sorted(df['partition'].dropna().unique())
+        threads = sorted(df['threads'].unique())
+        
+        for idx, g in enumerate(gpu_blocks_vals):
+            ax = axes[idx]
+            subset_g = df[df['gpu_blocks'] == g]
+            
+            for i, p in enumerate(partitions):
+                subset = subset_g[subset_g['partition'] == p].sort_values('threads')
+                
+                if len(subset) == 0:
+                    continue
+                
+                # Get style for this partition
+                style = PARTITION_STYLES.get(p, {'marker': 'o', 'linestyle': '-', 'label': f'α={p}'})
+                
+                ax.plot(subset['threads'], subset['time_ms'],
+                       marker=style['marker'],
+                       linestyle=style['linestyle'],
+                       color=COLORS_SINGLE[i % len(COLORS_SINGLE)],
+                       linewidth=2, markersize=8,
+                       label=style['label'])
+            
+            ax.set_xlabel('CPU Threads', fontsize=10)
+            ax.set_ylabel('Kernel Time (ms)', fontsize=10)
+            ax.set_title(f'GPU Blocks = {int(g)}', fontsize=11, fontweight='bold')
+            ax.set_xticks(threads)
+            ax.grid(True, alpha=0.3)
+            
+            # Only show legend on first subplot
+            if idx == 0:
+                ax.legend(title='Partition (α)', loc='best', fontsize=8)
+        
+        # Hide unused subplots
+        for idx in range(len(gpu_blocks_vals), len(axes)):
+            axes[idx].axis('off')
+        
+        plt.suptitle(f'{bench_name} - {system_name}', fontsize=14, fontweight='bold')
+        
+    elif has_partitions:
+        # No GPU blocks variation - single plot with threads on x-axis
+        fig, ax = plt.subplots(figsize=(10, 6))
+        
+        partitions = sorted(df['partition'].dropna().unique())
+        threads = sorted(df['threads'].unique())
         
         for i, p in enumerate(partitions):
-            subset = df[df['partition'] == p].sort_values('x_pos')
+            subset = df[df['partition'] == p].sort_values('threads')
             
             if len(subset) == 0:
                 continue
             
-            # Get style for this partition
             style = PARTITION_STYLES.get(p, {'marker': 'o', 'linestyle': '-', 'label': f'α={p}'})
             
-            ax.plot(subset['x_pos'], subset['time_ms'],
+            ax.plot(subset['threads'], subset['time_ms'],
                    marker=style['marker'],
                    linestyle=style['linestyle'],
                    color=COLORS_SINGLE[i % len(COLORS_SINGLE)],
                    linewidth=2, markersize=8,
                    label=style['label'])
         
-        ax.legend(title='Partition (CPU fraction)', loc='upper right', fontsize=9)
+        ax.set_xlabel('CPU Threads', fontsize=12)
+        ax.set_ylabel('Kernel Time (ms)', fontsize=12)
+        ax.set_title(f'{bench_name} - {system_name}', fontsize=14, fontweight='bold')
+        ax.set_xticks(threads)
+        ax.legend(title='Partition (α)', loc='best', fontsize=9)
+        ax.grid(True, alpha=0.3)
         
     else:
-        # Task-based/dynamic benchmark - plot by gpu_blocks if available
+        # Dynamic/task-based benchmark - subplots by GPU blocks if available
+        fig, ax = plt.subplots(figsize=(10, 6))
+        
         if has_gpu_blocks:
-            gpu_blocks_vals = sorted(df['gpu_blocks'].unique())
+            gpu_blocks_vals = sorted(df['gpu_blocks'].dropna().unique())
+            threads = sorted(df['threads'].unique())
+            
             for i, g in enumerate(gpu_blocks_vals):
                 subset = df[df['gpu_blocks'] == g].sort_values('threads')
-                # Create x positions for this gpu_blocks value
-                x_vals = [config_to_x[f"GPU({int(g)}) + CPU({int(t)})"] for t in subset['threads']]
-                ax.plot(x_vals, subset['time_ms'],
-                       marker=MARKERS[i % len(MARKERS)],
+                ax.plot(subset['threads'], subset['time_ms'],
+                       marker=MARKERS[i % len(MARKERS)] if 'MARKERS' in dir() else 'o',
                        color=COLORS_SINGLE[i % len(COLORS_SINGLE)],
                        linewidth=2, markersize=8,
                        label=f'GPU({int(g)} blocks)')
-            ax.legend(title='GPU Blocks', loc='upper right', fontsize=9)
+            
+            ax.set_xticks(threads)
+            ax.legend(title='GPU Blocks', loc='best', fontsize=9)
         else:
-            subset = df.sort_values('x_pos')
-            ax.plot(subset['x_pos'], subset['time_ms'],
+            threads = sorted(df['threads'].unique())
+            subset = df.sort_values('threads')
+            ax.plot(subset['threads'], subset['time_ms'],
                    marker='o', color=COLORS_SINGLE[0],
                    linewidth=2, markersize=8,
                    label='Dynamic')
+            ax.set_xticks(threads)
             ax.legend(loc='best')
-    
-    # X-axis: GPU + CPU configuration
-    ax.set_xlabel('Configuration: GPU (blocks) + CPU (threads)', fontsize=12)
-    ax.set_xticks(range(len(configs)))
-    ax.set_xticklabels(configs, rotation=45, ha='right', fontsize=9)
-    
-    # Y-axis: Execution time
-    ax.set_ylabel('Kernel Time (ms)', fontsize=12)
-    
-    # Title
-    ax.set_title(f'{bench_name} - {system_name}', fontsize=14, fontweight='bold')
-    
-    # Grid
-    ax.grid(True, alpha=0.3)
+        
+        ax.set_xlabel('CPU Threads', fontsize=12)
+        ax.set_ylabel('Kernel Time (ms)', fontsize=12)
+        ax.set_title(f'{bench_name} - {system_name}', fontsize=14, fontweight='bold')
+        ax.grid(True, alpha=0.3)
     
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, f'{bench_name}_fig3.png'), dpi=150, bbox_inches='tight')
@@ -335,7 +388,16 @@ def plot_summary_heatmap(data, output_dir, system_name="System"):
         
         # Create config label combining gpu_blocks and threads
         df = df.copy()
-        if 'gpu_blocks' in df.columns and df['gpu_blocks'].notna().any():
+        
+        # Convert gpu_blocks to numeric, treating 'default' as NaN
+        has_gpu_blocks = False
+        if 'gpu_blocks' in df.columns:
+            numeric_gpu = pd.to_numeric(df['gpu_blocks'], errors='coerce')
+            has_gpu_blocks = numeric_gpu.notna().any()
+            if has_gpu_blocks:
+                df['gpu_blocks'] = numeric_gpu
+        
+        if has_gpu_blocks:
             df['config'] = df.apply(lambda r: f"G{int(r['gpu_blocks'])}+C{int(r['threads'])}", axis=1)
             df['config_order'] = df['gpu_blocks'] * 1000 + df['threads']
             df = df.sort_values('config_order')

@@ -1,0 +1,840 @@
+--- threads=1 gpu_blocks=8 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.089440
+Initialization Time (ms): 45.490528
+Kernel Time (ms): 1.246219
+Deallocation Time (ms): 0.387168
+Test Passed
+--- threads=1 gpu_blocks=8 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.104384
+Initialization Time (ms): 50.530079
+Kernel Time (ms): 2.140915
+Deallocation Time (ms): 0.509344
+Test Passed
+--- threads=1 gpu_blocks=8 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069824
+Initialization Time (ms): 44.957214
+Kernel Time (ms): 4.165795
+Deallocation Time (ms): 0.415584
+Test Passed
+--- threads=1 gpu_blocks=8 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067776
+Initialization Time (ms): 46.057407
+Kernel Time (ms): 6.924473
+Deallocation Time (ms): 0.406624
+Test Passed
+--- threads=1 gpu_blocks=8 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.068928
+Initialization Time (ms): 43.562881
+Kernel Time (ms): 9.570997
+Deallocation Time (ms): 0.469568
+Test Passed
+--- threads=1 gpu_blocks=8 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.080640
+Initialization Time (ms): 43.912319
+Kernel Time (ms): 11.183806
+Deallocation Time (ms): 0.458880
+Test Passed
+--- threads=1 gpu_blocks=8 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.081760
+Initialization Time (ms): 43.123905
+Kernel Time (ms): 12.109304
+Deallocation Time (ms): 0.388160
+Test Passed
+--- threads=1 gpu_blocks=16 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.076832
+Initialization Time (ms): 42.749760
+Kernel Time (ms): 0.894912
+Deallocation Time (ms): 0.353824
+Test Passed
+--- threads=1 gpu_blocks=16 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.078240
+Initialization Time (ms): 43.611263
+Kernel Time (ms): 1.688421
+Deallocation Time (ms): 0.493856
+Test Passed
+--- threads=1 gpu_blocks=16 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.074112
+Initialization Time (ms): 43.855873
+Kernel Time (ms): 3.824266
+Deallocation Time (ms): 0.415200
+Test Passed
+--- threads=1 gpu_blocks=16 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.082016
+Initialization Time (ms): 45.381824
+Kernel Time (ms): 6.654485
+Deallocation Time (ms): 0.386976
+Test Passed
+--- threads=1 gpu_blocks=16 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.078816
+Initialization Time (ms): 43.101665
+Kernel Time (ms): 9.411357
+Deallocation Time (ms): 0.430240
+Test Passed
+--- threads=1 gpu_blocks=16 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064800
+Initialization Time (ms): 40.844994
+Kernel Time (ms): 11.095813
+Deallocation Time (ms): 0.408896
+Test Passed
+--- threads=1 gpu_blocks=16 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067136
+Initialization Time (ms): 43.699390
+Kernel Time (ms): 12.161184
+Deallocation Time (ms): 0.399904
+Test Passed
+--- threads=1 gpu_blocks=32 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.093472
+Initialization Time (ms): 41.090466
+Kernel Time (ms): 0.362302
+Deallocation Time (ms): 0.437504
+Test Passed
+--- threads=1 gpu_blocks=32 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.078304
+Initialization Time (ms): 43.837345
+Kernel Time (ms): 1.523294
+Deallocation Time (ms): 0.439104
+Test Passed
+--- threads=1 gpu_blocks=32 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.073408
+Initialization Time (ms): 44.507679
+Kernel Time (ms): 3.580403
+Deallocation Time (ms): 0.452352
+Test Passed
+--- threads=1 gpu_blocks=32 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.070656
+Initialization Time (ms): 46.548447
+Kernel Time (ms): 6.503403
+Deallocation Time (ms): 0.424800
+Test Passed
+--- threads=1 gpu_blocks=32 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067328
+Initialization Time (ms): 45.662785
+Kernel Time (ms): 9.210752
+Deallocation Time (ms): 0.463456
+Test Passed
+--- threads=1 gpu_blocks=32 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.063776
+Initialization Time (ms): 45.618336
+Kernel Time (ms): 11.097452
+Deallocation Time (ms): 0.413696
+Test Passed
+--- threads=1 gpu_blocks=32 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065216
+Initialization Time (ms): 41.963711
+Kernel Time (ms): 12.105357
+Deallocation Time (ms): 0.398144
+Test Passed
+--- threads=1 gpu_blocks=64 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.079168
+Initialization Time (ms): 43.702816
+Kernel Time (ms): 0.148718
+Deallocation Time (ms): 0.431200
+Test Passed
+--- threads=1 gpu_blocks=64 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.068672
+Initialization Time (ms): 41.555168
+Kernel Time (ms): 1.358102
+Deallocation Time (ms): 0.470656
+Test Passed
+--- threads=1 gpu_blocks=64 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066880
+Initialization Time (ms): 47.140385
+Kernel Time (ms): 3.432502
+Deallocation Time (ms): 0.443680
+Test Passed
+--- threads=1 gpu_blocks=64 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067648
+Initialization Time (ms): 45.799263
+Kernel Time (ms): 6.208656
+Deallocation Time (ms): 0.430208
+Test Passed
+--- threads=1 gpu_blocks=64 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.078528
+Initialization Time (ms): 45.625057
+Kernel Time (ms): 9.228130
+Deallocation Time (ms): 0.394208
+Test Passed
+--- threads=1 gpu_blocks=64 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.068512
+Initialization Time (ms): 43.896896
+Kernel Time (ms): 11.103223
+Deallocation Time (ms): 0.426528
+Test Passed
+--- threads=1 gpu_blocks=64 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.079264
+Initialization Time (ms): 43.266815
+Kernel Time (ms): 12.115329
+Deallocation Time (ms): 0.411360
+Test Passed
+--- threads=4 gpu_blocks=8 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.091904
+Initialization Time (ms): 42.012032
+Kernel Time (ms): 1.443048
+Deallocation Time (ms): 0.352768
+Test Passed
+--- threads=4 gpu_blocks=8 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.084192
+Initialization Time (ms): 41.886974
+Kernel Time (ms): 1.088838
+Deallocation Time (ms): 0.419136
+Test Passed
+--- threads=4 gpu_blocks=8 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.071328
+Initialization Time (ms): 43.426910
+Kernel Time (ms): 2.054281
+Deallocation Time (ms): 0.418240
+Test Passed
+--- threads=4 gpu_blocks=8 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.084960
+Initialization Time (ms): 44.932961
+Kernel Time (ms): 2.526406
+Deallocation Time (ms): 0.405504
+Test Passed
+--- threads=4 gpu_blocks=8 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.083584
+Initialization Time (ms): 42.892769
+Kernel Time (ms): 3.024824
+Deallocation Time (ms): 0.452224
+Test Passed
+--- threads=4 gpu_blocks=8 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069280
+Initialization Time (ms): 46.262623
+Kernel Time (ms): 3.090894
+Deallocation Time (ms): 0.431936
+Test Passed
+--- threads=4 gpu_blocks=8 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069696
+Initialization Time (ms): 42.014111
+Kernel Time (ms): 3.375798
+Deallocation Time (ms): 0.384928
+Test Passed
+--- threads=4 gpu_blocks=16 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.072320
+Initialization Time (ms): 43.515778
+Kernel Time (ms): 1.084085
+Deallocation Time (ms): 0.412640
+Test Passed
+--- threads=4 gpu_blocks=16 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.078368
+Initialization Time (ms): 43.462654
+Kernel Time (ms): 0.740130
+Deallocation Time (ms): 0.476032
+Test Passed
+--- threads=4 gpu_blocks=16 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.076672
+Initialization Time (ms): 42.498016
+Kernel Time (ms): 1.677744
+Deallocation Time (ms): 0.436832
+Test Passed
+--- threads=4 gpu_blocks=16 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065472
+Initialization Time (ms): 46.558750
+Kernel Time (ms): 2.252029
+Deallocation Time (ms): 0.448704
+Test Passed
+--- threads=4 gpu_blocks=16 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064640
+Initialization Time (ms): 45.578175
+Kernel Time (ms): 2.788278
+Deallocation Time (ms): 0.397888
+Test Passed
+--- threads=4 gpu_blocks=16 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.071392
+Initialization Time (ms): 42.983040
+Kernel Time (ms): 3.226725
+Deallocation Time (ms): 0.395008
+Test Passed
+--- threads=4 gpu_blocks=16 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.084832
+Initialization Time (ms): 44.146336
+Kernel Time (ms): 3.402666
+Deallocation Time (ms): 0.387072
+Test Passed
+--- threads=4 gpu_blocks=32 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067840
+Initialization Time (ms): 43.426144
+Kernel Time (ms): 0.855442
+Deallocation Time (ms): 0.363360
+Test Passed
+--- threads=4 gpu_blocks=32 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.078368
+Initialization Time (ms): 43.192127
+Kernel Time (ms): 0.585699
+Deallocation Time (ms): 0.447520
+Test Passed
+--- threads=4 gpu_blocks=32 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.079136
+Initialization Time (ms): 43.305473
+Kernel Time (ms): 1.079326
+Deallocation Time (ms): 0.445120
+Test Passed
+--- threads=4 gpu_blocks=32 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.082080
+Initialization Time (ms): 45.809055
+Kernel Time (ms): 2.076001
+Deallocation Time (ms): 0.427648
+Test Passed
+--- threads=4 gpu_blocks=32 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065344
+Initialization Time (ms): 41.684513
+Kernel Time (ms): 2.692659
+Deallocation Time (ms): 0.393088
+Test Passed
+--- threads=4 gpu_blocks=32 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.071008
+Initialization Time (ms): 45.162079
+Kernel Time (ms): 3.235025
+Deallocation Time (ms): 0.405024
+Test Passed
+--- threads=4 gpu_blocks=32 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.072896
+Initialization Time (ms): 42.385185
+Kernel Time (ms): 3.398683
+Deallocation Time (ms): 0.421312
+Test Passed
+--- threads=4 gpu_blocks=64 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.071360
+Initialization Time (ms): 52.534657
+Kernel Time (ms): 0.670613
+Deallocation Time (ms): 0.382432
+Test Passed
+--- threads=4 gpu_blocks=64 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064288
+Initialization Time (ms): 42.555138
+Kernel Time (ms): 0.563349
+Deallocation Time (ms): 0.455136
+Test Passed
+--- threads=4 gpu_blocks=64 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.080800
+Initialization Time (ms): 44.723583
+Kernel Time (ms): 1.268384
+Deallocation Time (ms): 0.429888
+Test Passed
+--- threads=4 gpu_blocks=64 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069792
+Initialization Time (ms): 45.039871
+Kernel Time (ms): 1.939189
+Deallocation Time (ms): 0.414240
+Test Passed
+--- threads=4 gpu_blocks=64 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.078592
+Initialization Time (ms): 45.133663
+Kernel Time (ms): 2.676241
+Deallocation Time (ms): 0.406848
+Test Passed
+--- threads=4 gpu_blocks=64 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.070656
+Initialization Time (ms): 42.144066
+Kernel Time (ms): 3.207675
+Deallocation Time (ms): 0.430048
+Test Passed
+--- threads=4 gpu_blocks=64 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066592
+Initialization Time (ms): 43.282913
+Kernel Time (ms): 3.390978
+Deallocation Time (ms): 0.353024
+Test Passed
+--- threads=16 gpu_blocks=8 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.087712
+Initialization Time (ms): 38.686977
+Kernel Time (ms): 1.718499
+Deallocation Time (ms): 0.386112
+Test Passed
+--- threads=16 gpu_blocks=8 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069024
+Initialization Time (ms): 44.126049
+Kernel Time (ms): 1.064467
+Deallocation Time (ms): 0.481280
+Test Passed
+--- threads=16 gpu_blocks=8 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069152
+Initialization Time (ms): 41.859745
+Kernel Time (ms): 2.152378
+Deallocation Time (ms): 0.481248
+Test Passed
+--- threads=16 gpu_blocks=8 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.070688
+Initialization Time (ms): 42.703678
+Kernel Time (ms): 2.196126
+Deallocation Time (ms): 0.411584
+Test Passed
+--- threads=16 gpu_blocks=8 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.072608
+Initialization Time (ms): 43.820480
+Kernel Time (ms): 2.215923
+Deallocation Time (ms): 0.443200
+Test Passed
+--- threads=16 gpu_blocks=8 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.079904
+Initialization Time (ms): 44.533535
+Kernel Time (ms): 2.143504
+Deallocation Time (ms): 0.453984
+Test Passed
+--- threads=16 gpu_blocks=8 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.071104
+Initialization Time (ms): 40.684994
+Kernel Time (ms): 2.092098
+Deallocation Time (ms): 0.394368
+Test Passed
+--- threads=16 gpu_blocks=16 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065216
+Initialization Time (ms): 42.346561
+Kernel Time (ms): 1.584969
+Deallocation Time (ms): 0.375552
+Test Passed
+--- threads=16 gpu_blocks=16 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.092096
+Initialization Time (ms): 43.779041
+Kernel Time (ms): 1.458386
+Deallocation Time (ms): 0.457376
+Test Passed
+--- threads=16 gpu_blocks=16 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.074528
+Initialization Time (ms): 47.276482
+Kernel Time (ms): 1.921685
+Deallocation Time (ms): 0.400544
+Test Passed
+--- threads=16 gpu_blocks=16 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069920
+Initialization Time (ms): 41.928959
+Kernel Time (ms): 2.100077
+Deallocation Time (ms): 0.419168
+Test Passed
+--- threads=16 gpu_blocks=16 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065920
+Initialization Time (ms): 42.302368
+Kernel Time (ms): 2.052546
+Deallocation Time (ms): 0.490944
+Test Passed
+--- threads=16 gpu_blocks=16 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.096512
+Initialization Time (ms): 43.292000
+Kernel Time (ms): 2.098050
+Deallocation Time (ms): 0.485888
+Test Passed
+--- threads=16 gpu_blocks=16 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.068064
+Initialization Time (ms): 41.298016
+Kernel Time (ms): 2.092869
+Deallocation Time (ms): 0.369280
+Test Passed
+--- threads=16 gpu_blocks=32 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065472
+Initialization Time (ms): 41.650784
+Kernel Time (ms): 1.432971
+Deallocation Time (ms): 0.377952
+Test Passed
+--- threads=16 gpu_blocks=32 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066144
+Initialization Time (ms): 42.900383
+Kernel Time (ms): 1.288122
+Deallocation Time (ms): 0.461056
+Test Passed
+--- threads=16 gpu_blocks=32 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.068480
+Initialization Time (ms): 44.949760
+Kernel Time (ms): 1.778422
+Deallocation Time (ms): 0.406208
+Test Passed
+--- threads=16 gpu_blocks=32 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.092768
+Initialization Time (ms): 44.433601
+Kernel Time (ms): 1.919114
+Deallocation Time (ms): 0.446656
+Test Passed
+--- threads=16 gpu_blocks=32 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066464
+Initialization Time (ms): 45.013313
+Kernel Time (ms): 2.005405
+Deallocation Time (ms): 0.429856
+Test Passed
+--- threads=16 gpu_blocks=32 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.073568
+Initialization Time (ms): 42.255905
+Kernel Time (ms): 2.105941
+Deallocation Time (ms): 0.451520
+Test Passed
+--- threads=16 gpu_blocks=32 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.081568
+Initialization Time (ms): 44.060322
+Kernel Time (ms): 2.077346
+Deallocation Time (ms): 0.367712
+Test Passed
+--- threads=16 gpu_blocks=64 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.068608
+Initialization Time (ms): 44.900864
+Kernel Time (ms): 1.237751
+Deallocation Time (ms): 0.382336
+Test Passed
+--- threads=16 gpu_blocks=64 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.076992
+Initialization Time (ms): 41.860416
+Kernel Time (ms): 1.005944
+Deallocation Time (ms): 0.488320
+Test Passed
+--- threads=16 gpu_blocks=64 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065152
+Initialization Time (ms): 43.977600
+Kernel Time (ms): 1.738083
+Deallocation Time (ms): 0.455808
+Test Passed
+--- threads=16 gpu_blocks=64 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.073792
+Initialization Time (ms): 45.954624
+Kernel Time (ms): 1.764688
+Deallocation Time (ms): 0.447584
+Test Passed
+--- threads=16 gpu_blocks=64 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.090144
+Initialization Time (ms): 43.963585
+Kernel Time (ms): 1.969733
+Deallocation Time (ms): 0.421120
+Test Passed
+--- threads=16 gpu_blocks=64 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066912
+Initialization Time (ms): 42.818562
+Kernel Time (ms): 2.079463
+Deallocation Time (ms): 0.428928
+Test Passed
+--- threads=16 gpu_blocks=64 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.082464
+Initialization Time (ms): 42.223488
+Kernel Time (ms): 2.098137
+Deallocation Time (ms): 0.383520
+Test Passed
+--- threads=32 gpu_blocks=8 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.073504
+Initialization Time (ms): 44.269409
+Kernel Time (ms): 2.595746
+Deallocation Time (ms): 0.396096
+Test Passed
+--- threads=32 gpu_blocks=8 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069824
+Initialization Time (ms): 42.838943
+Kernel Time (ms): 2.483256
+Deallocation Time (ms): 0.456704
+Test Passed
+--- threads=32 gpu_blocks=8 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.082688
+Initialization Time (ms): 46.235073
+Kernel Time (ms): 2.524457
+Deallocation Time (ms): 0.431616
+Test Passed
+--- threads=32 gpu_blocks=8 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065248
+Initialization Time (ms): 41.686367
+Kernel Time (ms): 3.239101
+Deallocation Time (ms): 0.455744
+Test Passed
+--- threads=32 gpu_blocks=8 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067328
+Initialization Time (ms): 45.435169
+Kernel Time (ms): 3.191535
+Deallocation Time (ms): 0.410784
+Test Passed
+--- threads=32 gpu_blocks=8 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.071104
+Initialization Time (ms): 43.426849
+Kernel Time (ms): 3.103549
+Deallocation Time (ms): 0.427424
+Test Passed
+--- threads=32 gpu_blocks=8 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069632
+Initialization Time (ms): 42.717697
+Kernel Time (ms): 2.959400
+Deallocation Time (ms): 0.409536
+Test Passed
+--- threads=32 gpu_blocks=16 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.077216
+Initialization Time (ms): 42.323296
+Kernel Time (ms): 2.435432
+Deallocation Time (ms): 0.376096
+Test Passed
+--- threads=32 gpu_blocks=16 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.078720
+Initialization Time (ms): 44.488609
+Kernel Time (ms): 2.225605
+Deallocation Time (ms): 0.482208
+Test Passed
+--- threads=32 gpu_blocks=16 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065760
+Initialization Time (ms): 41.001793
+Kernel Time (ms): 2.436648
+Deallocation Time (ms): 0.433344
+Test Passed
+--- threads=32 gpu_blocks=16 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.068768
+Initialization Time (ms): 45.243458
+Kernel Time (ms): 3.048934
+Deallocation Time (ms): 0.439520
+Test Passed
+--- threads=32 gpu_blocks=16 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.077248
+Initialization Time (ms): 41.851360
+Kernel Time (ms): 3.031939
+Deallocation Time (ms): 0.433536
+Test Passed
+--- threads=32 gpu_blocks=16 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.093216
+Initialization Time (ms): 45.517025
+Kernel Time (ms): 3.040920
+Deallocation Time (ms): 0.480064
+Test Passed
+--- threads=32 gpu_blocks=16 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.080416
+Initialization Time (ms): 42.916641
+Kernel Time (ms): 2.957099
+Deallocation Time (ms): 0.399488
+Test Passed
+--- threads=32 gpu_blocks=32 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.086560
+Initialization Time (ms): 41.565857
+Kernel Time (ms): 2.199646
+Deallocation Time (ms): 0.404384
+Test Passed
+--- threads=32 gpu_blocks=32 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069536
+Initialization Time (ms): 45.978462
+Kernel Time (ms): 2.022393
+Deallocation Time (ms): 0.469280
+Test Passed
+--- threads=32 gpu_blocks=32 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.075072
+Initialization Time (ms): 44.914688
+Kernel Time (ms): 2.370035
+Deallocation Time (ms): 0.418496
+Test Passed
+--- threads=32 gpu_blocks=32 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067264
+Initialization Time (ms): 41.868446
+Kernel Time (ms): 3.056344
+Deallocation Time (ms): 0.471840
+Test Passed
+--- threads=32 gpu_blocks=32 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.096832
+Initialization Time (ms): 43.045120
+Kernel Time (ms): 2.981214
+Deallocation Time (ms): 0.426080
+Test Passed
+--- threads=32 gpu_blocks=32 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.077824
+Initialization Time (ms): 41.428001
+Kernel Time (ms): 3.050714
+Deallocation Time (ms): 0.438688
+Test Passed
+--- threads=32 gpu_blocks=32 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.069216
+Initialization Time (ms): 42.326847
+Kernel Time (ms): 2.994440
+Deallocation Time (ms): 0.423520
+Test Passed
+--- threads=32 gpu_blocks=64 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.063680
+Initialization Time (ms): 42.183582
+Kernel Time (ms): 1.944192
+Deallocation Time (ms): 0.412128
+Test Passed
+--- threads=32 gpu_blocks=64 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066720
+Initialization Time (ms): 44.648514
+Kernel Time (ms): 1.898848
+Deallocation Time (ms): 0.525888
+Test Passed
+--- threads=32 gpu_blocks=64 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.080704
+Initialization Time (ms): 42.946175
+Kernel Time (ms): 2.201620
+Deallocation Time (ms): 0.436704
+Test Passed
+--- threads=32 gpu_blocks=64 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064928
+Initialization Time (ms): 44.119488
+Kernel Time (ms): 2.850656
+Deallocation Time (ms): 0.441920
+Test Passed
+--- threads=32 gpu_blocks=64 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.083200
+Initialization Time (ms): 44.048481
+Kernel Time (ms): 2.934389
+Deallocation Time (ms): 0.494592
+Test Passed
+--- threads=32 gpu_blocks=64 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.068352
+Initialization Time (ms): 42.377121
+Kernel Time (ms): 3.030409
+Deallocation Time (ms): 0.448064
+Test Passed
+--- threads=32 gpu_blocks=64 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.079520
+Initialization Time (ms): 42.933472
+Kernel Time (ms): 2.948200
+Deallocation Time (ms): 0.415808
+Test Passed
+--- threads=64 gpu_blocks=8 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065792
+Initialization Time (ms): 40.830399
+Kernel Time (ms): 4.142901
+Deallocation Time (ms): 0.390656
+Test Passed
+--- threads=64 gpu_blocks=8 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.076672
+Initialization Time (ms): 42.390175
+Kernel Time (ms): 4.056212
+Deallocation Time (ms): 0.445728
+Test Passed
+--- threads=64 gpu_blocks=8 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066144
+Initialization Time (ms): 43.709152
+Kernel Time (ms): 4.223418
+Deallocation Time (ms): 0.439200
+Test Passed
+--- threads=64 gpu_blocks=8 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.077632
+Initialization Time (ms): 41.857792
+Kernel Time (ms): 4.020944
+Deallocation Time (ms): 0.436864
+Test Passed
+--- threads=64 gpu_blocks=8 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.091392
+Initialization Time (ms): 45.452831
+Kernel Time (ms): 4.739264
+Deallocation Time (ms): 0.496608
+Test Passed
+--- threads=64 gpu_blocks=8 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.068416
+Initialization Time (ms): 43.976894
+Kernel Time (ms): 5.117730
+Deallocation Time (ms): 0.461344
+Test Passed
+--- threads=64 gpu_blocks=8 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.064960
+Initialization Time (ms): 45.092800
+Kernel Time (ms): 5.323859
+Deallocation Time (ms): 0.404640
+Test Passed
+--- threads=64 gpu_blocks=16 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.084416
+Initialization Time (ms): 44.891582
+Kernel Time (ms): 3.976151
+Deallocation Time (ms): 0.392320
+Test Passed
+--- threads=64 gpu_blocks=16 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.089024
+Initialization Time (ms): 43.166466
+Kernel Time (ms): 3.803874
+Deallocation Time (ms): 0.461248
+Test Passed
+--- threads=64 gpu_blocks=16 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.082912
+Initialization Time (ms): 44.492287
+Kernel Time (ms): 4.017408
+Deallocation Time (ms): 0.434176
+Test Passed
+--- threads=64 gpu_blocks=16 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.099424
+Initialization Time (ms): 44.587456
+Kernel Time (ms): 3.855981
+Deallocation Time (ms): 0.493440
+Test Passed
+--- threads=64 gpu_blocks=16 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065344
+Initialization Time (ms): 41.803871
+Kernel Time (ms): 4.572347
+Deallocation Time (ms): 0.445856
+Test Passed
+--- threads=64 gpu_blocks=16 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067424
+Initialization Time (ms): 42.701378
+Kernel Time (ms): 4.945464
+Deallocation Time (ms): 0.494752
+Test Passed
+--- threads=64 gpu_blocks=16 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.076032
+Initialization Time (ms): 41.773697
+Kernel Time (ms): 5.140010
+Deallocation Time (ms): 0.456608
+Test Passed
+--- threads=64 gpu_blocks=32 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067904
+Initialization Time (ms): 44.849918
+Kernel Time (ms): 3.806835
+Deallocation Time (ms): 0.441856
+Test Passed
+--- threads=64 gpu_blocks=32 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066528
+Initialization Time (ms): 41.757313
+Kernel Time (ms): 3.612626
+Deallocation Time (ms): 0.478848
+Test Passed
+--- threads=64 gpu_blocks=32 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.068064
+Initialization Time (ms): 42.991360
+Kernel Time (ms): 3.859746
+Deallocation Time (ms): 0.418560
+Test Passed
+--- threads=64 gpu_blocks=32 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.088160
+Initialization Time (ms): 47.053055
+Kernel Time (ms): 3.777077
+Deallocation Time (ms): 0.470624
+Test Passed
+--- threads=64 gpu_blocks=32 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.066400
+Initialization Time (ms): 43.955231
+Kernel Time (ms): 4.507360
+Deallocation Time (ms): 0.454560
+Test Passed
+--- threads=64 gpu_blocks=32 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.076928
+Initialization Time (ms): 42.287136
+Kernel Time (ms): 5.118490
+Deallocation Time (ms): 0.439392
+Test Passed
+--- threads=64 gpu_blocks=32 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065696
+Initialization Time (ms): 43.614910
+Kernel Time (ms): 5.132973
+Deallocation Time (ms): 0.422528
+Test Passed
+--- threads=64 gpu_blocks=64 partition=0.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.080640
+Initialization Time (ms): 43.383167
+Kernel Time (ms): 3.519989
+Deallocation Time (ms): 0.422272
+Test Passed
+--- threads=64 gpu_blocks=64 partition=0.1 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.067200
+Initialization Time (ms): 44.831425
+Kernel Time (ms): 3.767240
+Deallocation Time (ms): 0.422784
+Test Passed
+--- threads=64 gpu_blocks=64 partition=0.25 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.065824
+Initialization Time (ms): 43.537823
+Kernel Time (ms): 3.766370
+Deallocation Time (ms): 0.438848
+Test Passed
+--- threads=64 gpu_blocks=64 partition=0.5 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.077152
+Initialization Time (ms): 44.726368
+Kernel Time (ms): 3.633651
+Deallocation Time (ms): 0.506912
+Test Passed
+--- threads=64 gpu_blocks=64 partition=0.75 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.104480
+Initialization Time (ms): 45.150623
+Kernel Time (ms): 4.486751
+Deallocation Time (ms): 0.453696
+Test Passed
+--- threads=64 gpu_blocks=64 partition=0.9 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.070208
+Initialization Time (ms): 45.662910
+Kernel Time (ms): 5.064474
+Deallocation Time (ms): 0.471072
+Test Passed
+--- threads=64 gpu_blocks=64 partition=1.0 ---
+NVIDIA GH200 480GB	Allocation Time (ms): 0.076416
+Initialization Time (ms): 41.098145
+Kernel Time (ms): 5.200333
+Deallocation Time (ms): 0.419936
+Test Passed
