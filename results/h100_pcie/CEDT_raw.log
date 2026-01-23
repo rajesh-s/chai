@@ -1,0 +1,40 @@
+--- threads=1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 1.106080
+Initialization Time (ms): 593.344727
+Total Proxies Time (ms): 317.220490
+CPU Proxy: Kernel Time (ms): 300.960846
+GPU Proxy: Kernel Time (ms): 27.331453
+Deallocation Time (ms): 1.721632
+Test Passed
+--- threads=4 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 1.647008
+Initialization Time (ms): 650.967041
+Total Proxies Time (ms): 136.428345
+CPU Proxy: Kernel Time (ms): 120.010880
+GPU Proxy: Kernel Time (ms): 29.977661
+Deallocation Time (ms): 1.705920
+Test Passed
+--- threads=16 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 1.628128
+Initialization Time (ms): 579.477417
+Total Proxies Time (ms): 142.273727
+CPU Proxy: Kernel Time (ms): 128.514557
+GPU Proxy: Kernel Time (ms): 29.896290
+Deallocation Time (ms): 1.486656
+Test Passed
+--- threads=32 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 1.606624
+Initialization Time (ms): 601.525269
+Total Proxies Time (ms): 242.155518
+CPU Proxy: Kernel Time (ms): 226.452103
+GPU Proxy: Kernel Time (ms): 28.526237
+Deallocation Time (ms): 1.784896
+Test Passed
+--- threads=64 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 1.667072
+Initialization Time (ms): 597.934448
+Total Proxies Time (ms): 448.209198
+CPU Proxy: Kernel Time (ms): 433.295929
+GPU Proxy: Kernel Time (ms): 29.567551
+Deallocation Time (ms): 1.496096
+Test Passed

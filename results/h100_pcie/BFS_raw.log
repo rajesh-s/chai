@@ -1,0 +1,120 @@
+--- threads=1 gpu_blocks=8 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.445408
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 193.105637
+Kernel Time (ms): 686.005493
+Deallocation Time (ms): 0.684384
+Test Passed
+--- threads=1 gpu_blocks=16 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.310176
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 176.895874
+Kernel Time (ms): 708.438232
+Deallocation Time (ms): 0.810496
+Test Passed
+--- threads=1 gpu_blocks=32 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.306336
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 176.591583
+Kernel Time (ms): 736.010132
+Deallocation Time (ms): 0.860192
+Test Passed
+--- threads=1 gpu_blocks=64 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.338144
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 176.288605
+Kernel Time (ms): 811.944153
+Deallocation Time (ms): 0.753568
+Test Passed
+--- threads=4 gpu_blocks=8 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.165856
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 93.303810
+Kernel Time (ms): 680.342590
+Deallocation Time (ms): 0.746528
+Test Passed
+--- threads=4 gpu_blocks=16 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.264096
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 170.812408
+Kernel Time (ms): 687.021362
+Deallocation Time (ms): 0.949536
+Test Passed
+--- threads=4 gpu_blocks=32 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.305152
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 172.802719
+Kernel Time (ms): 680.691772
+Deallocation Time (ms): 0.720512
+Test Passed
+--- threads=4 gpu_blocks=64 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.254848
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 170.658722
+Kernel Time (ms): 856.515930
+Deallocation Time (ms): 1.289664
+Test Passed
+--- threads=16 gpu_blocks=8 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.348928
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 176.736252
+Kernel Time (ms): 714.216614
+Deallocation Time (ms): 0.581248
+Test Passed
+--- threads=16 gpu_blocks=16 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.167040
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 93.553986
+Kernel Time (ms): 684.725403
+Deallocation Time (ms): 0.541856
+Test Passed
+--- threads=16 gpu_blocks=32 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.208064
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 92.239998
+Kernel Time (ms): 673.421448
+Deallocation Time (ms): 0.531136
+Test Passed
+--- threads=16 gpu_blocks=64 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.174144
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 93.558563
+Kernel Time (ms): 813.985962
+Deallocation Time (ms): 0.574784
+Test Passed
+--- threads=32 gpu_blocks=8 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.186016
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 97.598557
+Kernel Time (ms): 3682.050293
+Deallocation Time (ms): 0.538144
+Test Passed
+--- threads=32 gpu_blocks=16 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.160896
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 95.794975
+Kernel Time (ms): 3800.960938
+Deallocation Time (ms): 0.531296
+Test Passed
+--- threads=32 gpu_blocks=32 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.162048
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 92.426849
+Kernel Time (ms): 4046.225342
+Deallocation Time (ms): 0.531232
+Test Passed
+--- threads=32 gpu_blocks=64 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.177248
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 96.853279
+Kernel Time (ms): 4859.834961
+Deallocation Time (ms): 0.525184
+Test Passed
+--- threads=64 gpu_blocks=8 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.154080
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 91.982719
+Kernel Time (ms): 9580.439453
+Deallocation Time (ms): 0.512640
+Test Passed
+--- threads=64 gpu_blocks=16 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.153856
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 91.659264
+Kernel Time (ms): 9469.720703
+Deallocation Time (ms): 0.529184
+Test Passed
+--- threads=64 gpu_blocks=32 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.168832
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 94.632095
+Kernel Time (ms): 10216.563477
+Deallocation Time (ms): 0.532192
+Test Passed
+--- threads=64 gpu_blocks=64 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.158016
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 91.426208
+Kernel Time (ms): 13952.182617
+Deallocation Time (ms): 0.606368
+Test Passed

@@ -1,0 +1,840 @@
+--- threads=1 gpu_blocks=8 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.231392
+Initialization Time (ms): 36.542561
+Kernel Time (ms): 5.802443
+Deallocation Time (ms): 0.917216
+Test Passed
+--- threads=1 gpu_blocks=8 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.217280
+Initialization Time (ms): 35.698017
+Kernel Time (ms): 15.432472
+Deallocation Time (ms): 0.820864
+Test Passed
+--- threads=1 gpu_blocks=8 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.232320
+Initialization Time (ms): 35.936352
+Kernel Time (ms): 23.833895
+Deallocation Time (ms): 1.026336
+Test Passed
+--- threads=1 gpu_blocks=8 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.214112
+Initialization Time (ms): 36.040993
+Kernel Time (ms): 41.547020
+Deallocation Time (ms): 1.057408
+Test Passed
+--- threads=1 gpu_blocks=8 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.244096
+Initialization Time (ms): 35.246017
+Kernel Time (ms): 61.066498
+Deallocation Time (ms): 1.050592
+Test Passed
+--- threads=1 gpu_blocks=8 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.240480
+Initialization Time (ms): 36.383553
+Kernel Time (ms): 68.378502
+Deallocation Time (ms): 0.989504
+Test Passed
+--- threads=1 gpu_blocks=8 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.237984
+Initialization Time (ms): 35.232193
+Kernel Time (ms): 58.959003
+Deallocation Time (ms): 1.424608
+Test Passed
+--- threads=1 gpu_blocks=16 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.206752
+Initialization Time (ms): 35.267391
+Kernel Time (ms): 3.946501
+Deallocation Time (ms): 0.669568
+Test Passed
+--- threads=1 gpu_blocks=16 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.219168
+Initialization Time (ms): 35.730656
+Kernel Time (ms): 12.983577
+Deallocation Time (ms): 0.977312
+Test Passed
+--- threads=1 gpu_blocks=16 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.232416
+Initialization Time (ms): 36.597153
+Kernel Time (ms): 30.179066
+Deallocation Time (ms): 1.068064
+Test Passed
+--- threads=1 gpu_blocks=16 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.241824
+Initialization Time (ms): 35.418369
+Kernel Time (ms): 54.965260
+Deallocation Time (ms): 1.058272
+Test Passed
+--- threads=1 gpu_blocks=16 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.240480
+Initialization Time (ms): 37.900417
+Kernel Time (ms): 71.075859
+Deallocation Time (ms): 1.021280
+Test Passed
+--- threads=1 gpu_blocks=16 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.220768
+Initialization Time (ms): 35.115456
+Kernel Time (ms): 73.649742
+Deallocation Time (ms): 1.026752
+Test Passed
+--- threads=1 gpu_blocks=16 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.248608
+Initialization Time (ms): 36.864449
+Kernel Time (ms): 58.171051
+Deallocation Time (ms): 1.468608
+Test Passed
+--- threads=1 gpu_blocks=32 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.220160
+Initialization Time (ms): 35.567230
+Kernel Time (ms): 2.757459
+Deallocation Time (ms): 0.880000
+Test Passed
+--- threads=1 gpu_blocks=32 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.230688
+Initialization Time (ms): 37.134464
+Kernel Time (ms): 12.381899
+Deallocation Time (ms): 1.035808
+Test Passed
+--- threads=1 gpu_blocks=32 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.235264
+Initialization Time (ms): 36.254498
+Kernel Time (ms): 30.493027
+Deallocation Time (ms): 1.023232
+Test Passed
+--- threads=1 gpu_blocks=32 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.271584
+Initialization Time (ms): 37.250080
+Kernel Time (ms): 58.868507
+Deallocation Time (ms): 1.036928
+Test Passed
+--- threads=1 gpu_blocks=32 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.243840
+Initialization Time (ms): 36.534782
+Kernel Time (ms): 88.696175
+Deallocation Time (ms): 1.010432
+Test Passed
+--- threads=1 gpu_blocks=32 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.260480
+Initialization Time (ms): 36.505951
+Kernel Time (ms): 82.807671
+Deallocation Time (ms): 0.716480
+Test Passed
+--- threads=1 gpu_blocks=32 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.169728
+Initialization Time (ms): 29.128000
+Kernel Time (ms): 59.310711
+Deallocation Time (ms): 1.213792
+Test Passed
+--- threads=1 gpu_blocks=64 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.164128
+Initialization Time (ms): 28.965025
+Kernel Time (ms): 2.144658
+Deallocation Time (ms): 0.725120
+Test Passed
+--- threads=1 gpu_blocks=64 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.164384
+Initialization Time (ms): 28.782721
+Kernel Time (ms): 15.335653
+Deallocation Time (ms): 0.670240
+Test Passed
+--- threads=1 gpu_blocks=64 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.150816
+Initialization Time (ms): 29.108353
+Kernel Time (ms): 34.963619
+Deallocation Time (ms): 0.726368
+Test Passed
+--- threads=1 gpu_blocks=64 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.166016
+Initialization Time (ms): 33.709503
+Kernel Time (ms): 68.367081
+Deallocation Time (ms): 0.739648
+Test Passed
+--- threads=1 gpu_blocks=64 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.159744
+Initialization Time (ms): 29.490208
+Kernel Time (ms): 82.053673
+Deallocation Time (ms): 0.949632
+Test Passed
+--- threads=1 gpu_blocks=64 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.247328
+Initialization Time (ms): 37.438015
+Kernel Time (ms): 80.955368
+Deallocation Time (ms): 1.061920
+Test Passed
+--- threads=1 gpu_blocks=64 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.251552
+Initialization Time (ms): 37.097504
+Kernel Time (ms): 60.183025
+Deallocation Time (ms): 1.473728
+Test Passed
+--- threads=4 gpu_blocks=8 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.265664
+Initialization Time (ms): 36.661182
+Kernel Time (ms): 4.856440
+Deallocation Time (ms): 0.955616
+Test Passed
+--- threads=4 gpu_blocks=8 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.250912
+Initialization Time (ms): 39.088959
+Kernel Time (ms): 6.758028
+Deallocation Time (ms): 0.961056
+Test Passed
+--- threads=4 gpu_blocks=8 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.224992
+Initialization Time (ms): 36.179649
+Kernel Time (ms): 9.728120
+Deallocation Time (ms): 0.752832
+Test Passed
+--- threads=4 gpu_blocks=8 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.221824
+Initialization Time (ms): 36.398048
+Kernel Time (ms): 16.745926
+Deallocation Time (ms): 1.013888
+Test Passed
+--- threads=4 gpu_blocks=8 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.233568
+Initialization Time (ms): 36.503071
+Kernel Time (ms): 19.848692
+Deallocation Time (ms): 0.937440
+Test Passed
+--- threads=4 gpu_blocks=8 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.227712
+Initialization Time (ms): 36.653473
+Kernel Time (ms): 24.231138
+Deallocation Time (ms): 0.860352
+Test Passed
+--- threads=4 gpu_blocks=8 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.257376
+Initialization Time (ms): 36.450527
+Kernel Time (ms): 17.469126
+Deallocation Time (ms): 1.089440
+Test Passed
+--- threads=4 gpu_blocks=16 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.249152
+Initialization Time (ms): 35.918816
+Kernel Time (ms): 3.703803
+Deallocation Time (ms): 0.681184
+Test Passed
+--- threads=4 gpu_blocks=16 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.249152
+Initialization Time (ms): 36.307232
+Kernel Time (ms): 6.850709
+Deallocation Time (ms): 0.906176
+Test Passed
+--- threads=4 gpu_blocks=16 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.228512
+Initialization Time (ms): 36.874592
+Kernel Time (ms): 11.953198
+Deallocation Time (ms): 0.981472
+Test Passed
+--- threads=4 gpu_blocks=16 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.236160
+Initialization Time (ms): 36.504192
+Kernel Time (ms): 16.568361
+Deallocation Time (ms): 0.889600
+Test Passed
+--- threads=4 gpu_blocks=16 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.259552
+Initialization Time (ms): 35.586369
+Kernel Time (ms): 22.608622
+Deallocation Time (ms): 0.933088
+Test Passed
+--- threads=4 gpu_blocks=16 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.233056
+Initialization Time (ms): 36.878689
+Kernel Time (ms): 28.528391
+Deallocation Time (ms): 0.740544
+Test Passed
+--- threads=4 gpu_blocks=16 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.229248
+Initialization Time (ms): 36.615170
+Kernel Time (ms): 17.430378
+Deallocation Time (ms): 1.411712
+Test Passed
+--- threads=4 gpu_blocks=32 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.263968
+Initialization Time (ms): 36.251072
+Kernel Time (ms): 2.163314
+Deallocation Time (ms): 0.925888
+Test Passed
+--- threads=4 gpu_blocks=32 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.221216
+Initialization Time (ms): 35.815617
+Kernel Time (ms): 6.241552
+Deallocation Time (ms): 0.837600
+Test Passed
+--- threads=4 gpu_blocks=32 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.226624
+Initialization Time (ms): 37.598305
+Kernel Time (ms): 10.926250
+Deallocation Time (ms): 0.873728
+Test Passed
+--- threads=4 gpu_blocks=32 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.265888
+Initialization Time (ms): 37.017311
+Kernel Time (ms): 19.978939
+Deallocation Time (ms): 0.961824
+Test Passed
+--- threads=4 gpu_blocks=32 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.253728
+Initialization Time (ms): 36.536770
+Kernel Time (ms): 25.073971
+Deallocation Time (ms): 0.947424
+Test Passed
+--- threads=4 gpu_blocks=32 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.247968
+Initialization Time (ms): 36.116192
+Kernel Time (ms): 26.097464
+Deallocation Time (ms): 0.799040
+Test Passed
+--- threads=4 gpu_blocks=32 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.237376
+Initialization Time (ms): 35.794399
+Kernel Time (ms): 17.581728
+Deallocation Time (ms): 1.380960
+Test Passed
+--- threads=4 gpu_blocks=64 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.238368
+Initialization Time (ms): 37.147327
+Kernel Time (ms): 2.068942
+Deallocation Time (ms): 0.932448
+Test Passed
+--- threads=4 gpu_blocks=64 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.244384
+Initialization Time (ms): 36.390175
+Kernel Time (ms): 7.900006
+Deallocation Time (ms): 0.934912
+Test Passed
+--- threads=4 gpu_blocks=64 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.227776
+Initialization Time (ms): 36.219521
+Kernel Time (ms): 12.820752
+Deallocation Time (ms): 0.665888
+Test Passed
+--- threads=4 gpu_blocks=64 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.246848
+Initialization Time (ms): 36.111553
+Kernel Time (ms): 20.781235
+Deallocation Time (ms): 1.164832
+Test Passed
+--- threads=4 gpu_blocks=64 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.227168
+Initialization Time (ms): 36.155327
+Kernel Time (ms): 25.475779
+Deallocation Time (ms): 0.781344
+Test Passed
+--- threads=4 gpu_blocks=64 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.233792
+Initialization Time (ms): 35.441921
+Kernel Time (ms): 29.469599
+Deallocation Time (ms): 0.839936
+Test Passed
+--- threads=4 gpu_blocks=64 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.228320
+Initialization Time (ms): 36.314529
+Kernel Time (ms): 17.491701
+Deallocation Time (ms): 1.400288
+Test Passed
+--- threads=16 gpu_blocks=8 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.254656
+Initialization Time (ms): 37.634911
+Kernel Time (ms): 4.474828
+Deallocation Time (ms): 0.674848
+Test Passed
+--- threads=16 gpu_blocks=8 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.256032
+Initialization Time (ms): 36.099457
+Kernel Time (ms): 8.454626
+Deallocation Time (ms): 0.753664
+Test Passed
+--- threads=16 gpu_blocks=8 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.237088
+Initialization Time (ms): 36.240578
+Kernel Time (ms): 10.896168
+Deallocation Time (ms): 0.737440
+Test Passed
+--- threads=16 gpu_blocks=8 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.219648
+Initialization Time (ms): 35.719296
+Kernel Time (ms): 11.864809
+Deallocation Time (ms): 0.716128
+Test Passed
+--- threads=16 gpu_blocks=8 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.228608
+Initialization Time (ms): 35.528030
+Kernel Time (ms): 11.314863
+Deallocation Time (ms): 0.703104
+Test Passed
+--- threads=16 gpu_blocks=8 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.231424
+Initialization Time (ms): 35.497410
+Kernel Time (ms): 12.574113
+Deallocation Time (ms): 0.764000
+Test Passed
+--- threads=16 gpu_blocks=8 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.231712
+Initialization Time (ms): 36.078209
+Kernel Time (ms): 6.543678
+Deallocation Time (ms): 0.882112
+Test Passed
+--- threads=16 gpu_blocks=16 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.242688
+Initialization Time (ms): 37.895905
+Kernel Time (ms): 3.715342
+Deallocation Time (ms): 0.642880
+Test Passed
+--- threads=16 gpu_blocks=16 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.240320
+Initialization Time (ms): 36.292130
+Kernel Time (ms): 8.059519
+Deallocation Time (ms): 0.706464
+Test Passed
+--- threads=16 gpu_blocks=16 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.248000
+Initialization Time (ms): 36.332767
+Kernel Time (ms): 11.368565
+Deallocation Time (ms): 0.705952
+Test Passed
+--- threads=16 gpu_blocks=16 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.225696
+Initialization Time (ms): 36.624447
+Kernel Time (ms): 11.857597
+Deallocation Time (ms): 0.669280
+Test Passed
+--- threads=16 gpu_blocks=16 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.252064
+Initialization Time (ms): 35.667297
+Kernel Time (ms): 11.739882
+Deallocation Time (ms): 0.670496
+Test Passed
+--- threads=16 gpu_blocks=16 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.228320
+Initialization Time (ms): 37.500607
+Kernel Time (ms): 13.042547
+Deallocation Time (ms): 0.729216
+Test Passed
+--- threads=16 gpu_blocks=16 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.209056
+Initialization Time (ms): 36.283775
+Kernel Time (ms): 6.356892
+Deallocation Time (ms): 0.590464
+Test Passed
+--- threads=16 gpu_blocks=32 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.224672
+Initialization Time (ms): 36.151615
+Kernel Time (ms): 3.569381
+Deallocation Time (ms): 0.717664
+Test Passed
+--- threads=16 gpu_blocks=32 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.226432
+Initialization Time (ms): 71.909630
+Kernel Time (ms): 8.029989
+Deallocation Time (ms): 1.004192
+Test Passed
+--- threads=16 gpu_blocks=32 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.233536
+Initialization Time (ms): 38.321182
+Kernel Time (ms): 10.603931
+Deallocation Time (ms): 0.671776
+Test Passed
+--- threads=16 gpu_blocks=32 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.232192
+Initialization Time (ms): 37.231937
+Kernel Time (ms): 14.030797
+Deallocation Time (ms): 0.871712
+Test Passed
+--- threads=16 gpu_blocks=32 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.236800
+Initialization Time (ms): 36.313217
+Kernel Time (ms): 13.517545
+Deallocation Time (ms): 0.795264
+Test Passed
+--- threads=16 gpu_blocks=32 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.222848
+Initialization Time (ms): 36.162048
+Kernel Time (ms): 15.839388
+Deallocation Time (ms): 0.771968
+Test Passed
+--- threads=16 gpu_blocks=32 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.245600
+Initialization Time (ms): 37.135521
+Kernel Time (ms): 6.360518
+Deallocation Time (ms): 0.799008
+Test Passed
+--- threads=16 gpu_blocks=64 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.216928
+Initialization Time (ms): 35.205727
+Kernel Time (ms): 3.108881
+Deallocation Time (ms): 0.698944
+Test Passed
+--- threads=16 gpu_blocks=64 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.227008
+Initialization Time (ms): 36.653538
+Kernel Time (ms): 10.181609
+Deallocation Time (ms): 0.999072
+Test Passed
+--- threads=16 gpu_blocks=64 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.242624
+Initialization Time (ms): 36.747646
+Kernel Time (ms): 11.625262
+Deallocation Time (ms): 0.734112
+Test Passed
+--- threads=16 gpu_blocks=64 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.260064
+Initialization Time (ms): 38.066498
+Kernel Time (ms): 10.680058
+Deallocation Time (ms): 0.771712
+Test Passed
+--- threads=16 gpu_blocks=64 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.248864
+Initialization Time (ms): 37.890079
+Kernel Time (ms): 14.088368
+Deallocation Time (ms): 0.773856
+Test Passed
+--- threads=16 gpu_blocks=64 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.234592
+Initialization Time (ms): 36.249634
+Kernel Time (ms): 13.518770
+Deallocation Time (ms): 0.767936
+Test Passed
+--- threads=16 gpu_blocks=64 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.238784
+Initialization Time (ms): 35.888702
+Kernel Time (ms): 6.558256
+Deallocation Time (ms): 0.933696
+Test Passed
+--- threads=32 gpu_blocks=8 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.236480
+Initialization Time (ms): 36.666527
+Kernel Time (ms): 5.798258
+Deallocation Time (ms): 0.766912
+Test Passed
+--- threads=32 gpu_blocks=8 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.238720
+Initialization Time (ms): 36.206558
+Kernel Time (ms): 8.969689
+Deallocation Time (ms): 0.720192
+Test Passed
+--- threads=32 gpu_blocks=8 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.242496
+Initialization Time (ms): 37.224705
+Kernel Time (ms): 13.603314
+Deallocation Time (ms): 0.815584
+Test Passed
+--- threads=32 gpu_blocks=8 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.240192
+Initialization Time (ms): 36.540737
+Kernel Time (ms): 44.774712
+Deallocation Time (ms): 0.732608
+Test Passed
+--- threads=32 gpu_blocks=8 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.234720
+Initialization Time (ms): 37.447266
+Kernel Time (ms): 69.724075
+Deallocation Time (ms): 0.796544
+Test Passed
+--- threads=32 gpu_blocks=8 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.255456
+Initialization Time (ms): 35.859264
+Kernel Time (ms): 77.517899
+Deallocation Time (ms): 0.908128
+Test Passed
+--- threads=32 gpu_blocks=8 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.228576
+Initialization Time (ms): 36.170753
+Kernel Time (ms): 59.643837
+Deallocation Time (ms): 0.704576
+Test Passed
+--- threads=32 gpu_blocks=16 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.164768
+Initialization Time (ms): 29.869057
+Kernel Time (ms): 4.910858
+Deallocation Time (ms): 0.530080
+Test Passed
+--- threads=32 gpu_blocks=16 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.165984
+Initialization Time (ms): 28.769953
+Kernel Time (ms): 7.319926
+Deallocation Time (ms): 0.722336
+Test Passed
+--- threads=32 gpu_blocks=16 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.169600
+Initialization Time (ms): 28.882977
+Kernel Time (ms): 11.979730
+Deallocation Time (ms): 0.510432
+Test Passed
+--- threads=32 gpu_blocks=16 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.156640
+Initialization Time (ms): 29.139616
+Kernel Time (ms): 34.445309
+Deallocation Time (ms): 0.606720
+Test Passed
+--- threads=32 gpu_blocks=16 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.160736
+Initialization Time (ms): 29.094816
+Kernel Time (ms): 65.016914
+Deallocation Time (ms): 0.611328
+Test Passed
+--- threads=32 gpu_blocks=16 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.163680
+Initialization Time (ms): 29.432608
+Kernel Time (ms): 68.560501
+Deallocation Time (ms): 0.633984
+Test Passed
+--- threads=32 gpu_blocks=16 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.178656
+Initialization Time (ms): 30.894815
+Kernel Time (ms): 49.775612
+Deallocation Time (ms): 0.667232
+Test Passed
+--- threads=32 gpu_blocks=32 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.227616
+Initialization Time (ms): 36.146881
+Kernel Time (ms): 5.544114
+Deallocation Time (ms): 1.012928
+Test Passed
+--- threads=32 gpu_blocks=32 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.256224
+Initialization Time (ms): 37.900032
+Kernel Time (ms): 10.188966
+Deallocation Time (ms): 0.802848
+Test Passed
+--- threads=32 gpu_blocks=32 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.218272
+Initialization Time (ms): 35.074402
+Kernel Time (ms): 15.672224
+Deallocation Time (ms): 0.606016
+Test Passed
+--- threads=32 gpu_blocks=32 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.241344
+Initialization Time (ms): 36.457790
+Kernel Time (ms): 40.563293
+Deallocation Time (ms): 0.843168
+Test Passed
+--- threads=32 gpu_blocks=32 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.266304
+Initialization Time (ms): 36.356319
+Kernel Time (ms): 72.402420
+Deallocation Time (ms): 0.621536
+Test Passed
+--- threads=32 gpu_blocks=32 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.206112
+Initialization Time (ms): 32.134560
+Kernel Time (ms): 68.924576
+Deallocation Time (ms): 0.672224
+Test Passed
+--- threads=32 gpu_blocks=32 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.252768
+Initialization Time (ms): 36.474945
+Kernel Time (ms): 62.284801
+Deallocation Time (ms): 0.861888
+Test Passed
+--- threads=32 gpu_blocks=64 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.241568
+Initialization Time (ms): 36.027554
+Kernel Time (ms): 5.017602
+Deallocation Time (ms): 0.988256
+Test Passed
+--- threads=32 gpu_blocks=64 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.262048
+Initialization Time (ms): 36.667969
+Kernel Time (ms): 10.343639
+Deallocation Time (ms): 0.797792
+Test Passed
+--- threads=32 gpu_blocks=64 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.231296
+Initialization Time (ms): 36.248287
+Kernel Time (ms): 16.689465
+Deallocation Time (ms): 0.770240
+Test Passed
+--- threads=32 gpu_blocks=64 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.242048
+Initialization Time (ms): 35.649311
+Kernel Time (ms): 41.262451
+Deallocation Time (ms): 0.749056
+Test Passed
+--- threads=32 gpu_blocks=64 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.216128
+Initialization Time (ms): 36.142784
+Kernel Time (ms): 75.943748
+Deallocation Time (ms): 0.805056
+Test Passed
+--- threads=32 gpu_blocks=64 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.268192
+Initialization Time (ms): 36.539776
+Kernel Time (ms): 74.031540
+Deallocation Time (ms): 0.799008
+Test Passed
+--- threads=32 gpu_blocks=64 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.270496
+Initialization Time (ms): 36.358849
+Kernel Time (ms): 54.455730
+Deallocation Time (ms): 0.606752
+Test Passed
+--- threads=64 gpu_blocks=8 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.217248
+Initialization Time (ms): 36.148193
+Kernel Time (ms): 10.052526
+Deallocation Time (ms): 1.117888
+Test Passed
+--- threads=64 gpu_blocks=8 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.233952
+Initialization Time (ms): 36.988991
+Kernel Time (ms): 12.872296
+Deallocation Time (ms): 1.172896
+Test Passed
+--- threads=64 gpu_blocks=8 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.230368
+Initialization Time (ms): 36.410175
+Kernel Time (ms): 17.481892
+Deallocation Time (ms): 0.801792
+Test Passed
+--- threads=64 gpu_blocks=8 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.235840
+Initialization Time (ms): 35.562176
+Kernel Time (ms): 24.524595
+Deallocation Time (ms): 0.831360
+Test Passed
+--- threads=64 gpu_blocks=8 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.224096
+Initialization Time (ms): 36.432034
+Kernel Time (ms): 127.431885
+Deallocation Time (ms): 0.794784
+Test Passed
+--- threads=64 gpu_blocks=8 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.242208
+Initialization Time (ms): 37.058369
+Kernel Time (ms): 210.571198
+Deallocation Time (ms): 0.810560
+Test Passed
+--- threads=64 gpu_blocks=8 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.230624
+Initialization Time (ms): 38.351170
+Kernel Time (ms): 156.422348
+Deallocation Time (ms): 0.690400
+Test Passed
+--- threads=64 gpu_blocks=16 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.226176
+Initialization Time (ms): 35.695103
+Kernel Time (ms): 9.906332
+Deallocation Time (ms): 1.103360
+Test Passed
+--- threads=64 gpu_blocks=16 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.235488
+Initialization Time (ms): 35.820000
+Kernel Time (ms): 12.388414
+Deallocation Time (ms): 0.976096
+Test Passed
+--- threads=64 gpu_blocks=16 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.239424
+Initialization Time (ms): 35.788609
+Kernel Time (ms): 18.460316
+Deallocation Time (ms): 0.800320
+Test Passed
+--- threads=64 gpu_blocks=16 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.205760
+Initialization Time (ms): 35.322815
+Kernel Time (ms): 24.433685
+Deallocation Time (ms): 0.740928
+Test Passed
+--- threads=64 gpu_blocks=16 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.248704
+Initialization Time (ms): 37.062881
+Kernel Time (ms): 165.973450
+Deallocation Time (ms): 0.827744
+Test Passed
+--- threads=64 gpu_blocks=16 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.214400
+Initialization Time (ms): 34.893375
+Kernel Time (ms): 208.526855
+Deallocation Time (ms): 0.933152
+Test Passed
+--- threads=64 gpu_blocks=16 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.251648
+Initialization Time (ms): 36.533314
+Kernel Time (ms): 204.715118
+Deallocation Time (ms): 0.488992
+Test Passed
+--- threads=64 gpu_blocks=32 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.110176
+Initialization Time (ms): 17.706335
+Kernel Time (ms): 6.882237
+Deallocation Time (ms): 0.915904
+Test Passed
+--- threads=64 gpu_blocks=32 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.175424
+Initialization Time (ms): 30.605728
+Kernel Time (ms): 9.428823
+Deallocation Time (ms): 0.623840
+Test Passed
+--- threads=64 gpu_blocks=32 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.270016
+Initialization Time (ms): 37.877472
+Kernel Time (ms): 14.374010
+Deallocation Time (ms): 0.562272
+Test Passed
+--- threads=64 gpu_blocks=32 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.185632
+Initialization Time (ms): 31.265728
+Kernel Time (ms): 21.454332
+Deallocation Time (ms): 0.558848
+Test Passed
+--- threads=64 gpu_blocks=32 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.268192
+Initialization Time (ms): 35.472191
+Kernel Time (ms): 157.226227
+Deallocation Time (ms): 0.752032
+Test Passed
+--- threads=64 gpu_blocks=32 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.114368
+Initialization Time (ms): 17.496321
+Kernel Time (ms): 164.928680
+Deallocation Time (ms): 0.624896
+Test Passed
+--- threads=64 gpu_blocks=32 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.154304
+Initialization Time (ms): 28.892193
+Kernel Time (ms): 307.424164
+Deallocation Time (ms): 0.324960
+Test Passed
+--- threads=64 gpu_blocks=64 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.116160
+Initialization Time (ms): 17.162527
+Kernel Time (ms): 6.483642
+Deallocation Time (ms): 0.913440
+Test Passed
+--- threads=64 gpu_blocks=64 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.108000
+Initialization Time (ms): 17.453632
+Kernel Time (ms): 9.306852
+Deallocation Time (ms): 0.553440
+Test Passed
+--- threads=64 gpu_blocks=64 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.106720
+Initialization Time (ms): 17.484287
+Kernel Time (ms): 13.885198
+Deallocation Time (ms): 0.413088
+Test Passed
+--- threads=64 gpu_blocks=64 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.135040
+Initialization Time (ms): 18.784767
+Kernel Time (ms): 22.664158
+Deallocation Time (ms): 0.434240
+Test Passed
+--- threads=64 gpu_blocks=64 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.117536
+Initialization Time (ms): 17.271776
+Kernel Time (ms): 139.430649
+Deallocation Time (ms): 0.458272
+Test Passed
+--- threads=64 gpu_blocks=64 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.167648
+Initialization Time (ms): 29.989153
+Kernel Time (ms): 189.021408
+Deallocation Time (ms): 0.591072
+Test Passed
+--- threads=64 gpu_blocks=64 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.115552
+Initialization Time (ms): 17.689024
+Kernel Time (ms): 167.597885
+Deallocation Time (ms): 0.355456
+Test Passed

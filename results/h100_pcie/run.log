@@ -1,0 +1,1061 @@
+=== Chai Coherence Study ===
+Host: 209-20-156-106
+Date: Thu Jan 22 16:47:41 UTC 2026
+GPU: NVIDIA H100 PCIe
+CUDA: Cuda compilation tools, release 12.8, V12.8.93
+Threads: 1 4 16 32 64
+GPU Blocks: 8 16 32 64
+Partitions: 0.0 0.1 0.25 0.5 0.75 0.9 1.0
+Warmup: 5, Reps: 20
+
+=== Running BS (with partition + GPU blocks sweep) ===
+  BS: threads=1, gpu_blocks=8, partition=0.0
+  BS: threads=1, gpu_blocks=8, partition=0.1
+  BS: threads=1, gpu_blocks=8, partition=0.25
+  BS: threads=1, gpu_blocks=8, partition=0.5
+  BS: threads=1, gpu_blocks=8, partition=0.75
+  BS: threads=1, gpu_blocks=8, partition=0.9
+  BS: threads=1, gpu_blocks=8, partition=1.0
+  BS: threads=1, gpu_blocks=16, partition=0.0
+  BS: threads=1, gpu_blocks=16, partition=0.1
+  BS: threads=1, gpu_blocks=16, partition=0.25
+  BS: threads=1, gpu_blocks=16, partition=0.5
+  BS: threads=1, gpu_blocks=16, partition=0.75
+  BS: threads=1, gpu_blocks=16, partition=0.9
+  BS: threads=1, gpu_blocks=16, partition=1.0
+  BS: threads=1, gpu_blocks=32, partition=0.0
+  BS: threads=1, gpu_blocks=32, partition=0.1
+  BS: threads=1, gpu_blocks=32, partition=0.25
+  BS: threads=1, gpu_blocks=32, partition=0.5
+  BS: threads=1, gpu_blocks=32, partition=0.75
+  BS: threads=1, gpu_blocks=32, partition=0.9
+  BS: threads=1, gpu_blocks=32, partition=1.0
+  BS: threads=1, gpu_blocks=64, partition=0.0
+  BS: threads=1, gpu_blocks=64, partition=0.1
+  BS: threads=1, gpu_blocks=64, partition=0.25
+  BS: threads=1, gpu_blocks=64, partition=0.5
+  BS: threads=1, gpu_blocks=64, partition=0.75
+  BS: threads=1, gpu_blocks=64, partition=0.9
+  BS: threads=1, gpu_blocks=64, partition=1.0
+  BS: threads=4, gpu_blocks=8, partition=0.0
+  BS: threads=4, gpu_blocks=8, partition=0.1
+  BS: threads=4, gpu_blocks=8, partition=0.25
+  BS: threads=4, gpu_blocks=8, partition=0.5
+  BS: threads=4, gpu_blocks=8, partition=0.75
+  BS: threads=4, gpu_blocks=8, partition=0.9
+  BS: threads=4, gpu_blocks=8, partition=1.0
+  BS: threads=4, gpu_blocks=16, partition=0.0
+  BS: threads=4, gpu_blocks=16, partition=0.1
+  BS: threads=4, gpu_blocks=16, partition=0.25
+  BS: threads=4, gpu_blocks=16, partition=0.5
+  BS: threads=4, gpu_blocks=16, partition=0.75
+  BS: threads=4, gpu_blocks=16, partition=0.9
+  BS: threads=4, gpu_blocks=16, partition=1.0
+  BS: threads=4, gpu_blocks=32, partition=0.0
+  BS: threads=4, gpu_blocks=32, partition=0.1
+  BS: threads=4, gpu_blocks=32, partition=0.25
+  BS: threads=4, gpu_blocks=32, partition=0.5
+  BS: threads=4, gpu_blocks=32, partition=0.75
+  BS: threads=4, gpu_blocks=32, partition=0.9
+  BS: threads=4, gpu_blocks=32, partition=1.0
+  BS: threads=4, gpu_blocks=64, partition=0.0
+  BS: threads=4, gpu_blocks=64, partition=0.1
+  BS: threads=4, gpu_blocks=64, partition=0.25
+  BS: threads=4, gpu_blocks=64, partition=0.5
+  BS: threads=4, gpu_blocks=64, partition=0.75
+  BS: threads=4, gpu_blocks=64, partition=0.9
+  BS: threads=4, gpu_blocks=64, partition=1.0
+  BS: threads=16, gpu_blocks=8, partition=0.0
+  BS: threads=16, gpu_blocks=8, partition=0.1
+  BS: threads=16, gpu_blocks=8, partition=0.25
+  BS: threads=16, gpu_blocks=8, partition=0.5
+  BS: threads=16, gpu_blocks=8, partition=0.75
+  BS: threads=16, gpu_blocks=8, partition=0.9
+  BS: threads=16, gpu_blocks=8, partition=1.0
+  BS: threads=16, gpu_blocks=16, partition=0.0
+  BS: threads=16, gpu_blocks=16, partition=0.1
+  BS: threads=16, gpu_blocks=16, partition=0.25
+  BS: threads=16, gpu_blocks=16, partition=0.5
+  BS: threads=16, gpu_blocks=16, partition=0.75
+  BS: threads=16, gpu_blocks=16, partition=0.9
+  BS: threads=16, gpu_blocks=16, partition=1.0
+  BS: threads=16, gpu_blocks=32, partition=0.0
+  BS: threads=16, gpu_blocks=32, partition=0.1
+  BS: threads=16, gpu_blocks=32, partition=0.25
+  BS: threads=16, gpu_blocks=32, partition=0.5
+  BS: threads=16, gpu_blocks=32, partition=0.75
+  BS: threads=16, gpu_blocks=32, partition=0.9
+  BS: threads=16, gpu_blocks=32, partition=1.0
+  BS: threads=16, gpu_blocks=64, partition=0.0
+  BS: threads=16, gpu_blocks=64, partition=0.1
+  BS: threads=16, gpu_blocks=64, partition=0.25
+  BS: threads=16, gpu_blocks=64, partition=0.5
+  BS: threads=16, gpu_blocks=64, partition=0.75
+  BS: threads=16, gpu_blocks=64, partition=0.9
+  BS: threads=16, gpu_blocks=64, partition=1.0
+  BS: threads=32, gpu_blocks=8, partition=0.0
+  BS: threads=32, gpu_blocks=8, partition=0.1
+  BS: threads=32, gpu_blocks=8, partition=0.25
+  BS: threads=32, gpu_blocks=8, partition=0.5
+  BS: threads=32, gpu_blocks=8, partition=0.75
+  BS: threads=32, gpu_blocks=8, partition=0.9
+  BS: threads=32, gpu_blocks=8, partition=1.0
+  BS: threads=32, gpu_blocks=16, partition=0.0
+  BS: threads=32, gpu_blocks=16, partition=0.1
+  BS: threads=32, gpu_blocks=16, partition=0.25
+  BS: threads=32, gpu_blocks=16, partition=0.5
+  BS: threads=32, gpu_blocks=16, partition=0.75
+  BS: threads=32, gpu_blocks=16, partition=0.9
+  BS: threads=32, gpu_blocks=16, partition=1.0
+  BS: threads=32, gpu_blocks=32, partition=0.0
+  BS: threads=32, gpu_blocks=32, partition=0.1
+  BS: threads=32, gpu_blocks=32, partition=0.25
+  BS: threads=32, gpu_blocks=32, partition=0.5
+  BS: threads=32, gpu_blocks=32, partition=0.75
+  BS: threads=32, gpu_blocks=32, partition=0.9
+  BS: threads=32, gpu_blocks=32, partition=1.0
+  BS: threads=32, gpu_blocks=64, partition=0.0
+  BS: threads=32, gpu_blocks=64, partition=0.1
+  BS: threads=32, gpu_blocks=64, partition=0.25
+  BS: threads=32, gpu_blocks=64, partition=0.5
+  BS: threads=32, gpu_blocks=64, partition=0.75
+  BS: threads=32, gpu_blocks=64, partition=0.9
+  BS: threads=32, gpu_blocks=64, partition=1.0
+  BS: threads=64, gpu_blocks=8, partition=0.0
+  BS: threads=64, gpu_blocks=8, partition=0.1
+  BS: threads=64, gpu_blocks=8, partition=0.25
+  BS: threads=64, gpu_blocks=8, partition=0.5
+  BS: threads=64, gpu_blocks=8, partition=0.75
+  BS: threads=64, gpu_blocks=8, partition=0.9
+  BS: threads=64, gpu_blocks=8, partition=1.0
+  BS: threads=64, gpu_blocks=16, partition=0.0
+  BS: threads=64, gpu_blocks=16, partition=0.1
+  BS: threads=64, gpu_blocks=16, partition=0.25
+  BS: threads=64, gpu_blocks=16, partition=0.5
+  BS: threads=64, gpu_blocks=16, partition=0.75
+  BS: threads=64, gpu_blocks=16, partition=0.9
+  BS: threads=64, gpu_blocks=16, partition=1.0
+  BS: threads=64, gpu_blocks=32, partition=0.0
+  BS: threads=64, gpu_blocks=32, partition=0.1
+  BS: threads=64, gpu_blocks=32, partition=0.25
+  BS: threads=64, gpu_blocks=32, partition=0.5
+  BS: threads=64, gpu_blocks=32, partition=0.75
+  BS: threads=64, gpu_blocks=32, partition=0.9
+  BS: threads=64, gpu_blocks=32, partition=1.0
+  BS: threads=64, gpu_blocks=64, partition=0.0
+  BS: threads=64, gpu_blocks=64, partition=0.1
+  BS: threads=64, gpu_blocks=64, partition=0.25
+  BS: threads=64, gpu_blocks=64, partition=0.5
+  BS: threads=64, gpu_blocks=64, partition=0.75
+  BS: threads=64, gpu_blocks=64, partition=0.9
+  BS: threads=64, gpu_blocks=64, partition=1.0
+  Results saved to results_209-20-156-106_20260122_164741/BS_results.csv
+=== Running HSTI (with partition + GPU blocks sweep) ===
+  HSTI: threads=1, gpu_blocks=8, partition=0.0
+  HSTI: threads=1, gpu_blocks=8, partition=0.1
+  HSTI: threads=1, gpu_blocks=8, partition=0.25
+  HSTI: threads=1, gpu_blocks=8, partition=0.5
+  HSTI: threads=1, gpu_blocks=8, partition=0.75
+  HSTI: threads=1, gpu_blocks=8, partition=0.9
+  HSTI: threads=1, gpu_blocks=8, partition=1.0
+  HSTI: threads=1, gpu_blocks=16, partition=0.0
+  HSTI: threads=1, gpu_blocks=16, partition=0.1
+  HSTI: threads=1, gpu_blocks=16, partition=0.25
+  HSTI: threads=1, gpu_blocks=16, partition=0.5
+  HSTI: threads=1, gpu_blocks=16, partition=0.75
+  HSTI: threads=1, gpu_blocks=16, partition=0.9
+  HSTI: threads=1, gpu_blocks=16, partition=1.0
+  HSTI: threads=1, gpu_blocks=32, partition=0.0
+  HSTI: threads=1, gpu_blocks=32, partition=0.1
+  HSTI: threads=1, gpu_blocks=32, partition=0.25
+  HSTI: threads=1, gpu_blocks=32, partition=0.5
+  HSTI: threads=1, gpu_blocks=32, partition=0.75
+  HSTI: threads=1, gpu_blocks=32, partition=0.9
+  HSTI: threads=1, gpu_blocks=32, partition=1.0
+  HSTI: threads=1, gpu_blocks=64, partition=0.0
+  HSTI: threads=1, gpu_blocks=64, partition=0.1
+  HSTI: threads=1, gpu_blocks=64, partition=0.25
+  HSTI: threads=1, gpu_blocks=64, partition=0.5
+  HSTI: threads=1, gpu_blocks=64, partition=0.75
+  HSTI: threads=1, gpu_blocks=64, partition=0.9
+  HSTI: threads=1, gpu_blocks=64, partition=1.0
+  HSTI: threads=4, gpu_blocks=8, partition=0.0
+  HSTI: threads=4, gpu_blocks=8, partition=0.1
+  HSTI: threads=4, gpu_blocks=8, partition=0.25
+  HSTI: threads=4, gpu_blocks=8, partition=0.5
+  HSTI: threads=4, gpu_blocks=8, partition=0.75
+  HSTI: threads=4, gpu_blocks=8, partition=0.9
+  HSTI: threads=4, gpu_blocks=8, partition=1.0
+  HSTI: threads=4, gpu_blocks=16, partition=0.0
+  HSTI: threads=4, gpu_blocks=16, partition=0.1
+  HSTI: threads=4, gpu_blocks=16, partition=0.25
+  HSTI: threads=4, gpu_blocks=16, partition=0.5
+  HSTI: threads=4, gpu_blocks=16, partition=0.75
+  HSTI: threads=4, gpu_blocks=16, partition=0.9
+  HSTI: threads=4, gpu_blocks=16, partition=1.0
+  HSTI: threads=4, gpu_blocks=32, partition=0.0
+  HSTI: threads=4, gpu_blocks=32, partition=0.1
+  HSTI: threads=4, gpu_blocks=32, partition=0.25
+  HSTI: threads=4, gpu_blocks=32, partition=0.5
+  HSTI: threads=4, gpu_blocks=32, partition=0.75
+  HSTI: threads=4, gpu_blocks=32, partition=0.9
+  HSTI: threads=4, gpu_blocks=32, partition=1.0
+  HSTI: threads=4, gpu_blocks=64, partition=0.0
+  HSTI: threads=4, gpu_blocks=64, partition=0.1
+  HSTI: threads=4, gpu_blocks=64, partition=0.25
+  HSTI: threads=4, gpu_blocks=64, partition=0.5
+  HSTI: threads=4, gpu_blocks=64, partition=0.75
+  HSTI: threads=4, gpu_blocks=64, partition=0.9
+  HSTI: threads=4, gpu_blocks=64, partition=1.0
+  HSTI: threads=16, gpu_blocks=8, partition=0.0
+  HSTI: threads=16, gpu_blocks=8, partition=0.1
+  HSTI: threads=16, gpu_blocks=8, partition=0.25
+  HSTI: threads=16, gpu_blocks=8, partition=0.5
+  HSTI: threads=16, gpu_blocks=8, partition=0.75
+  HSTI: threads=16, gpu_blocks=8, partition=0.9
+  HSTI: threads=16, gpu_blocks=8, partition=1.0
+  HSTI: threads=16, gpu_blocks=16, partition=0.0
+  HSTI: threads=16, gpu_blocks=16, partition=0.1
+  HSTI: threads=16, gpu_blocks=16, partition=0.25
+  HSTI: threads=16, gpu_blocks=16, partition=0.5
+  HSTI: threads=16, gpu_blocks=16, partition=0.75
+  HSTI: threads=16, gpu_blocks=16, partition=0.9
+  HSTI: threads=16, gpu_blocks=16, partition=1.0
+  HSTI: threads=16, gpu_blocks=32, partition=0.0
+  HSTI: threads=16, gpu_blocks=32, partition=0.1
+  HSTI: threads=16, gpu_blocks=32, partition=0.25
+  HSTI: threads=16, gpu_blocks=32, partition=0.5
+  HSTI: threads=16, gpu_blocks=32, partition=0.75
+  HSTI: threads=16, gpu_blocks=32, partition=0.9
+  HSTI: threads=16, gpu_blocks=32, partition=1.0
+  HSTI: threads=16, gpu_blocks=64, partition=0.0
+  HSTI: threads=16, gpu_blocks=64, partition=0.1
+  HSTI: threads=16, gpu_blocks=64, partition=0.25
+  HSTI: threads=16, gpu_blocks=64, partition=0.5
+  HSTI: threads=16, gpu_blocks=64, partition=0.75
+  HSTI: threads=16, gpu_blocks=64, partition=0.9
+  HSTI: threads=16, gpu_blocks=64, partition=1.0
+  HSTI: threads=32, gpu_blocks=8, partition=0.0
+  HSTI: threads=32, gpu_blocks=8, partition=0.1
+  HSTI: threads=32, gpu_blocks=8, partition=0.25
+  HSTI: threads=32, gpu_blocks=8, partition=0.5
+  HSTI: threads=32, gpu_blocks=8, partition=0.75
+  HSTI: threads=32, gpu_blocks=8, partition=0.9
+  HSTI: threads=32, gpu_blocks=8, partition=1.0
+  HSTI: threads=32, gpu_blocks=16, partition=0.0
+  HSTI: threads=32, gpu_blocks=16, partition=0.1
+  HSTI: threads=32, gpu_blocks=16, partition=0.25
+  HSTI: threads=32, gpu_blocks=16, partition=0.5
+  HSTI: threads=32, gpu_blocks=16, partition=0.75
+  HSTI: threads=32, gpu_blocks=16, partition=0.9
+  HSTI: threads=32, gpu_blocks=16, partition=1.0
+  HSTI: threads=32, gpu_blocks=32, partition=0.0
+  HSTI: threads=32, gpu_blocks=32, partition=0.1
+  HSTI: threads=32, gpu_blocks=32, partition=0.25
+  HSTI: threads=32, gpu_blocks=32, partition=0.5
+  HSTI: threads=32, gpu_blocks=32, partition=0.75
+  HSTI: threads=32, gpu_blocks=32, partition=0.9
+  HSTI: threads=32, gpu_blocks=32, partition=1.0
+  HSTI: threads=32, gpu_blocks=64, partition=0.0
+  HSTI: threads=32, gpu_blocks=64, partition=0.1
+  HSTI: threads=32, gpu_blocks=64, partition=0.25
+  HSTI: threads=32, gpu_blocks=64, partition=0.5
+  HSTI: threads=32, gpu_blocks=64, partition=0.75
+  HSTI: threads=32, gpu_blocks=64, partition=0.9
+  HSTI: threads=32, gpu_blocks=64, partition=1.0
+  HSTI: threads=64, gpu_blocks=8, partition=0.0
+  HSTI: threads=64, gpu_blocks=8, partition=0.1
+  HSTI: threads=64, gpu_blocks=8, partition=0.25
+  HSTI: threads=64, gpu_blocks=8, partition=0.5
+  HSTI: threads=64, gpu_blocks=8, partition=0.75
+  HSTI: threads=64, gpu_blocks=8, partition=0.9
+  HSTI: threads=64, gpu_blocks=8, partition=1.0
+  HSTI: threads=64, gpu_blocks=16, partition=0.0
+  HSTI: threads=64, gpu_blocks=16, partition=0.1
+  HSTI: threads=64, gpu_blocks=16, partition=0.25
+  HSTI: threads=64, gpu_blocks=16, partition=0.5
+  HSTI: threads=64, gpu_blocks=16, partition=0.75
+  HSTI: threads=64, gpu_blocks=16, partition=0.9
+  HSTI: threads=64, gpu_blocks=16, partition=1.0
+  HSTI: threads=64, gpu_blocks=32, partition=0.0
+  HSTI: threads=64, gpu_blocks=32, partition=0.1
+  HSTI: threads=64, gpu_blocks=32, partition=0.25
+  HSTI: threads=64, gpu_blocks=32, partition=0.5
+  HSTI: threads=64, gpu_blocks=32, partition=0.75
+  HSTI: threads=64, gpu_blocks=32, partition=0.9
+  HSTI: threads=64, gpu_blocks=32, partition=1.0
+  HSTI: threads=64, gpu_blocks=64, partition=0.0
+  HSTI: threads=64, gpu_blocks=64, partition=0.1
+  HSTI: threads=64, gpu_blocks=64, partition=0.25
+  HSTI: threads=64, gpu_blocks=64, partition=0.5
+  HSTI: threads=64, gpu_blocks=64, partition=0.75
+  HSTI: threads=64, gpu_blocks=64, partition=0.9
+  HSTI: threads=64, gpu_blocks=64, partition=1.0
+  Results saved to results_209-20-156-106_20260122_164741/HSTI_results.csv
+=== Running HSTO (with partition + GPU blocks sweep) ===
+  HSTO: threads=1, gpu_blocks=8, partition=0.0
+  HSTO: threads=1, gpu_blocks=8, partition=0.1
+  HSTO: threads=1, gpu_blocks=8, partition=0.25
+  HSTO: threads=1, gpu_blocks=8, partition=0.5
+  HSTO: threads=1, gpu_blocks=8, partition=0.75
+  HSTO: threads=1, gpu_blocks=8, partition=0.9
+  HSTO: threads=1, gpu_blocks=8, partition=1.0
+  HSTO: threads=1, gpu_blocks=16, partition=0.0
+  HSTO: threads=1, gpu_blocks=16, partition=0.1
+  HSTO: threads=1, gpu_blocks=16, partition=0.25
+  HSTO: threads=1, gpu_blocks=16, partition=0.5
+  HSTO: threads=1, gpu_blocks=16, partition=0.75
+  HSTO: threads=1, gpu_blocks=16, partition=0.9
+  HSTO: threads=1, gpu_blocks=16, partition=1.0
+  HSTO: threads=1, gpu_blocks=32, partition=0.0
+  HSTO: threads=1, gpu_blocks=32, partition=0.1
+  HSTO: threads=1, gpu_blocks=32, partition=0.25
+  HSTO: threads=1, gpu_blocks=32, partition=0.5
+  HSTO: threads=1, gpu_blocks=32, partition=0.75
+  HSTO: threads=1, gpu_blocks=32, partition=0.9
+  HSTO: threads=1, gpu_blocks=32, partition=1.0
+  HSTO: threads=1, gpu_blocks=64, partition=0.0
+  HSTO: threads=1, gpu_blocks=64, partition=0.1
+  HSTO: threads=1, gpu_blocks=64, partition=0.25
+  HSTO: threads=1, gpu_blocks=64, partition=0.5
+  HSTO: threads=1, gpu_blocks=64, partition=0.75
+  HSTO: threads=1, gpu_blocks=64, partition=0.9
+  HSTO: threads=1, gpu_blocks=64, partition=1.0
+  HSTO: threads=4, gpu_blocks=8, partition=0.0
+  HSTO: threads=4, gpu_blocks=8, partition=0.1
+  HSTO: threads=4, gpu_blocks=8, partition=0.25
+  HSTO: threads=4, gpu_blocks=8, partition=0.5
+  HSTO: threads=4, gpu_blocks=8, partition=0.75
+  HSTO: threads=4, gpu_blocks=8, partition=0.9
+  HSTO: threads=4, gpu_blocks=8, partition=1.0
+  HSTO: threads=4, gpu_blocks=16, partition=0.0
+  HSTO: threads=4, gpu_blocks=16, partition=0.1
+  HSTO: threads=4, gpu_blocks=16, partition=0.25
+  HSTO: threads=4, gpu_blocks=16, partition=0.5
+  HSTO: threads=4, gpu_blocks=16, partition=0.75
+  HSTO: threads=4, gpu_blocks=16, partition=0.9
+  HSTO: threads=4, gpu_blocks=16, partition=1.0
+  HSTO: threads=4, gpu_blocks=32, partition=0.0
+  HSTO: threads=4, gpu_blocks=32, partition=0.1
+  HSTO: threads=4, gpu_blocks=32, partition=0.25
+  HSTO: threads=4, gpu_blocks=32, partition=0.5
+  HSTO: threads=4, gpu_blocks=32, partition=0.75
+  HSTO: threads=4, gpu_blocks=32, partition=0.9
+  HSTO: threads=4, gpu_blocks=32, partition=1.0
+  HSTO: threads=4, gpu_blocks=64, partition=0.0
+  HSTO: threads=4, gpu_blocks=64, partition=0.1
+  HSTO: threads=4, gpu_blocks=64, partition=0.25
+  HSTO: threads=4, gpu_blocks=64, partition=0.5
+  HSTO: threads=4, gpu_blocks=64, partition=0.75
+  HSTO: threads=4, gpu_blocks=64, partition=0.9
+  HSTO: threads=4, gpu_blocks=64, partition=1.0
+  HSTO: threads=16, gpu_blocks=8, partition=0.0
+  HSTO: threads=16, gpu_blocks=8, partition=0.1
+  HSTO: threads=16, gpu_blocks=8, partition=0.25
+  HSTO: threads=16, gpu_blocks=8, partition=0.5
+  HSTO: threads=16, gpu_blocks=8, partition=0.75
+  HSTO: threads=16, gpu_blocks=8, partition=0.9
+  HSTO: threads=16, gpu_blocks=8, partition=1.0
+  HSTO: threads=16, gpu_blocks=16, partition=0.0
+  HSTO: threads=16, gpu_blocks=16, partition=0.1
+  HSTO: threads=16, gpu_blocks=16, partition=0.25
+  HSTO: threads=16, gpu_blocks=16, partition=0.5
+  HSTO: threads=16, gpu_blocks=16, partition=0.75
+  HSTO: threads=16, gpu_blocks=16, partition=0.9
+  HSTO: threads=16, gpu_blocks=16, partition=1.0
+  HSTO: threads=16, gpu_blocks=32, partition=0.0
+  HSTO: threads=16, gpu_blocks=32, partition=0.1
+  HSTO: threads=16, gpu_blocks=32, partition=0.25
+  HSTO: threads=16, gpu_blocks=32, partition=0.5
+  HSTO: threads=16, gpu_blocks=32, partition=0.75
+  HSTO: threads=16, gpu_blocks=32, partition=0.9
+  HSTO: threads=16, gpu_blocks=32, partition=1.0
+  HSTO: threads=16, gpu_blocks=64, partition=0.0
+  HSTO: threads=16, gpu_blocks=64, partition=0.1
+  HSTO: threads=16, gpu_blocks=64, partition=0.25
+  HSTO: threads=16, gpu_blocks=64, partition=0.5
+  HSTO: threads=16, gpu_blocks=64, partition=0.75
+  HSTO: threads=16, gpu_blocks=64, partition=0.9
+  HSTO: threads=16, gpu_blocks=64, partition=1.0
+  HSTO: threads=32, gpu_blocks=8, partition=0.0
+  HSTO: threads=32, gpu_blocks=8, partition=0.1
+  HSTO: threads=32, gpu_blocks=8, partition=0.25
+  HSTO: threads=32, gpu_blocks=8, partition=0.5
+  HSTO: threads=32, gpu_blocks=8, partition=0.75
+  HSTO: threads=32, gpu_blocks=8, partition=0.9
+  HSTO: threads=32, gpu_blocks=8, partition=1.0
+  HSTO: threads=32, gpu_blocks=16, partition=0.0
+  HSTO: threads=32, gpu_blocks=16, partition=0.1
+  HSTO: threads=32, gpu_blocks=16, partition=0.25
+  HSTO: threads=32, gpu_blocks=16, partition=0.5
+  HSTO: threads=32, gpu_blocks=16, partition=0.75
+  HSTO: threads=32, gpu_blocks=16, partition=0.9
+  HSTO: threads=32, gpu_blocks=16, partition=1.0
+  HSTO: threads=32, gpu_blocks=32, partition=0.0
+  HSTO: threads=32, gpu_blocks=32, partition=0.1
+  HSTO: threads=32, gpu_blocks=32, partition=0.25
+  HSTO: threads=32, gpu_blocks=32, partition=0.5
+  HSTO: threads=32, gpu_blocks=32, partition=0.75
+  HSTO: threads=32, gpu_blocks=32, partition=0.9
+  HSTO: threads=32, gpu_blocks=32, partition=1.0
+  HSTO: threads=32, gpu_blocks=64, partition=0.0
+  HSTO: threads=32, gpu_blocks=64, partition=0.1
+  HSTO: threads=32, gpu_blocks=64, partition=0.25
+  HSTO: threads=32, gpu_blocks=64, partition=0.5
+  HSTO: threads=32, gpu_blocks=64, partition=0.75
+  HSTO: threads=32, gpu_blocks=64, partition=0.9
+  HSTO: threads=32, gpu_blocks=64, partition=1.0
+  HSTO: threads=64, gpu_blocks=8, partition=0.0
+  HSTO: threads=64, gpu_blocks=8, partition=0.1
+  HSTO: threads=64, gpu_blocks=8, partition=0.25
+  HSTO: threads=64, gpu_blocks=8, partition=0.5
+  HSTO: threads=64, gpu_blocks=8, partition=0.75
+  HSTO: threads=64, gpu_blocks=8, partition=0.9
+  HSTO: threads=64, gpu_blocks=8, partition=1.0
+  HSTO: threads=64, gpu_blocks=16, partition=0.0
+  HSTO: threads=64, gpu_blocks=16, partition=0.1
+  HSTO: threads=64, gpu_blocks=16, partition=0.25
+  HSTO: threads=64, gpu_blocks=16, partition=0.5
+  HSTO: threads=64, gpu_blocks=16, partition=0.75
+  HSTO: threads=64, gpu_blocks=16, partition=0.9
+  HSTO: threads=64, gpu_blocks=16, partition=1.0
+  HSTO: threads=64, gpu_blocks=32, partition=0.0
+  HSTO: threads=64, gpu_blocks=32, partition=0.1
+  HSTO: threads=64, gpu_blocks=32, partition=0.25
+  HSTO: threads=64, gpu_blocks=32, partition=0.5
+  HSTO: threads=64, gpu_blocks=32, partition=0.75
+  HSTO: threads=64, gpu_blocks=32, partition=0.9
+  HSTO: threads=64, gpu_blocks=32, partition=1.0
+  HSTO: threads=64, gpu_blocks=64, partition=0.0
+  HSTO: threads=64, gpu_blocks=64, partition=0.1
+  HSTO: threads=64, gpu_blocks=64, partition=0.25
+  HSTO: threads=64, gpu_blocks=64, partition=0.5
+  HSTO: threads=64, gpu_blocks=64, partition=0.75
+  HSTO: threads=64, gpu_blocks=64, partition=0.9
+  HSTO: threads=64, gpu_blocks=64, partition=1.0
+  Results saved to results_209-20-156-106_20260122_164741/HSTO_results.csv
+=== Running PAD (with partition + GPU blocks sweep) ===
+  PAD: threads=1, gpu_blocks=8, partition=0.0
+  PAD: threads=1, gpu_blocks=8, partition=0.1
+  PAD: threads=1, gpu_blocks=8, partition=0.25
+  PAD: threads=1, gpu_blocks=8, partition=0.5
+  PAD: threads=1, gpu_blocks=8, partition=0.75
+  PAD: threads=1, gpu_blocks=8, partition=0.9
+  PAD: threads=1, gpu_blocks=8, partition=1.0
+  PAD: threads=1, gpu_blocks=16, partition=0.0
+  PAD: threads=1, gpu_blocks=16, partition=0.1
+  PAD: threads=1, gpu_blocks=16, partition=0.25
+  PAD: threads=1, gpu_blocks=16, partition=0.5
+  PAD: threads=1, gpu_blocks=16, partition=0.75
+  PAD: threads=1, gpu_blocks=16, partition=0.9
+  PAD: threads=1, gpu_blocks=16, partition=1.0
+  PAD: threads=1, gpu_blocks=32, partition=0.0
+  PAD: threads=1, gpu_blocks=32, partition=0.1
+  PAD: threads=1, gpu_blocks=32, partition=0.25
+  PAD: threads=1, gpu_blocks=32, partition=0.5
+  PAD: threads=1, gpu_blocks=32, partition=0.75
+  PAD: threads=1, gpu_blocks=32, partition=0.9
+  PAD: threads=1, gpu_blocks=32, partition=1.0
+  PAD: threads=1, gpu_blocks=64, partition=0.0
+  PAD: threads=1, gpu_blocks=64, partition=0.1
+  PAD: threads=1, gpu_blocks=64, partition=0.25
+  PAD: threads=1, gpu_blocks=64, partition=0.5
+  PAD: threads=1, gpu_blocks=64, partition=0.75
+  PAD: threads=1, gpu_blocks=64, partition=0.9
+  PAD: threads=1, gpu_blocks=64, partition=1.0
+  PAD: threads=4, gpu_blocks=8, partition=0.0
+  PAD: threads=4, gpu_blocks=8, partition=0.1
+  PAD: threads=4, gpu_blocks=8, partition=0.25
+  PAD: threads=4, gpu_blocks=8, partition=0.5
+  PAD: threads=4, gpu_blocks=8, partition=0.75
+  PAD: threads=4, gpu_blocks=8, partition=0.9
+  PAD: threads=4, gpu_blocks=8, partition=1.0
+  PAD: threads=4, gpu_blocks=16, partition=0.0
+  PAD: threads=4, gpu_blocks=16, partition=0.1
+  PAD: threads=4, gpu_blocks=16, partition=0.25
+  PAD: threads=4, gpu_blocks=16, partition=0.5
+  PAD: threads=4, gpu_blocks=16, partition=0.75
+  PAD: threads=4, gpu_blocks=16, partition=0.9
+  PAD: threads=4, gpu_blocks=16, partition=1.0
+  PAD: threads=4, gpu_blocks=32, partition=0.0
+  PAD: threads=4, gpu_blocks=32, partition=0.1
+  PAD: threads=4, gpu_blocks=32, partition=0.25
+  PAD: threads=4, gpu_blocks=32, partition=0.5
+  PAD: threads=4, gpu_blocks=32, partition=0.75
+  PAD: threads=4, gpu_blocks=32, partition=0.9
+  PAD: threads=4, gpu_blocks=32, partition=1.0
+  PAD: threads=4, gpu_blocks=64, partition=0.0
+  PAD: threads=4, gpu_blocks=64, partition=0.1
+  PAD: threads=4, gpu_blocks=64, partition=0.25
+  PAD: threads=4, gpu_blocks=64, partition=0.5
+  PAD: threads=4, gpu_blocks=64, partition=0.75
+  PAD: threads=4, gpu_blocks=64, partition=0.9
+  PAD: threads=4, gpu_blocks=64, partition=1.0
+  PAD: threads=16, gpu_blocks=8, partition=0.0
+  PAD: threads=16, gpu_blocks=8, partition=0.1
+  PAD: threads=16, gpu_blocks=8, partition=0.25
+  PAD: threads=16, gpu_blocks=8, partition=0.5
+  PAD: threads=16, gpu_blocks=8, partition=0.75
+  PAD: threads=16, gpu_blocks=8, partition=0.9
+  PAD: threads=16, gpu_blocks=8, partition=1.0
+  PAD: threads=16, gpu_blocks=16, partition=0.0
+  PAD: threads=16, gpu_blocks=16, partition=0.1
+  PAD: threads=16, gpu_blocks=16, partition=0.25
+  PAD: threads=16, gpu_blocks=16, partition=0.5
+  PAD: threads=16, gpu_blocks=16, partition=0.75
+  PAD: threads=16, gpu_blocks=16, partition=0.9
+  PAD: threads=16, gpu_blocks=16, partition=1.0
+  PAD: threads=16, gpu_blocks=32, partition=0.0
+  PAD: threads=16, gpu_blocks=32, partition=0.1
+  PAD: threads=16, gpu_blocks=32, partition=0.25
+  PAD: threads=16, gpu_blocks=32, partition=0.5
+  PAD: threads=16, gpu_blocks=32, partition=0.75
+  PAD: threads=16, gpu_blocks=32, partition=0.9
+  PAD: threads=16, gpu_blocks=32, partition=1.0
+  PAD: threads=16, gpu_blocks=64, partition=0.0
+  PAD: threads=16, gpu_blocks=64, partition=0.1
+  PAD: threads=16, gpu_blocks=64, partition=0.25
+  PAD: threads=16, gpu_blocks=64, partition=0.5
+  PAD: threads=16, gpu_blocks=64, partition=0.75
+  PAD: threads=16, gpu_blocks=64, partition=0.9
+  PAD: threads=16, gpu_blocks=64, partition=1.0
+  PAD: threads=32, gpu_blocks=8, partition=0.0
+  PAD: threads=32, gpu_blocks=8, partition=0.1
+  PAD: threads=32, gpu_blocks=8, partition=0.25
+  PAD: threads=32, gpu_blocks=8, partition=0.5
+  PAD: threads=32, gpu_blocks=8, partition=0.75
+  PAD: threads=32, gpu_blocks=8, partition=0.9
+  PAD: threads=32, gpu_blocks=8, partition=1.0
+  PAD: threads=32, gpu_blocks=16, partition=0.0
+  PAD: threads=32, gpu_blocks=16, partition=0.1
+  PAD: threads=32, gpu_blocks=16, partition=0.25
+  PAD: threads=32, gpu_blocks=16, partition=0.5
+  PAD: threads=32, gpu_blocks=16, partition=0.75
+  PAD: threads=32, gpu_blocks=16, partition=0.9
+  PAD: threads=32, gpu_blocks=16, partition=1.0
+  PAD: threads=32, gpu_blocks=32, partition=0.0
+  PAD: threads=32, gpu_blocks=32, partition=0.1
+  PAD: threads=32, gpu_blocks=32, partition=0.25
+  PAD: threads=32, gpu_blocks=32, partition=0.5
+  PAD: threads=32, gpu_blocks=32, partition=0.75
+  PAD: threads=32, gpu_blocks=32, partition=0.9
+  PAD: threads=32, gpu_blocks=32, partition=1.0
+  PAD: threads=32, gpu_blocks=64, partition=0.0
+  PAD: threads=32, gpu_blocks=64, partition=0.1
+  PAD: threads=32, gpu_blocks=64, partition=0.25
+  PAD: threads=32, gpu_blocks=64, partition=0.5
+  PAD: threads=32, gpu_blocks=64, partition=0.75
+  PAD: threads=32, gpu_blocks=64, partition=0.9
+  PAD: threads=32, gpu_blocks=64, partition=1.0
+  PAD: threads=64, gpu_blocks=8, partition=0.0
+  PAD: threads=64, gpu_blocks=8, partition=0.1
+  PAD: threads=64, gpu_blocks=8, partition=0.25
+  PAD: threads=64, gpu_blocks=8, partition=0.5
+  PAD: threads=64, gpu_blocks=8, partition=0.75
+  PAD: threads=64, gpu_blocks=8, partition=0.9
+  PAD: threads=64, gpu_blocks=8, partition=1.0
+  PAD: threads=64, gpu_blocks=16, partition=0.0
+  PAD: threads=64, gpu_blocks=16, partition=0.1
+  PAD: threads=64, gpu_blocks=16, partition=0.25
+  PAD: threads=64, gpu_blocks=16, partition=0.5
+  PAD: threads=64, gpu_blocks=16, partition=0.75
+  PAD: threads=64, gpu_blocks=16, partition=0.9
+  PAD: threads=64, gpu_blocks=16, partition=1.0
+  PAD: threads=64, gpu_blocks=32, partition=0.0
+  PAD: threads=64, gpu_blocks=32, partition=0.1
+  PAD: threads=64, gpu_blocks=32, partition=0.25
+  PAD: threads=64, gpu_blocks=32, partition=0.5
+  PAD: threads=64, gpu_blocks=32, partition=0.75
+  PAD: threads=64, gpu_blocks=32, partition=0.9
+  PAD: threads=64, gpu_blocks=32, partition=1.0
+  PAD: threads=64, gpu_blocks=64, partition=0.0
+  PAD: threads=64, gpu_blocks=64, partition=0.1
+  PAD: threads=64, gpu_blocks=64, partition=0.25
+  PAD: threads=64, gpu_blocks=64, partition=0.5
+  PAD: threads=64, gpu_blocks=64, partition=0.75
+  PAD: threads=64, gpu_blocks=64, partition=0.9
+  PAD: threads=64, gpu_blocks=64, partition=1.0
+  Results saved to results_209-20-156-106_20260122_164741/PAD_results.csv
+=== Running RSCD (with partition + GPU blocks sweep) ===
+  RSCD: threads=1, gpu_blocks=8, partition=0.0
+  RSCD: threads=1, gpu_blocks=8, partition=0.1
+  RSCD: threads=1, gpu_blocks=8, partition=0.25
+  RSCD: threads=1, gpu_blocks=8, partition=0.5
+  RSCD: threads=1, gpu_blocks=8, partition=0.75
+  RSCD: threads=1, gpu_blocks=8, partition=0.9
+  RSCD: threads=1, gpu_blocks=8, partition=1.0
+  RSCD: threads=1, gpu_blocks=16, partition=0.0
+  RSCD: threads=1, gpu_blocks=16, partition=0.1
+  RSCD: threads=1, gpu_blocks=16, partition=0.25
+  RSCD: threads=1, gpu_blocks=16, partition=0.5
+  RSCD: threads=1, gpu_blocks=16, partition=0.75
+  RSCD: threads=1, gpu_blocks=16, partition=0.9
+  RSCD: threads=1, gpu_blocks=16, partition=1.0
+  RSCD: threads=1, gpu_blocks=32, partition=0.0
+  RSCD: threads=1, gpu_blocks=32, partition=0.1
+  RSCD: threads=1, gpu_blocks=32, partition=0.25
+  RSCD: threads=1, gpu_blocks=32, partition=0.5
+  RSCD: threads=1, gpu_blocks=32, partition=0.75
+  RSCD: threads=1, gpu_blocks=32, partition=0.9
+  RSCD: threads=1, gpu_blocks=32, partition=1.0
+  RSCD: threads=1, gpu_blocks=64, partition=0.0
+  RSCD: threads=1, gpu_blocks=64, partition=0.1
+  RSCD: threads=1, gpu_blocks=64, partition=0.25
+  RSCD: threads=1, gpu_blocks=64, partition=0.5
+  RSCD: threads=1, gpu_blocks=64, partition=0.75
+  RSCD: threads=1, gpu_blocks=64, partition=0.9
+  RSCD: threads=1, gpu_blocks=64, partition=1.0
+  RSCD: threads=4, gpu_blocks=8, partition=0.0
+  RSCD: threads=4, gpu_blocks=8, partition=0.1
+  RSCD: threads=4, gpu_blocks=8, partition=0.25
+  RSCD: threads=4, gpu_blocks=8, partition=0.5
+  RSCD: threads=4, gpu_blocks=8, partition=0.75
+  RSCD: threads=4, gpu_blocks=8, partition=0.9
+  RSCD: threads=4, gpu_blocks=8, partition=1.0
+  RSCD: threads=4, gpu_blocks=16, partition=0.0
+  RSCD: threads=4, gpu_blocks=16, partition=0.1
+  RSCD: threads=4, gpu_blocks=16, partition=0.25
+  RSCD: threads=4, gpu_blocks=16, partition=0.5
+  RSCD: threads=4, gpu_blocks=16, partition=0.75
+  RSCD: threads=4, gpu_blocks=16, partition=0.9
+  RSCD: threads=4, gpu_blocks=16, partition=1.0
+  RSCD: threads=4, gpu_blocks=32, partition=0.0
+  RSCD: threads=4, gpu_blocks=32, partition=0.1
+  RSCD: threads=4, gpu_blocks=32, partition=0.25
+  RSCD: threads=4, gpu_blocks=32, partition=0.5
+  RSCD: threads=4, gpu_blocks=32, partition=0.75
+  RSCD: threads=4, gpu_blocks=32, partition=0.9
+  RSCD: threads=4, gpu_blocks=32, partition=1.0
+  RSCD: threads=4, gpu_blocks=64, partition=0.0
+  RSCD: threads=4, gpu_blocks=64, partition=0.1
+  RSCD: threads=4, gpu_blocks=64, partition=0.25
+  RSCD: threads=4, gpu_blocks=64, partition=0.5
+  RSCD: threads=4, gpu_blocks=64, partition=0.75
+  RSCD: threads=4, gpu_blocks=64, partition=0.9
+  RSCD: threads=4, gpu_blocks=64, partition=1.0
+  RSCD: threads=16, gpu_blocks=8, partition=0.0
+  RSCD: threads=16, gpu_blocks=8, partition=0.1
+  RSCD: threads=16, gpu_blocks=8, partition=0.25
+  RSCD: threads=16, gpu_blocks=8, partition=0.5
+  RSCD: threads=16, gpu_blocks=8, partition=0.75
+  RSCD: threads=16, gpu_blocks=8, partition=0.9
+  RSCD: threads=16, gpu_blocks=8, partition=1.0
+  RSCD: threads=16, gpu_blocks=16, partition=0.0
+  RSCD: threads=16, gpu_blocks=16, partition=0.1
+  RSCD: threads=16, gpu_blocks=16, partition=0.25
+  RSCD: threads=16, gpu_blocks=16, partition=0.5
+  RSCD: threads=16, gpu_blocks=16, partition=0.75
+  RSCD: threads=16, gpu_blocks=16, partition=0.9
+  RSCD: threads=16, gpu_blocks=16, partition=1.0
+  RSCD: threads=16, gpu_blocks=32, partition=0.0
+  RSCD: threads=16, gpu_blocks=32, partition=0.1
+  RSCD: threads=16, gpu_blocks=32, partition=0.25
+  RSCD: threads=16, gpu_blocks=32, partition=0.5
+  RSCD: threads=16, gpu_blocks=32, partition=0.75
+  RSCD: threads=16, gpu_blocks=32, partition=0.9
+  RSCD: threads=16, gpu_blocks=32, partition=1.0
+  RSCD: threads=16, gpu_blocks=64, partition=0.0
+  RSCD: threads=16, gpu_blocks=64, partition=0.1
+  RSCD: threads=16, gpu_blocks=64, partition=0.25
+  RSCD: threads=16, gpu_blocks=64, partition=0.5
+  RSCD: threads=16, gpu_blocks=64, partition=0.75
+  RSCD: threads=16, gpu_blocks=64, partition=0.9
+  RSCD: threads=16, gpu_blocks=64, partition=1.0
+  RSCD: threads=32, gpu_blocks=8, partition=0.0
+  RSCD: threads=32, gpu_blocks=8, partition=0.1
+  RSCD: threads=32, gpu_blocks=8, partition=0.25
+  RSCD: threads=32, gpu_blocks=8, partition=0.5
+  RSCD: threads=32, gpu_blocks=8, partition=0.75
+  RSCD: threads=32, gpu_blocks=8, partition=0.9
+  RSCD: threads=32, gpu_blocks=8, partition=1.0
+  RSCD: threads=32, gpu_blocks=16, partition=0.0
+  RSCD: threads=32, gpu_blocks=16, partition=0.1
+  RSCD: threads=32, gpu_blocks=16, partition=0.25
+  RSCD: threads=32, gpu_blocks=16, partition=0.5
+  RSCD: threads=32, gpu_blocks=16, partition=0.75
+  RSCD: threads=32, gpu_blocks=16, partition=0.9
+  RSCD: threads=32, gpu_blocks=16, partition=1.0
+  RSCD: threads=32, gpu_blocks=32, partition=0.0
+  RSCD: threads=32, gpu_blocks=32, partition=0.1
+  RSCD: threads=32, gpu_blocks=32, partition=0.25
+  RSCD: threads=32, gpu_blocks=32, partition=0.5
+  RSCD: threads=32, gpu_blocks=32, partition=0.75
+  RSCD: threads=32, gpu_blocks=32, partition=0.9
+  RSCD: threads=32, gpu_blocks=32, partition=1.0
+  RSCD: threads=32, gpu_blocks=64, partition=0.0
+  RSCD: threads=32, gpu_blocks=64, partition=0.1
+  RSCD: threads=32, gpu_blocks=64, partition=0.25
+  RSCD: threads=32, gpu_blocks=64, partition=0.5
+  RSCD: threads=32, gpu_blocks=64, partition=0.75
+  RSCD: threads=32, gpu_blocks=64, partition=0.9
+  RSCD: threads=32, gpu_blocks=64, partition=1.0
+  RSCD: threads=64, gpu_blocks=8, partition=0.0
+  RSCD: threads=64, gpu_blocks=8, partition=0.1
+  RSCD: threads=64, gpu_blocks=8, partition=0.25
+  RSCD: threads=64, gpu_blocks=8, partition=0.5
+  RSCD: threads=64, gpu_blocks=8, partition=0.75
+  RSCD: threads=64, gpu_blocks=8, partition=0.9
+  RSCD: threads=64, gpu_blocks=8, partition=1.0
+  RSCD: threads=64, gpu_blocks=16, partition=0.0
+  RSCD: threads=64, gpu_blocks=16, partition=0.1
+  RSCD: threads=64, gpu_blocks=16, partition=0.25
+  RSCD: threads=64, gpu_blocks=16, partition=0.5
+  RSCD: threads=64, gpu_blocks=16, partition=0.75
+  RSCD: threads=64, gpu_blocks=16, partition=0.9
+  RSCD: threads=64, gpu_blocks=16, partition=1.0
+  RSCD: threads=64, gpu_blocks=32, partition=0.0
+  RSCD: threads=64, gpu_blocks=32, partition=0.1
+  RSCD: threads=64, gpu_blocks=32, partition=0.25
+  RSCD: threads=64, gpu_blocks=32, partition=0.5
+  RSCD: threads=64, gpu_blocks=32, partition=0.75
+  RSCD: threads=64, gpu_blocks=32, partition=0.9
+  RSCD: threads=64, gpu_blocks=32, partition=1.0
+  RSCD: threads=64, gpu_blocks=64, partition=0.0
+  RSCD: threads=64, gpu_blocks=64, partition=0.1
+  RSCD: threads=64, gpu_blocks=64, partition=0.25
+  RSCD: threads=64, gpu_blocks=64, partition=0.5
+  RSCD: threads=64, gpu_blocks=64, partition=0.75
+  RSCD: threads=64, gpu_blocks=64, partition=0.9
+  RSCD: threads=64, gpu_blocks=64, partition=1.0
+  Results saved to results_209-20-156-106_20260122_164741/RSCD_results.csv
+=== Running SC (with partition + GPU blocks sweep) ===
+  SC: threads=1, gpu_blocks=8, partition=0.0
+  SC: threads=1, gpu_blocks=8, partition=0.1
+  SC: threads=1, gpu_blocks=8, partition=0.25
+  SC: threads=1, gpu_blocks=8, partition=0.5
+  SC: threads=1, gpu_blocks=8, partition=0.75
+  SC: threads=1, gpu_blocks=8, partition=0.9
+  SC: threads=1, gpu_blocks=8, partition=1.0
+  SC: threads=1, gpu_blocks=16, partition=0.0
+  SC: threads=1, gpu_blocks=16, partition=0.1
+  SC: threads=1, gpu_blocks=16, partition=0.25
+  SC: threads=1, gpu_blocks=16, partition=0.5
+  SC: threads=1, gpu_blocks=16, partition=0.75
+  SC: threads=1, gpu_blocks=16, partition=0.9
+  SC: threads=1, gpu_blocks=16, partition=1.0
+  SC: threads=1, gpu_blocks=32, partition=0.0
+  SC: threads=1, gpu_blocks=32, partition=0.1
+  SC: threads=1, gpu_blocks=32, partition=0.25
+  SC: threads=1, gpu_blocks=32, partition=0.5
+  SC: threads=1, gpu_blocks=32, partition=0.75
+  SC: threads=1, gpu_blocks=32, partition=0.9
+  SC: threads=1, gpu_blocks=32, partition=1.0
+  SC: threads=1, gpu_blocks=64, partition=0.0
+  SC: threads=1, gpu_blocks=64, partition=0.1
+  SC: threads=1, gpu_blocks=64, partition=0.25
+  SC: threads=1, gpu_blocks=64, partition=0.5
+  SC: threads=1, gpu_blocks=64, partition=0.75
+  SC: threads=1, gpu_blocks=64, partition=0.9
+  SC: threads=1, gpu_blocks=64, partition=1.0
+  SC: threads=4, gpu_blocks=8, partition=0.0
+  SC: threads=4, gpu_blocks=8, partition=0.1
+  SC: threads=4, gpu_blocks=8, partition=0.25
+  SC: threads=4, gpu_blocks=8, partition=0.5
+  SC: threads=4, gpu_blocks=8, partition=0.75
+  SC: threads=4, gpu_blocks=8, partition=0.9
+  SC: threads=4, gpu_blocks=8, partition=1.0
+  SC: threads=4, gpu_blocks=16, partition=0.0
+  SC: threads=4, gpu_blocks=16, partition=0.1
+  SC: threads=4, gpu_blocks=16, partition=0.25
+  SC: threads=4, gpu_blocks=16, partition=0.5
+  SC: threads=4, gpu_blocks=16, partition=0.75
+  SC: threads=4, gpu_blocks=16, partition=0.9
+  SC: threads=4, gpu_blocks=16, partition=1.0
+  SC: threads=4, gpu_blocks=32, partition=0.0
+  SC: threads=4, gpu_blocks=32, partition=0.1
+  SC: threads=4, gpu_blocks=32, partition=0.25
+  SC: threads=4, gpu_blocks=32, partition=0.5
+  SC: threads=4, gpu_blocks=32, partition=0.75
+  SC: threads=4, gpu_blocks=32, partition=0.9
+  SC: threads=4, gpu_blocks=32, partition=1.0
+  SC: threads=4, gpu_blocks=64, partition=0.0
+  SC: threads=4, gpu_blocks=64, partition=0.1
+  SC: threads=4, gpu_blocks=64, partition=0.25
+  SC: threads=4, gpu_blocks=64, partition=0.5
+  SC: threads=4, gpu_blocks=64, partition=0.75
+  SC: threads=4, gpu_blocks=64, partition=0.9
+  SC: threads=4, gpu_blocks=64, partition=1.0
+  SC: threads=16, gpu_blocks=8, partition=0.0
+  SC: threads=16, gpu_blocks=8, partition=0.1
+  SC: threads=16, gpu_blocks=8, partition=0.25
+  SC: threads=16, gpu_blocks=8, partition=0.5
+  SC: threads=16, gpu_blocks=8, partition=0.75
+  SC: threads=16, gpu_blocks=8, partition=0.9
+  SC: threads=16, gpu_blocks=8, partition=1.0
+  SC: threads=16, gpu_blocks=16, partition=0.0
+  SC: threads=16, gpu_blocks=16, partition=0.1
+  SC: threads=16, gpu_blocks=16, partition=0.25
+  SC: threads=16, gpu_blocks=16, partition=0.5
+  SC: threads=16, gpu_blocks=16, partition=0.75
+  SC: threads=16, gpu_blocks=16, partition=0.9
+  SC: threads=16, gpu_blocks=16, partition=1.0
+  SC: threads=16, gpu_blocks=32, partition=0.0
+  SC: threads=16, gpu_blocks=32, partition=0.1
+  SC: threads=16, gpu_blocks=32, partition=0.25
+  SC: threads=16, gpu_blocks=32, partition=0.5
+  SC: threads=16, gpu_blocks=32, partition=0.75
+  SC: threads=16, gpu_blocks=32, partition=0.9
+  SC: threads=16, gpu_blocks=32, partition=1.0
+  SC: threads=16, gpu_blocks=64, partition=0.0
+  SC: threads=16, gpu_blocks=64, partition=0.1
+  SC: threads=16, gpu_blocks=64, partition=0.25
+  SC: threads=16, gpu_blocks=64, partition=0.5
+  SC: threads=16, gpu_blocks=64, partition=0.75
+  SC: threads=16, gpu_blocks=64, partition=0.9
+  SC: threads=16, gpu_blocks=64, partition=1.0
+  SC: threads=32, gpu_blocks=8, partition=0.0
+  SC: threads=32, gpu_blocks=8, partition=0.1
+  SC: threads=32, gpu_blocks=8, partition=0.25
+  SC: threads=32, gpu_blocks=8, partition=0.5
+  SC: threads=32, gpu_blocks=8, partition=0.75
+  SC: threads=32, gpu_blocks=8, partition=0.9
+  SC: threads=32, gpu_blocks=8, partition=1.0
+  SC: threads=32, gpu_blocks=16, partition=0.0
+  SC: threads=32, gpu_blocks=16, partition=0.1
+  SC: threads=32, gpu_blocks=16, partition=0.25
+  SC: threads=32, gpu_blocks=16, partition=0.5
+  SC: threads=32, gpu_blocks=16, partition=0.75
+  SC: threads=32, gpu_blocks=16, partition=0.9
+  SC: threads=32, gpu_blocks=16, partition=1.0
+  SC: threads=32, gpu_blocks=32, partition=0.0
+  SC: threads=32, gpu_blocks=32, partition=0.1
+  SC: threads=32, gpu_blocks=32, partition=0.25
+  SC: threads=32, gpu_blocks=32, partition=0.5
+  SC: threads=32, gpu_blocks=32, partition=0.75
+  SC: threads=32, gpu_blocks=32, partition=0.9
+  SC: threads=32, gpu_blocks=32, partition=1.0
+  SC: threads=32, gpu_blocks=64, partition=0.0
+  SC: threads=32, gpu_blocks=64, partition=0.1
+  SC: threads=32, gpu_blocks=64, partition=0.25
+  SC: threads=32, gpu_blocks=64, partition=0.5
+  SC: threads=32, gpu_blocks=64, partition=0.75
+  SC: threads=32, gpu_blocks=64, partition=0.9
+  SC: threads=32, gpu_blocks=64, partition=1.0
+  SC: threads=64, gpu_blocks=8, partition=0.0
+  SC: threads=64, gpu_blocks=8, partition=0.1
+  SC: threads=64, gpu_blocks=8, partition=0.25
+  SC: threads=64, gpu_blocks=8, partition=0.5
+  SC: threads=64, gpu_blocks=8, partition=0.75
+  SC: threads=64, gpu_blocks=8, partition=0.9
+  SC: threads=64, gpu_blocks=8, partition=1.0
+  SC: threads=64, gpu_blocks=16, partition=0.0
+  SC: threads=64, gpu_blocks=16, partition=0.1
+  SC: threads=64, gpu_blocks=16, partition=0.25
+  SC: threads=64, gpu_blocks=16, partition=0.5
+  SC: threads=64, gpu_blocks=16, partition=0.75
+  SC: threads=64, gpu_blocks=16, partition=0.9
+  SC: threads=64, gpu_blocks=16, partition=1.0
+  SC: threads=64, gpu_blocks=32, partition=0.0
+  SC: threads=64, gpu_blocks=32, partition=0.1
+  SC: threads=64, gpu_blocks=32, partition=0.25
+  SC: threads=64, gpu_blocks=32, partition=0.5
+  SC: threads=64, gpu_blocks=32, partition=0.75
+  SC: threads=64, gpu_blocks=32, partition=0.9
+  SC: threads=64, gpu_blocks=32, partition=1.0
+  SC: threads=64, gpu_blocks=64, partition=0.0
+  SC: threads=64, gpu_blocks=64, partition=0.1
+  SC: threads=64, gpu_blocks=64, partition=0.25
+  SC: threads=64, gpu_blocks=64, partition=0.5
+  SC: threads=64, gpu_blocks=64, partition=0.75
+  SC: threads=64, gpu_blocks=64, partition=0.9
+  SC: threads=64, gpu_blocks=64, partition=1.0
+  Results saved to results_209-20-156-106_20260122_164741/SC_results.csv
+=== Running CEDD (partition sweep, no GPU blocks) ===
+  CEDD: threads=1, partition=0.0
+  CEDD: threads=1, partition=0.1
+  CEDD: threads=1, partition=0.25
+  CEDD: threads=1, partition=0.5
+  CEDD: threads=1, partition=0.75
+  CEDD: threads=1, partition=0.9
+  CEDD: threads=1, partition=1.0
+  CEDD: threads=4, partition=0.0
+  CEDD: threads=4, partition=0.1
+  CEDD: threads=4, partition=0.25
+  CEDD: threads=4, partition=0.5
+  CEDD: threads=4, partition=0.75
+  CEDD: threads=4, partition=0.9
+  CEDD: threads=4, partition=1.0
+  CEDD: threads=16, partition=0.0
+  CEDD: threads=16, partition=0.1
+  CEDD: threads=16, partition=0.25
+  CEDD: threads=16, partition=0.5
+  CEDD: threads=16, partition=0.75
+  CEDD: threads=16, partition=0.9
+  CEDD: threads=16, partition=1.0
+  CEDD: threads=32, partition=0.0
+  CEDD: threads=32, partition=0.1
+  CEDD: threads=32, partition=0.25
+  CEDD: threads=32, partition=0.5
+  CEDD: threads=32, partition=0.75
+  CEDD: threads=32, partition=0.9
+  CEDD: threads=32, partition=1.0
+  CEDD: threads=64, partition=0.0
+  CEDD: threads=64, partition=0.1
+  CEDD: threads=64, partition=0.25
+  CEDD: threads=64, partition=0.5
+  CEDD: threads=64, partition=0.75
+  CEDD: threads=64, partition=0.9
+  CEDD: threads=64, partition=1.0
+  Results saved to results_209-20-156-106_20260122_164741/CEDD_results.csv
+=== Running BFS (threads + GPU blocks sweep) ===
+  BFS: threads=1, gpu_blocks=8
+  BFS: threads=1, gpu_blocks=16
+  BFS: threads=1, gpu_blocks=32
+  BFS: threads=1, gpu_blocks=64
+  BFS: threads=4, gpu_blocks=8
+  BFS: threads=4, gpu_blocks=16
+  BFS: threads=4, gpu_blocks=32
+  BFS: threads=4, gpu_blocks=64
+  BFS: threads=16, gpu_blocks=8
+  BFS: threads=16, gpu_blocks=16
+  BFS: threads=16, gpu_blocks=32
+  BFS: threads=16, gpu_blocks=64
+  BFS: threads=32, gpu_blocks=8
+  BFS: threads=32, gpu_blocks=16
+  BFS: threads=32, gpu_blocks=32
+  BFS: threads=32, gpu_blocks=64
+  BFS: threads=64, gpu_blocks=8
+  BFS: threads=64, gpu_blocks=16
+  BFS: threads=64, gpu_blocks=32
+  BFS: threads=64, gpu_blocks=64
+  Results saved to results_209-20-156-106_20260122_164741/BFS_results.csv
+=== Running SSSP (threads + GPU blocks sweep) ===
+  SSSP: threads=1, gpu_blocks=8
+  SSSP: threads=1, gpu_blocks=16
+  SSSP: threads=1, gpu_blocks=32
+  SSSP: threads=1, gpu_blocks=64
+  SSSP: threads=4, gpu_blocks=8
+  SSSP: threads=4, gpu_blocks=16
+  SSSP: threads=4, gpu_blocks=32
+  SSSP: threads=4, gpu_blocks=64
+  SSSP: threads=16, gpu_blocks=8
+  SSSP: threads=16, gpu_blocks=16
+  SSSP: threads=16, gpu_blocks=32
+  SSSP: threads=16, gpu_blocks=64
+  SSSP: threads=32, gpu_blocks=8
+  SSSP: threads=32, gpu_blocks=16
+  SSSP: threads=32, gpu_blocks=32
+  SSSP: threads=32, gpu_blocks=64
+  SSSP: threads=64, gpu_blocks=8
+  SSSP: threads=64, gpu_blocks=16
+  SSSP: threads=64, gpu_blocks=32
+  SSSP: threads=64, gpu_blocks=64
+    TIMEOUT after 600s
+  Results saved to results_209-20-156-106_20260122_164741/SSSP_results.csv
+=== Running RSCT (threads + GPU blocks sweep) ===
+  RSCT: threads=1, gpu_blocks=8
+  RSCT: threads=1, gpu_blocks=16
+  RSCT: threads=1, gpu_blocks=32
+  RSCT: threads=1, gpu_blocks=64
+  RSCT: threads=4, gpu_blocks=8
+  RSCT: threads=4, gpu_blocks=16
+  RSCT: threads=4, gpu_blocks=32
+  RSCT: threads=4, gpu_blocks=64
+  RSCT: threads=16, gpu_blocks=8
+  RSCT: threads=16, gpu_blocks=16
+  RSCT: threads=16, gpu_blocks=32
+  RSCT: threads=16, gpu_blocks=64
+  RSCT: threads=32, gpu_blocks=8
+  RSCT: threads=32, gpu_blocks=16
+  RSCT: threads=32, gpu_blocks=32
+  RSCT: threads=32, gpu_blocks=64
+  RSCT: threads=64, gpu_blocks=8
+  RSCT: threads=64, gpu_blocks=16
+  RSCT: threads=64, gpu_blocks=32
+  RSCT: threads=64, gpu_blocks=64
+  Results saved to results_209-20-156-106_20260122_164741/RSCT_results.csv
+=== Running TQ (threads + GPU blocks sweep) ===
+  TQ: threads=1, gpu_blocks=8
+  TQ: threads=1, gpu_blocks=16
+  TQ: threads=1, gpu_blocks=32
+  TQ: threads=1, gpu_blocks=64
+  TQ: threads=4, gpu_blocks=8
+  TQ: threads=4, gpu_blocks=16
+  TQ: threads=4, gpu_blocks=32
+  TQ: threads=4, gpu_blocks=64
+  TQ: threads=16, gpu_blocks=8
+  TQ: threads=16, gpu_blocks=16
+  TQ: threads=16, gpu_blocks=32
+  TQ: threads=16, gpu_blocks=64
+  TQ: threads=32, gpu_blocks=8
+  TQ: threads=32, gpu_blocks=16
+  TQ: threads=32, gpu_blocks=32
+  TQ: threads=32, gpu_blocks=64
+  TQ: threads=64, gpu_blocks=8
+  TQ: threads=64, gpu_blocks=16
+  TQ: threads=64, gpu_blocks=32
+  TQ: threads=64, gpu_blocks=64
+  Results saved to results_209-20-156-106_20260122_164741/TQ_results.csv
+=== Running TQH (threads + GPU blocks sweep) ===
+  TQH: threads=1, gpu_blocks=8
+  TQH: threads=1, gpu_blocks=16
+  TQH: threads=1, gpu_blocks=32
+  TQH: threads=1, gpu_blocks=64
+  TQH: threads=4, gpu_blocks=8
+  TQH: threads=4, gpu_blocks=16
+  TQH: threads=4, gpu_blocks=32
+  TQH: threads=4, gpu_blocks=64
+  TQH: threads=16, gpu_blocks=8
+  TQH: threads=16, gpu_blocks=16
+  TQH: threads=16, gpu_blocks=32
+  TQH: threads=16, gpu_blocks=64
+  TQH: threads=32, gpu_blocks=8
+  TQH: threads=32, gpu_blocks=16
+  TQH: threads=32, gpu_blocks=32
+  TQH: threads=32, gpu_blocks=64
+  TQH: threads=64, gpu_blocks=8
+  TQH: threads=64, gpu_blocks=16
+  TQH: threads=64, gpu_blocks=32
+  TQH: threads=64, gpu_blocks=64
+  Results saved to results_209-20-156-106_20260122_164741/TQH_results.csv
+=== Running TRNS (threads + GPU blocks sweep) ===
+  TRNS: threads=1, gpu_blocks=8
+  TRNS: threads=1, gpu_blocks=16
+  TRNS: threads=1, gpu_blocks=32
+  TRNS: threads=1, gpu_blocks=64
+  TRNS: threads=4, gpu_blocks=8
+  TRNS: threads=4, gpu_blocks=16
+  TRNS: threads=4, gpu_blocks=32
+  TRNS: threads=4, gpu_blocks=64
+  TRNS: threads=16, gpu_blocks=8
+  TRNS: threads=16, gpu_blocks=16
+  TRNS: threads=16, gpu_blocks=32
+  TRNS: threads=16, gpu_blocks=64
+  TRNS: threads=32, gpu_blocks=8
+  TRNS: threads=32, gpu_blocks=16
+  TRNS: threads=32, gpu_blocks=32
+  TRNS: threads=32, gpu_blocks=64
+  TRNS: threads=64, gpu_blocks=8
+  TRNS: threads=64, gpu_blocks=16
+  TRNS: threads=64, gpu_blocks=32
+  TRNS: threads=64, gpu_blocks=64
+  Results saved to results_209-20-156-106_20260122_164741/TRNS_results.csv
+=== Running CEDT (threads only, no GPU blocks) ===
+  CEDT: threads=1
+  CEDT: threads=4
+  CEDT: threads=16
+  CEDT: threads=32
+  CEDT: threads=64
+  Results saved to results_209-20-156-106_20260122_164741/CEDT_results.csv
+
+=== Complete ===
+Results directory: results_209-20-156-106_20260122_164741
+
+CSV files generated:
+-rw-rw-r-- 1 ubuntu ubuntu 1242 Jan 22 17:37 results_209-20-156-106_20260122_164741/BFS_results.csv
+-rw-rw-r-- 1 ubuntu ubuntu 6995 Jan 22 16:50 results_209-20-156-106_20260122_164741/BS_results.csv
+-rw-rw-r-- 1 ubuntu ubuntu 2517 Jan 22 17:08 results_209-20-156-106_20260122_164741/CEDD_results.csv
+-rw-rw-r-- 1 ubuntu ubuntu  465 Jan 22 19:00 results_209-20-156-106_20260122_164741/CEDT_results.csv
+-rw-rw-r-- 1 ubuntu ubuntu 7339 Jan 22 16:52 results_209-20-156-106_20260122_164741/HSTI_results.csv
+-rw-rw-r-- 1 ubuntu ubuntu 7227 Jan 22 16:56 results_209-20-156-106_20260122_164741/HSTO_results.csv
+-rw-rw-r-- 1 ubuntu ubuntu 7297 Jan 22 16:59 results_209-20-156-106_20260122_164741/PAD_results.csv
+-rw-rw-r-- 1 ubuntu ubuntu 7317 Jan 22 17:03 results_209-20-156-106_20260122_164741/RSCD_results.csv
+-rw-rw-r-- 1 ubuntu ubuntu 1194 Jan 22 18:40 results_209-20-156-106_20260122_164741/RSCT_results.csv
+-rw-rw-r-- 1 ubuntu ubuntu 7163 Jan 22 17:07 results_209-20-156-106_20260122_164741/SC_results.csv
+-rw-rw-r-- 1 ubuntu ubuntu 1269 Jan 22 18:39 results_209-20-156-106_20260122_164741/SSSP_results.csv
+-rw-rw-r-- 1 ubuntu ubuntu 1295 Jan 22 18:57 results_209-20-156-106_20260122_164741/TQH_results.csv
+-rw-rw-r-- 1 ubuntu ubuntu 1164 Jan 22 18:40 results_209-20-156-106_20260122_164741/TQ_results.csv
+-rw-rw-r-- 1 ubuntu ubuntu 1264 Jan 22 19:00 results_209-20-156-106_20260122_164741/TRNS_results.csv
+
+To plot results:
+  python3 plot_coherence_results.py results_209-20-156-106_20260122_164741 'GH200 (HW Coherence)'

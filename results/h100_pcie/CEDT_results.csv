@@ -1,0 +1,6 @@
+benchmark,threads,gpu_blocks,partition,kernel_time_ms,alloc_time_ms,init_time_ms,dealloc_time_ms
+CEDT,1,default,dynamic,317.22049,1.10608,593.344727,1.721632
+CEDT,4,default,dynamic,136.428345,1.647008,650.967041,1.70592
+CEDT,16,default,dynamic,142.273727,1.628128,579.477417,1.486656
+CEDT,32,default,dynamic,242.155518,1.606624,601.525269,1.784896
+CEDT,64,default,dynamic,448.209198,1.667072,597.934448,1.496096

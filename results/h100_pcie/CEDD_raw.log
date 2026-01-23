@@ -1,0 +1,420 @@
+--- threads=1 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.327456
+Initialization Time (ms): 384.837616
+Total Proxies Time (ms): 48.457214
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 0.000000
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 32.152962
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.515680
+Test Passed
+--- threads=1 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.507840
+Initialization Time (ms): 583.903564
+Total Proxies Time (ms): 225.179611
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 222.146698
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 17.014816
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.849888
+Test Passed
+--- threads=1 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.192320
+Initialization Time (ms): 280.563049
+Total Proxies Time (ms): 660.995605
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 656.923584
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 14.244673
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.688768
+Test Passed
+--- threads=1 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.542016
+Initialization Time (ms): 716.071899
+Total Proxies Time (ms): 1299.869507
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 1292.094360
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 10.919584
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.826240
+Test Passed
+--- threads=1 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.524160
+Initialization Time (ms): 590.828064
+Total Proxies Time (ms): 1937.721924
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 1926.841797
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 7.165952
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.877408
+Test Passed
+--- threads=1 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.534368
+Initialization Time (ms): 597.754395
+Total Proxies Time (ms): 2422.774658
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 2409.451904
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 5.599360
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.902208
+Test Passed
+--- threads=1 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.551488
+Initialization Time (ms): 601.917114
+Total Proxies Time (ms): 2748.296143
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 2734.737549
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 0.000000
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.523936
+Test Passed
+--- threads=4 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.474432
+Initialization Time (ms): 602.550537
+Total Proxies Time (ms): 42.742752
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 0.000000
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 24.493696
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.824768
+Test Passed
+--- threads=4 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.480672
+Initialization Time (ms): 601.525330
+Total Proxies Time (ms): 70.008675
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 66.832863
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 27.408796
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.721312
+Test Passed
+--- threads=4 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.333472
+Initialization Time (ms): 569.399780
+Total Proxies Time (ms): 192.222137
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 187.587646
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 17.842655
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.726496
+Test Passed
+--- threads=4 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.501184
+Initialization Time (ms): 581.082520
+Total Proxies Time (ms): 392.303558
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 384.624481
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 17.228960
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.709792
+Test Passed
+--- threads=4 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.521952
+Initialization Time (ms): 597.569641
+Total Proxies Time (ms): 586.054138
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 575.771179
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 10.563104
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.764480
+Test Passed
+--- threads=4 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.592064
+Initialization Time (ms): 591.314331
+Total Proxies Time (ms): 712.851379
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 700.457642
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 4.133632
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.774784
+Test Passed
+--- threads=4 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.478272
+Initialization Time (ms): 597.214172
+Total Proxies Time (ms): 815.355530
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 801.881165
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 0.000000
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.512096
+Test Passed
+--- threads=16 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.550304
+Initialization Time (ms): 595.849609
+Total Proxies Time (ms): 45.422432
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 0.000000
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 27.120932
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.743136
+Test Passed
+--- threads=16 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.518816
+Initialization Time (ms): 606.457520
+Total Proxies Time (ms): 45.497761
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 41.414749
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 25.961760
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.776448
+Test Passed
+--- threads=16 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.511296
+Initialization Time (ms): 596.219360
+Total Proxies Time (ms): 101.944611
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 96.831673
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 21.983164
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.771264
+Test Passed
+--- threads=16 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.516288
+Initialization Time (ms): 602.294128
+Total Proxies Time (ms): 183.952805
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 176.675262
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 14.307137
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.813504
+Test Passed
+--- threads=16 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.517664
+Initialization Time (ms): 598.895691
+Total Proxies Time (ms): 262.812408
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 252.961533
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 8.303455
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.788192
+Test Passed
+--- threads=16 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.504448
+Initialization Time (ms): 591.232666
+Total Proxies Time (ms): 306.706146
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 295.532959
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 4.879872
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.536192
+Test Passed
+--- threads=16 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.324352
+Initialization Time (ms): 567.364197
+Total Proxies Time (ms): 321.647736
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 311.724243
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 0.000000
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.309536
+Test Passed
+--- threads=32 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.353536
+Initialization Time (ms): 565.555054
+Total Proxies Time (ms): 39.062366
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 0.000000
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 23.140348
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.552896
+Test Passed
+--- threads=32 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.325856
+Initialization Time (ms): 567.427979
+Total Proxies Time (ms): 44.066719
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 40.845600
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 22.458015
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.541600
+Test Passed
+--- threads=32 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.392960
+Initialization Time (ms): 546.665100
+Total Proxies Time (ms): 100.801376
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 96.642395
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 16.283903
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.568576
+Test Passed
+--- threads=32 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.351392
+Initialization Time (ms): 563.824097
+Total Proxies Time (ms): 193.988998
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 188.048111
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 15.044800
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.504544
+Test Passed
+--- threads=32 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.479648
+Initialization Time (ms): 586.530273
+Total Proxies Time (ms): 329.418274
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 319.870056
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 7.901760
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.874432
+Test Passed
+--- threads=32 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.495488
+Initialization Time (ms): 596.255188
+Total Proxies Time (ms): 404.086182
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 392.459747
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 5.715392
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.813984
+Test Passed
+--- threads=32 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.595808
+Initialization Time (ms): 598.760254
+Total Proxies Time (ms): 452.084290
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 439.289124
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 0.000000
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.470016
+Test Passed
+--- threads=64 partition=0.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.525248
+Initialization Time (ms): 596.403442
+Total Proxies Time (ms): 42.641727
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 0.000000
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 24.651426
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.818720
+Test Passed
+--- threads=64 partition=0.1 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.532064
+Initialization Time (ms): 595.645203
+Total Proxies Time (ms): 81.314621
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 78.083527
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 19.333698
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.768768
+Test Passed
+--- threads=64 partition=0.25 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.445440
+Initialization Time (ms): 598.634644
+Total Proxies Time (ms): 208.319489
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 203.467758
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 12.638496
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.501952
+Test Passed
+--- threads=64 partition=0.5 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.458976
+Initialization Time (ms): 584.274841
+Total Proxies Time (ms): 398.853149
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 391.516602
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 14.501727
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.876480
+Test Passed
+--- threads=64 partition=0.75 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.530144
+Initialization Time (ms): 595.769043
+Total Proxies Time (ms): 593.364563
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 583.315979
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 9.098688
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.761728
+Test Passed
+--- threads=64 partition=0.9 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.480896
+Initialization Time (ms): 594.862976
+Total Proxies Time (ms): 693.809570
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 681.528137
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 6.870816
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.809536
+Test Passed
+--- threads=64 partition=1.0 ---
+NVIDIA H100 PCIe	Allocation Time (ms): 0.620064
+Initialization Time (ms): 594.454346
+Total Proxies Time (ms): 811.402588
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 798.567993
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 0.000000
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.496864
+Test Passed
