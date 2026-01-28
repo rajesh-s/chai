@@ -1,0 +1,9 @@
+
+NOTICE: Existing SQLite export found: /home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/TQ_t4_g64_adynamic.sqlite
+        It is assumed file was previously exported from: /home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/TQ_t4_g64_adynamic.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/TQ_t4_g64_adynamic.sqlite] with [/opt/nvidia/nsight-systems-cli/2026.1.1/target-linux-sbsa-armv8/reports/cuda_gpu_kern_sum.py]... 
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Name
+100.0,4731264,4,1182816.0,1188080.0,1087456,1267648,83493.6,"TaskQueue_gpu(task_t *, int *, int *, int *, int *, int, int)"
+

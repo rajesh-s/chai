@@ -1,0 +1,6 @@
+
+NOTICE: Existing SQLite export found: /home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/SC_t4_g16_a0.5.sqlite
+        It is assumed file was previously exported from: /home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/SC_t4_g16_a0.5.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/SC_t4_g16_a0.5.sqlite] with [cuda_um_gpu_page_faults]... 

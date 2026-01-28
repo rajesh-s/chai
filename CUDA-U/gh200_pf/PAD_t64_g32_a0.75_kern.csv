@@ -1,0 +1,9 @@
+
+NOTICE: Existing SQLite export found: /home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/PAD_t64_g32_a0.75.sqlite
+        It is assumed file was previously exported from: /home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/PAD_t64_g32_a0.75.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/PAD_t64_g32_a0.75.sqlite] with [/opt/nvidia/nsight-systems-cli/2026.1.1/target-linux-sbsa-armv8/reports/cuda_gpu_kern_sum.py]... 
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Name
+100.0,27242433,4,6810608.3,6602464.5,4681664,9355840,1924268.0,"Padding_kernel(int, int, int, int, float, double *, double *, int *, int *)"
+

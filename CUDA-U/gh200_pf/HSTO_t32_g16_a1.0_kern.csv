@@ -1,0 +1,9 @@
+
+NOTICE: Existing SQLite export found: /home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/HSTO_t32_g16_a1.0.sqlite
+        It is assumed file was previously exported from: /home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/HSTO_t32_g16_a1.0.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/HSTO_t32_g16_a1.0.sqlite] with [/opt/nvidia/nsight-systems-cli/2026.1.1/target-linux-sbsa-armv8/reports/cuda_gpu_kern_sum.py]... 
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Name
+100.0,44796639,4,11199159.8,11485616.0,9579456,12245951,1141995.0,"Histogram_kernel(int, int, int, unsigned int *, unsigned int *)"
+

@@ -1,0 +1,12 @@
+
+NOTICE: Existing SQLite export found: /home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/CEDD_t16_gdefault_a0.5.sqlite
+        It is assumed file was previously exported from: /home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/CEDD_t16_gdefault_a0.5.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/CEDD_t16_gdefault_a0.5.sqlite] with [/opt/nvidia/nsight-systems-cli/2026.1.1/target-linux-sbsa-armv8/reports/cuda_gpu_kern_sum.py]... 
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Name
+98.8,1651360,2,825680.0,825680.0,658432,992928,236524.4,"gaussian_kernel(unsigned char *, unsigned char *, int, int)"
+0.5,8704,2,4352.0,4352.0,4224,4480,181.0,"sobel_kernel(unsigned char *, unsigned char *, unsigned char *, int, int)"
+0.4,6080,2,3040.0,3040.0,3040,3040,0.0,"non_max_supp_kernel(unsigned char *, unsigned char *, unsigned char *, int, int)"
+0.3,4864,2,2432.0,2432.0,2304,2560,181.0,"hyst_kernel(unsigned char *, unsigned char *, int, int)"
+

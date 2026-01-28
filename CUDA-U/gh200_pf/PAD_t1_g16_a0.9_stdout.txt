@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA GH200 480GB	Allocation Time (ms): 0.085984
+Initialization Time (ms): 16.217249
+Kernel Time (ms): 7.282656
+Deallocation Time (ms): 0.547680
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-c3ac.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] PAD_t1_g16_a0.9.nsys-rep[1/1] [0%                          ] PAD_t1_g16_a0.9.nsys-rep[1/1] [====28%                     ] PAD_t1_g16_a0.9.nsys-rep[1/1] [============56%             ] PAD_t1_g16_a0.9.nsys-rep[1/1] [============57%             ] PAD_t1_g16_a0.9.nsys-rep[1/1] [==================78%       ] PAD_t1_g16_a0.9.nsys-rep[1/1] [========================100%] PAD_t1_g16_a0.9.nsys-rep[1/1] [========================100%] PAD_t1_g16_a0.9.nsys-rep
+Generated:
+	/home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/PAD_t1_g16_a0.9.nsys-rep

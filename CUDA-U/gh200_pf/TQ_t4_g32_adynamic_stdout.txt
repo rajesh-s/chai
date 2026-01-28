@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA GH200 480GB	Allocation Time (ms): 0.073248
+Initialization Time (ms): 2.472160
+Kernel Time (ms): 2.485259
+Deallocation Time (ms): 0.245696
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-eb88.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] TQ_t4_g32_adynamic.nsys-rep[1/1] [0%                          ] TQ_t4_g32_adynamic.nsys-rep[1/1] [====27%                     ] TQ_t4_g32_adynamic.nsys-rep[1/1] [============54%             ] TQ_t4_g32_adynamic.nsys-rep[1/1] [==================77%       ] TQ_t4_g32_adynamic.nsys-rep[1/1] [========================100%] TQ_t4_g32_adynamic.nsys-rep[1/1] [========================100%] TQ_t4_g32_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/TQ_t4_g32_adynamic.nsys-rep

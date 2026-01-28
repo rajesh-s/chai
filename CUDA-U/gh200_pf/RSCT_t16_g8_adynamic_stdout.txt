@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA GH200 480GB	Allocation Time (ms): 2.856416
+Initialization Time (ms): 1.953184
+Kernel Time (ms): 2.713344
+Deallocation Time (ms): 0.270496
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-bd7c.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] RSCT_t16_g8_adynamic.nsys-rep[1/1] [0%                          ] RSCT_t16_g8_adynamic.nsys-rep[1/1] [====27%                     ] RSCT_t16_g8_adynamic.nsys-rep[1/1] [============54%             ] RSCT_t16_g8_adynamic.nsys-rep[1/1] [============55%             ] RSCT_t16_g8_adynamic.nsys-rep[1/1] [============56%             ] RSCT_t16_g8_adynamic.nsys-rep[1/1] [==================78%       ] RSCT_t16_g8_adynamic.nsys-rep[1/1] [========================100%] RSCT_t16_g8_adynamic.nsys-rep[1/1] [========================100%] RSCT_t16_g8_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/RSCT_t16_g8_adynamic.nsys-rep

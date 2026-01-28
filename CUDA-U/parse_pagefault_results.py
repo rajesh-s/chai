@@ -32,7 +32,7 @@ def parse_nsys_report(nsys_file):
     try:
         output = subprocess.run(
             ['nsys', 'stats', '--report', 'um_total_sum', 
-             '--format', 'csv', nsys_file],
+             '--format', 'csv', '--force-export=true', nsys_file],
             capture_output=True, text=True, timeout=120
         )
         

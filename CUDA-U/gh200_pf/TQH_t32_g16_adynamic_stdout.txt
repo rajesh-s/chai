@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA GH200 480GB	Allocation Time (ms): 0.097632
+Initialization Time (ms): 36656.343750
+Kernel Time (ms): 140.683044
+Deallocation Time (ms): 9.220576
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-9868.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] TQH_t32_g16_adynamic.nsys-rep[1/1] [0%                          ] TQH_t32_g16_adynamic.nsys-rep[1/1] [5%                          ] TQH_t32_g16_adynamic.nsys-rep[1/1] [6%                          ] TQH_t32_g16_adynamic.nsys-rep[1/1] [7%                          ] TQH_t32_g16_adynamic.nsys-rep[1/1] [8%                          ] TQH_t32_g16_adynamic.nsys-rep[1/1] [9%                          ] TQH_t32_g16_adynamic.nsys-rep[1/1] [====26%                     ] TQH_t32_g16_adynamic.nsys-rep[1/1] [==========48%               ] TQH_t32_g16_adynamic.nsys-rep[1/1] [============54%             ] TQH_t32_g16_adynamic.nsys-rep[1/1] [========================100%] TQH_t32_g16_adynamic.nsys-rep[1/1] [========================100%] TQH_t32_g16_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/TQH_t32_g16_adynamic.nsys-rep

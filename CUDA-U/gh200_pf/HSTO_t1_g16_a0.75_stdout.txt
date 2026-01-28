@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA GH200 480GB	Allocation Time (ms): 0.081600
+Initialization Time (ms): 54.222752
+Kernel Time (ms): 8.359797
+Deallocation Time (ms): 0.377248
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-c32f.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] HSTO_t1_g16_a0.75.nsys-rep[1/1] [0%                          ] HSTO_t1_g16_a0.75.nsys-rep[1/1] [==19%                       ] HSTO_t1_g16_a0.75.nsys-rep[1/1] [=======39%                  ] HSTO_t1_g16_a0.75.nsys-rep[1/1] [================69%         ] HSTO_t1_g16_a0.75.nsys-rep[1/1] [========================100%] HSTO_t1_g16_a0.75.nsys-rep[1/1] [========================100%] HSTO_t1_g16_a0.75.nsys-rep
+Generated:
+	/home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/HSTO_t1_g16_a0.75.nsys-rep

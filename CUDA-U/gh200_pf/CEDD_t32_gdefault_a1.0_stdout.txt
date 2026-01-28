@@ -1,0 +1,22 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA GH200 480GB	Allocation Time (ms): 1.175392
+Initialization Time (ms): 58.157310
+Total Proxies Time (ms): 72.224220
+CPU Proxy:
+	CPU Proxy: Kernel Time (ms): 71.247742
+GPU Proxy:
+	GPU Proxy: Copy To Device Time (ms): 0.000000
+	GPU Proxy: Kernel Time (ms): 0.000000
+	GPU Proxy: Copy Back Time (ms): 0.000000
+Deallocation Time (ms): 0.200000
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-f2c6.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] CEDD_t32_gdefault_a1.0.nsys-rep[1/1] [0%                          ] CEDD_t32_gdefault_a1.0.nsys-rep[1/1] [==21%                       ] CEDD_t32_gdefault_a1.0.nsys-rep[1/1] [=========43%                ] CEDD_t32_gdefault_a1.0.nsys-rep[1/1] [=========44%                ] CEDD_t32_gdefault_a1.0.nsys-rep[1/1] [================71%         ] CEDD_t32_gdefault_a1.0.nsys-rep[1/1] [=================72%        ] CEDD_t32_gdefault_a1.0.nsys-rep[1/1] [========================100%] CEDD_t32_gdefault_a1.0.nsys-rep[1/1] [========================100%] CEDD_t32_gdefault_a1.0.nsys-rep
+Generated:
+	/home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/CEDD_t32_gdefault_a1.0.nsys-rep

@@ -1,0 +1,18 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA GH200 480GB	Allocation Time (ms): 1.429472
+Initialization Time (ms): 141.811142
+Total Proxies Time (ms): 16.198496
+CPU Proxy: Kernel Time (ms): 12.265344
+GPU Proxy: Kernel Time (ms): 3.541952
+Deallocation Time (ms): 0.391200
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-6f69.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] CEDT_t1_gdefault_adynamic.nsys-rep[1/1] [0%                          ] CEDT_t1_gdefault_adynamic.nsys-rep[1/1] [====27%                     ] CEDT_t1_gdefault_adynamic.nsys-rep[1/1] [============54%             ] CEDT_t1_gdefault_adynamic.nsys-rep[1/1] [============55%             ] CEDT_t1_gdefault_adynamic.nsys-rep[1/1] [============56%             ] CEDT_t1_gdefault_adynamic.nsys-rep[1/1] [==================77%       ] CEDT_t1_gdefault_adynamic.nsys-rep[1/1] [========================100%] CEDT_t1_gdefault_adynamic.nsys-rep[1/1] [========================100%] CEDT_t1_gdefault_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/Rajesh-FS/chai/CUDA-U/pagefault_results_192-222-59-139_20260128_072737/CEDT_t1_gdefault_adynamic.nsys-rep

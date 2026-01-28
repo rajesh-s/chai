@@ -139,32 +139,47 @@ def plot_benchmark_dual_axis(df, bench_name, output_dir, system_name="System"):
     # =====================
     # Plot 1: Page Faults
     # =====================
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(12, 6))
     
     if has_partitions:
-        # If partitions exist, use different line styles per partition, shapes per metric
+        # If partitions exist, use different colors per partition, shapes per metric
         partitions = sorted(df['partition'].dropna().unique())
-        linestyles = ['-', '--', '-.', ':']
         
-        for metric, style in pf_styles.items():
-            for j, p in enumerate(partitions):
-                subset = df[df['partition'] == p].sort_values('threads')
-                if len(subset) == 0:
-                    continue
-                
-                p_label = PARTITION_STYLES.get(p, {'label': f'α={p}'})['label']
+        # Use distinct colors for each partition
+        partition_colors = plt.cm.tab10(np.linspace(0, 1, len(partitions)))
+        
+        for j, p in enumerate(partitions):
+            subset = df[df['partition'] == p].sort_values('threads')
+            if len(subset) == 0:
+                continue
+            
+            p_label = PARTITION_STYLES.get(p, {'label': f'α={p}'})['label']
+            
+            for metric, style in pf_styles.items():
                 ax.plot(subset['threads'], subset[metric],
                        marker=style['marker'],
-                       linestyle=linestyles[j % len(linestyles)],
-                       color=style['color'],
-                       linewidth=2, markersize=8, alpha=0.8,
-                       label=f"{style['label']} ({p_label})" if j == 0 else None)
+                       linestyle='-',
+                       color=partition_colors[j],
+                       linewidth=2, markersize=8, alpha=0.8)
         
-        # Simplified legend - just show metric types
-        handles = [Line2D([0], [0], marker=s['marker'], color=s['color'], 
-                         linestyle='-', linewidth=2, markersize=8, label=s['label'])
-                  for s in pf_styles.values()]
-        ax.legend(handles=handles, loc='best', fontsize=10)
+        # Create two-part legend: one for shapes (metrics), one for colors (partitions)
+        # Metric type legend (shapes)
+        shape_handles = [Line2D([0], [0], marker=s['marker'], color='gray', 
+                               linestyle='None', markersize=8, label=s['label'])
+                        for s in pf_styles.values()]
+        
+        # Partition legend (colors)
+        partition_handles = [Line2D([0], [0], marker='o', color=partition_colors[j], 
+                                   linestyle='-', linewidth=2, markersize=8, 
+                                   label=PARTITION_STYLES.get(p, {'label': f'α={p}'})['label'])
+                            for j, p in enumerate(partitions)]
+        
+        # Create two separate legends
+        legend1 = ax.legend(handles=shape_handles, loc='upper left', fontsize=9, 
+                           title='Metric Type', framealpha=0.9)
+        ax.add_artist(legend1)
+        ax.legend(handles=partition_handles, loc='upper right', fontsize=9, 
+                 title='Partition (α)', framealpha=0.9)
     else:
         # Simple case - just plot the three metrics
         subset = df.sort_values('threads')
@@ -191,30 +206,41 @@ def plot_benchmark_dual_axis(df, bench_name, output_dir, system_name="System"):
     # =====================
     # Plot 2: Migration Volume
     # =====================
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(12, 6))
     
     if has_partitions:
         partitions = sorted(df['partition'].dropna().unique())
-        linestyles = ['-', '--', '-.', ':']
         
-        for metric, style in mig_styles.items():
-            for j, p in enumerate(partitions):
-                subset = df[df['partition'] == p].sort_values('threads')
-                if len(subset) == 0:
-                    continue
-                
-                p_label = PARTITION_STYLES.get(p, {'label': f'α={p}'})['label']
+        # Use distinct colors for each partition
+        partition_colors = plt.cm.tab10(np.linspace(0, 1, len(partitions)))
+        
+        for j, p in enumerate(partitions):
+            subset = df[df['partition'] == p].sort_values('threads')
+            if len(subset) == 0:
+                continue
+            
+            for metric, style in mig_styles.items():
                 ax.plot(subset['threads'], subset[metric],
                        marker=style['marker'],
-                       linestyle=linestyles[j % len(linestyles)],
-                       color=style['color'],
-                       linewidth=2, markersize=8, alpha=0.8,
-                       label=f"{style['label']} ({p_label})" if j == 0 else None)
+                       linestyle='-',
+                       color=partition_colors[j],
+                       linewidth=2, markersize=8, alpha=0.8)
         
-        handles = [Line2D([0], [0], marker=s['marker'], color=s['color'],
-                         linestyle='-', linewidth=2, markersize=8, label=s['label'])
-                  for s in mig_styles.values()]
-        ax.legend(handles=handles, loc='best', fontsize=10)
+        # Create two-part legend: one for shapes (metrics), one for colors (partitions)
+        shape_handles = [Line2D([0], [0], marker=s['marker'], color='gray',
+                               linestyle='None', markersize=8, label=s['label'])
+                        for s in mig_styles.values()]
+        
+        partition_handles = [Line2D([0], [0], marker='o', color=partition_colors[j],
+                                   linestyle='-', linewidth=2, markersize=8,
+                                   label=PARTITION_STYLES.get(p, {'label': f'α={p}'})['label'])
+                            for j, p in enumerate(partitions)]
+        
+        legend1 = ax.legend(handles=shape_handles, loc='upper left', fontsize=9,
+                           title='Metric Type', framealpha=0.9)
+        ax.add_artist(legend1)
+        ax.legend(handles=partition_handles, loc='upper right', fontsize=9,
+                 title='Partition (α)', framealpha=0.9)
     else:
         subset = df.sort_values('threads')
         for metric, style in mig_styles.items():
@@ -801,9 +827,6 @@ def plot_all_benchmarks(data, output_dir, system_name="System"):
     for bench_name, df in data.items():
         print(f"  Plotting {bench_name}...")
         
-        # Plot dual-axis (page faults + migration)
-        plot_benchmark_dual_axis(df, bench_name, output_dir, system_name)
-        
         # Plot total page faults
         plot_benchmark_pagefaults(df, bench_name, output_dir, system_name, 'total_page_faults')
         
@@ -831,9 +854,6 @@ def plot_all_comparisons(data1, data2, output_dir, name1="GH200", name2="x86+H10
         
         df1 = data1[bench_name]
         df2 = data2[bench_name]
-        
-        # Plot dual-axis comparison
-        plot_comparison_dual_axis(df1, df2, bench_name, output_dir, name1, name2)
         
         # Plot total page faults comparison
         plot_comparison_pagefaults(df1, df2, bench_name, output_dir, name1, name2, 'total_page_faults')
