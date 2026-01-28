@@ -1,0 +1,37 @@
+# Compiled binaries
+BFS/bfs
+BS/bs
+CEDD/cedd
+CEDT/cedt
+HSTI/hsti
+HSTO/hsto
+PAD/pad
+RSCD/rscd
+RSCT/rsct
+SC/sc
+SSSP/sssp
+TQ/tq
+TQH/tqh
+TRNS/trns
+
+# Build artifacts
+*.o
+*.a
+*.so
+
+# Results directories
+pagefault_results_*/
+gh200_page_faults/
+h100_page_faults/
+results_*/
+build_logs_*/
+
+# nsys profiling files
+*.nsys-rep
+*.sqlite
+*.qdstrm
+
+# Editor files
+*.swp
+*~
+.vscode/
