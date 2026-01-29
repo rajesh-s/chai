@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA H100 PCIe	Allocation Time (ms): 0.182144
+Initialization Time (ms): 215.727844
+Kernel Time (ms): 309.657745
+Deallocation Time (ms): 4.404864
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-edd3.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] TRNS_t32_g8_adynamic.nsys-rep[1/1] [0%                          ] TRNS_t32_g8_adynamic.nsys-rep[1/1] [13%                         ] TRNS_t32_g8_adynamic.nsys-rep[1/1] [====25%                     ] TRNS_t32_g8_adynamic.nsys-rep[1/1] [=======36%                  ] TRNS_t32_g8_adynamic.nsys-rep[1/1] [==========48%               ] TRNS_t32_g8_adynamic.nsys-rep[1/1] [===========50%              ] TRNS_t32_g8_adynamic.nsys-rep[1/1] [========================100%] TRNS_t32_g8_adynamic.nsys-rep[1/1] [========================100%] TRNS_t32_g8_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/TRNS_t32_g8_adynamic.nsys-rep

@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA H100 PCIe	Allocation Time (ms): 0.203040
+Initialization Time (ms): 41.446625
+Kernel Time (ms): 32.038082
+Deallocation Time (ms): 1.364608
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-497d.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] PAD_t64_g16_a0.1.nsys-rep[1/1] [0%                          ] PAD_t64_g16_a0.1.nsys-rep[1/1] [14%                         ] PAD_t64_g16_a0.1.nsys-rep[1/1] [=====29%                    ] PAD_t64_g16_a0.1.nsys-rep[1/1] [=====30%                    ] PAD_t64_g16_a0.1.nsys-rep[1/1] [===============65%          ] PAD_t64_g16_a0.1.nsys-rep[1/1] [========================100%] PAD_t64_g16_a0.1.nsys-rep[1/1] [========================100%] PAD_t64_g16_a0.1.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/PAD_t64_g16_a0.1.nsys-rep

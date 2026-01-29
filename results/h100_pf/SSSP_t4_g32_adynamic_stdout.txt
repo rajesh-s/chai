@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA H100 PCIe	Allocation Time (ms): 0.294624
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 191.834244
+Kernel Time (ms): 2757.623047
+Deallocation Time (ms): 0.637888
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-f75e.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] SSSP_t4_g32_adynamic.nsys-rep[1/1] [0%                          ] SSSP_t4_g32_adynamic.nsys-rep[1/1] [11%                         ] SSSP_t4_g32_adynamic.nsys-rep[1/1] [==21%                       ] SSSP_t4_g32_adynamic.nsys-rep[1/1] [=====30%                    ] SSSP_t4_g32_adynamic.nsys-rep[1/1] [========40%                 ] SSSP_t4_g32_adynamic.nsys-rep[1/1] [===========50%              ] SSSP_t4_g32_adynamic.nsys-rep[1/1] [========================100%] SSSP_t4_g32_adynamic.nsys-rep[1/1] [========================100%] SSSP_t4_g32_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/SSSP_t4_g32_adynamic.nsys-rep

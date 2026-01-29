@@ -1,0 +1,18 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA H100 PCIe	Allocation Time (ms): 2.447104
+Initialization Time (ms): 129.446014
+Total Proxies Time (ms): 50.815296
+CPU Proxy: Kernel Time (ms): 33.903648
+GPU Proxy: Kernel Time (ms): 13.274879
+Deallocation Time (ms): 1.117728
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-9e7e.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] CEDT_t4_gdefault_adynamic.nsys-rep[1/1] [0%                          ] CEDT_t4_gdefault_adynamic.nsys-rep[1/1] [===22%                      ] CEDT_t4_gdefault_adynamic.nsys-rep[1/1] [=========45%                ] CEDT_t4_gdefault_adynamic.nsys-rep[1/1] [=========46%                ] CEDT_t4_gdefault_adynamic.nsys-rep[1/1] [=================72%        ] CEDT_t4_gdefault_adynamic.nsys-rep[1/1] [========================100%] CEDT_t4_gdefault_adynamic.nsys-rep[1/1] [========================100%] CEDT_t4_gdefault_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/CEDT_t4_gdefault_adynamic.nsys-rep

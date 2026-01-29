@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA H100 PCIe	Allocation Time (ms): 0.374048
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 201.219711
+Kernel Time (ms): 17235.220703
+Deallocation Time (ms): 0.825600
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-72c8.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] BFS_t64_g8_adynamic.nsys-rep[1/1] [0%                          ] BFS_t64_g8_adynamic.nsys-rep[1/1] [0%                          ] BFS_t64_g8_adynamic.nsys-rep[1/1] [5%                          ] BFS_t64_g8_adynamic.nsys-rep[1/1] [6%                          ] BFS_t64_g8_adynamic.nsys-rep[1/1] [7%                          ] BFS_t64_g8_adynamic.nsys-rep[1/1] [9%                          ] BFS_t64_g8_adynamic.nsys-rep[1/1] [10%                         ] BFS_t64_g8_adynamic.nsys-rep[1/1] [12%                         ] BFS_t64_g8_adynamic.nsys-rep[1/1] [13%                         ] BFS_t64_g8_adynamic.nsys-rep[1/1] [=15%                        ] BFS_t64_g8_adynamic.nsys-rep[1/1] [=16%                        ] BFS_t64_g8_adynamic.nsys-rep[1/1] [=17%                        ] BFS_t64_g8_adynamic.nsys-rep[1/1] [==19%                       ] BFS_t64_g8_adynamic.nsys-rep[1/1] [==20%                       ] BFS_t64_g8_adynamic.nsys-rep[1/1] [===22%                      ] BFS_t64_g8_adynamic.nsys-rep[1/1] [===23%                      ] BFS_t64_g8_adynamic.nsys-rep[1/1] [====25%                     ] BFS_t64_g8_adynamic.nsys-rep[1/1] [====26%                     ] BFS_t64_g8_adynamic.nsys-rep[1/1] [====27%                     ] BFS_t64_g8_adynamic.nsys-rep[1/1] [=====29%                    ] BFS_t64_g8_adynamic.nsys-rep[1/1] [=====30%                    ] BFS_t64_g8_adynamic.nsys-rep[1/1] [=====32%                    ] BFS_t64_g8_adynamic.nsys-rep[1/1] [======33%                   ] BFS_t64_g8_adynamic.nsys-rep[1/1] [======35%                   ] BFS_t64_g8_adynamic.nsys-rep[1/1] [=======36%                  ] BFS_t64_g8_adynamic.nsys-rep[1/1] [=======37%                  ] BFS_t64_g8_adynamic.nsys-rep[1/1] [=======39%                  ] BFS_t64_g8_adynamic.nsys-rep[1/1] [========40%                 ] BFS_t64_g8_adynamic.nsys-rep[1/1] [========42%                 ] BFS_t64_g8_adynamic.nsys-rep[1/1] [=========43%                ] BFS_t64_g8_adynamic.nsys-rep[1/1] [=========45%                ] BFS_t64_g8_adynamic.nsys-rep[1/1] [=========46%                ] BFS_t64_g8_adynamic.nsys-rep[1/1] [==========47%               ] BFS_t64_g8_adynamic.nsys-rep[1/1] [==========49%               ] BFS_t64_g8_adynamic.nsys-rep[1/1] [===========50%              ] BFS_t64_g8_adynamic.nsys-rep[1/1] [========================100%] BFS_t64_g8_adynamic.nsys-rep[1/1] [========================100%] BFS_t64_g8_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/BFS_t64_g8_adynamic.nsys-rep

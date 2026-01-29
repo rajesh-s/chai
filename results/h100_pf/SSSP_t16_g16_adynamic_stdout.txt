@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA H100 PCIe	Allocation Time (ms): 0.262944
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 170.854523
+Kernel Time (ms): 2259.191650
+Deallocation Time (ms): 0.682464
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-3d11.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [0%                          ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [0%                          ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [5%                          ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [9%                          ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [13%                         ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [==18%                       ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [===22%                      ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [====26%                     ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [=====30%                    ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [======35%                   ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [=======39%                  ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [=========43%                ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [==========48%               ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [===========50%              ] SSSP_t16_g16_adynamic.nsys-rep[1/1] [========================100%] SSSP_t16_g16_adynamic.nsys-rep[1/1] [========================100%] SSSP_t16_g16_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/SSSP_t16_g16_adynamic.nsys-rep

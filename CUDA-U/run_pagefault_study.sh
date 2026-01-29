@@ -3,23 +3,38 @@
 # Uses nsys to capture CUDA Unified Memory page faults
 # Varies: CPU threads (-t) and partition fraction (-a)
 #
-# Usage: ./run_pagefault_study.sh [gh200|h100|<output_dir>]
+# Usage: ./run_pagefault_study.sh <system_type> [output_dir]
+#        system_type: gh200 or h100 (MANDATORY)
 
 # Get script directory first
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Output directory based on argument
+# Check mandatory system type argument
 if [ -z "$1" ]; then
-    OUTDIR="$SCRIPT_DIR/pagefault_results_$(hostname)_$(date +%Y%m%d_%H%M%S)"
-elif [ "$1" == "gh200" ]; then
-    OUTDIR="$SCRIPT_DIR/gh200_page_faults"
-elif [ "$1" == "h100" ]; then
-    OUTDIR="$SCRIPT_DIR/h100_page_faults"
+    echo "Error: System type is mandatory"
+    echo "Usage: ./run_pagefault_study.sh <system_type> [output_dir]"
+    echo "  system_type: gh200 or h100"
+    exit 1
+fi
+
+SYSTEM_TYPE="$1"
+
+# Validate system type
+if [ "$SYSTEM_TYPE" != "gh200" ] && [ "$SYSTEM_TYPE" != "h100" ]; then
+    echo "Error: Invalid system type '$SYSTEM_TYPE'"
+    echo "Must be either 'gh200' or 'h100'"
+    exit 1
+fi
+
+# Output directory based on second argument (optional)
+if [ -z "$2" ]; then
+    OUTDIR="$SCRIPT_DIR/pagefault_results_${SYSTEM_TYPE}_$(hostname)_$(date +%Y%m%d_%H%M%S)"
 else
-    OUTDIR="$SCRIPT_DIR/$1"
+    OUTDIR="$SCRIPT_DIR/$2"
 fi
 
 mkdir -p "$OUTDIR"
+echo "$SYSTEM_TYPE" > "$OUTDIR/system_type.txt"
 
 # Configuration
 THREADS=(1 4 16 32 64)
@@ -259,7 +274,7 @@ run_benchmark_threads_no_gpu "CEDT" "CEDT" "cedt" "$CEDT_ARGS" "$OUTDIR/CEDT_pag
 
 echo "" | tee -a "$OUTDIR/run.log"
 echo "=== Post-processing nsys reports ===" | tee -a "$OUTDIR/run.log"
-python3 "$SCRIPT_DIR/parse_pagefault_results.py" "$OUTDIR"
+python3 "$SCRIPT_DIR/parse_pagefault_results.py" "$OUTDIR" "$SYSTEM_TYPE"
 
 # ============================================================================
 # Summary

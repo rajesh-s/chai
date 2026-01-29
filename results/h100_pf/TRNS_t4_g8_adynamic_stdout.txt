@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA H100 PCIe	Allocation Time (ms): 0.275776
+Initialization Time (ms): 328.402374
+Kernel Time (ms): 2783.428711
+Deallocation Time (ms): 3.692096
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-2d69.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [0%                          ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [0%                          ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [6%                          ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [9%                          ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [12%                         ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [14%                         ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [=17%                        ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [==20%                       ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [===23%                      ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [====26%                     ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [=====29%                    ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [=====32%                    ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [======35%                   ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [=======38%                  ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [========40%                 ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [=========43%                ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [=========46%                ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [==========49%               ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [===========50%              ] TRNS_t4_g8_adynamic.nsys-rep[1/1] [========================100%] TRNS_t4_g8_adynamic.nsys-rep[1/1] [========================100%] TRNS_t4_g8_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/TRNS_t4_g8_adynamic.nsys-rep

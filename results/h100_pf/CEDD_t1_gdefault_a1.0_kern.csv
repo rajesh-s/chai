@@ -1,0 +1,8 @@
+
+NOTICE: Existing SQLite export found: /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/CEDD_t1_gdefault_a1.0.sqlite
+        It is assumed file was previously exported from: /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/CEDD_t1_gdefault_a1.0.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/CEDD_t1_gdefault_a1.0.sqlite] with [/opt/nvidia/nsight-systems-cli/2026.1.1/target-linux-x64/reports/cuda_gpu_kern_sum.py]... 
+SKIPPED: /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/CEDD_t1_gdefault_a1.0.sqlite does not contain CUDA kernel data.
+

@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA H100 PCIe	Allocation Time (ms): 0.358880
+Initialization Time (ms): 65703.296875
+Kernel Time (ms): 486.169586
+Deallocation Time (ms): 46.678974
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-3549.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] TQH_t64_g8_adynamic.nsys-rep[1/1] [0%                          ] TQH_t64_g8_adynamic.nsys-rep[1/1] [5%                          ] TQH_t64_g8_adynamic.nsys-rep[1/1] [6%                          ] TQH_t64_g8_adynamic.nsys-rep[1/1] [7%                          ] TQH_t64_g8_adynamic.nsys-rep[1/1] [=16%                        ] TQH_t64_g8_adynamic.nsys-rep[1/1] [====28%                     ] TQH_t64_g8_adynamic.nsys-rep[1/1] [========42%                 ] TQH_t64_g8_adynamic.nsys-rep[1/1] [===========53%              ] TQH_t64_g8_adynamic.nsys-rep[1/1] [========================100%] TQH_t64_g8_adynamic.nsys-rep[1/1] [========================100%] TQH_t64_g8_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/TQH_t64_g8_adynamic.nsys-rep

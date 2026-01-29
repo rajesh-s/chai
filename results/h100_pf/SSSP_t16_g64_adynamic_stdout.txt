@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA H100 PCIe	Allocation Time (ms): 0.756608
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 301.632111
+Kernel Time (ms): 5331.257812
+Deallocation Time (ms): 0.653184
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-c7be.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [0%                          ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [0%                          ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [5%                          ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [7%                          ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [10%                         ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [12%                         ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [=15%                        ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [=17%                        ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [==20%                       ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [===22%                      ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [====25%                     ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [====27%                     ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [=====30%                    ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [=====32%                    ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [======35%                   ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [=======37%                  ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [========40%                 ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [========42%                 ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [=========45%                ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [==========47%               ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [===========50%              ] SSSP_t16_g64_adynamic.nsys-rep[1/1] [========================100%] SSSP_t16_g64_adynamic.nsys-rep[1/1] [========================100%] SSSP_t16_g64_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/SSSP_t16_g64_adynamic.nsys-rep

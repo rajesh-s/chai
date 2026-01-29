@@ -2,6 +2,7 @@
 """
 Parse nsys page fault reports and create summary CSVs.
 Processes raw nsys-rep files to extract CPU and GPU page fault counts and data sizes.
+Supports both GH200 and H100 systems with system-specific SQL queries.
 """
 
 import os
@@ -11,6 +12,18 @@ import glob
 import subprocess
 from pathlib import Path
 import csv
+
+
+def get_system_type(results_dir):
+    """
+    Detect system type from results_dir/system_type.txt or return from parameter.
+    Falls back to detection if not present.
+    """
+    system_file = os.path.join(results_dir, 'system_type.txt')
+    if os.path.exists(system_file):
+        with open(system_file, 'r') as f:
+            return f.read().strip().lower()
+    return None
 
 
 def parse_nsys_report(nsys_file):
@@ -71,10 +84,10 @@ def parse_nsys_report(nsys_file):
     return result
 
 
-def parse_sqlite_report(nsys_file):
+def parse_sqlite_report(nsys_file, system_type='h100'):
     """
-    Alternative: Parse nsys SQLite export for page fault data.
-    This is used when nsys stats doesn't provide the needed reports.
+    Parse nsys SQLite export for page fault data.
+    Different query strategies for GH200 vs H100 systems.
     """
     import sqlite3
     
@@ -105,49 +118,17 @@ def parse_sqlite_report(nsys_file):
         conn = sqlite3.connect(sqlite_file)
         cursor = conn.cursor()
         
-        # Try to get page fault data from various possible tables
-        # Table names vary by nsys version
-        tables_to_check = [
-            'CUDA_UM_CPU_PAGE_FAULTS',
-            'CUPTI_ACTIVITY_KIND_UNIFIED_MEMORY_COUNTER',
-            'StringIds',  # For checking what's available
-        ]
-        
-        # Check available tables
+        # Get available tables for debugging
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
         available_tables = [row[0] for row in cursor.fetchall()]
         
-        # Try CUDA UM CPU page faults
-        if 'CUDA_UM_CPU_PAGE_FAULTS' in available_tables:
-            cursor.execute("SELECT COUNT(*), SUM(size) FROM CUDA_UM_CPU_PAGE_FAULTS")
-            row = cursor.fetchone()
-            if row:
-                result['cpu_page_faults'] = row[0] or 0
-                result['cpu_pf_data_bytes'] = row[1] or 0
-        
-        # Try CUDA UM GPU page faults
-        if 'CUDA_UM_GPU_PAGE_FAULTS' in available_tables:
-            cursor.execute("SELECT COUNT(*), SUM(size) FROM CUDA_UM_GPU_PAGE_FAULTS")
-            row = cursor.fetchone()
-            if row:
-                result['gpu_page_faults'] = row[0] or 0
-                result['gpu_pf_data_bytes'] = row[1] or 0
-        
-        # Try unified memory counter table (older nsys versions)
-        if 'CUPTI_ACTIVITY_KIND_UNIFIED_MEMORY_COUNTER' in available_tables:
-            # counterKind: 0=bytes_transfer_htod, 1=bytes_transfer_dtoh, 
-            # 2=cpu_page_fault_count, 3=gpu_page_fault_count
-            cursor.execute("""
-                SELECT counterKind, SUM(value) 
-                FROM CUPTI_ACTIVITY_KIND_UNIFIED_MEMORY_COUNTER 
-                GROUP BY counterKind
-            """)
-            for row in cursor.fetchall():
-                kind, value = row
-                if kind == 2:  # CPU page faults
-                    result['cpu_page_faults'] = int(value or 0)
-                elif kind == 3:  # GPU page faults
-                    result['gpu_page_faults'] = int(value or 0)
+        if system_type == 'gh200':
+            # GH200 specific: Use different table/query structure if needed
+            # For now, use same as H100 since they appear identical
+            parse_gh200_tables(cursor, available_tables, result)
+        else:
+            # H100 (default)
+            parse_h100_tables(cursor, available_tables, result)
         
         conn.close()
         
@@ -159,6 +140,107 @@ def parse_sqlite_report(nsys_file):
     result['gpu_pf_data_mb'] = result['gpu_pf_data_bytes'] / (1024 * 1024)
     
     return result
+
+
+def parse_gh200_tables(cursor, available_tables, result):
+    """
+    Parse GH200-style nsys tables for page fault data.
+    GH200 has hardware coherence, uses older table naming conventions.
+    """
+    # Try CUDA UM CPU page fault events
+    if 'CUDA_UM_CPU_PAGE_FAULTS' in available_tables:
+        try:
+            cursor.execute("SELECT COUNT(*), SUM(size) FROM CUDA_UM_CPU_PAGE_FAULTS")
+            row = cursor.fetchone()
+            if row:
+                result['cpu_page_faults'] = row[0] or 0
+                result['cpu_pf_data_bytes'] = row[1] or 0
+        except Exception as e:
+            print(f"    Warning: Error querying CPU page faults: {e}")
+    
+    # Try CUDA UM GPU page faults
+    if 'CUDA_UM_GPU_PAGE_FAULTS' in available_tables:
+        try:
+            cursor.execute("SELECT COUNT(*), SUM(size) FROM CUDA_UM_GPU_PAGE_FAULTS")
+            row = cursor.fetchone()
+            if row:
+                result['gpu_page_faults'] = row[0] or 0
+                result['gpu_pf_data_bytes'] = row[1] or 0
+        except Exception as e:
+            print(f"    Warning: Error querying GPU page faults: {e}")
+    
+    # Try unified memory counter table (older nsys versions)
+    if result['cpu_page_faults'] == 0 and result['gpu_page_faults'] == 0:
+        if 'CUPTI_ACTIVITY_KIND_UNIFIED_MEMORY_COUNTER' in available_tables:
+            try:
+                cursor.execute("""
+                    SELECT counterKind, SUM(value) 
+                    FROM CUPTI_ACTIVITY_KIND_UNIFIED_MEMORY_COUNTER 
+                    GROUP BY counterKind
+                """)
+                for row in cursor.fetchall():
+                    kind, value = row
+                    if kind == 2:  # CPU page faults
+                        result['cpu_page_faults'] = int(value or 0)
+                        result['cpu_pf_data_bytes'] = int(value or 0) * 4096
+                    elif kind == 3:  # GPU page faults
+                        result['gpu_page_faults'] = int(value or 0)
+                        result['gpu_pf_data_bytes'] = int(value or 0) * 4096
+            except Exception as e:
+                print(f"    Warning: Error querying UM counter table: {e}")
+
+
+def parse_h100_tables(cursor, available_tables, result):
+    """
+    Parse H100-style nsys tables for page fault data.
+    H100 uses explicit copyKind values for migration tracking (copyKind 11=HtoD, 12=DtoH).
+    """
+    # Try CUDA UM CPU page fault events (H100 format)
+    if 'CUDA_UM_CPU_PAGE_FAULT_EVENTS' in available_tables:
+        try:
+            cursor.execute("SELECT COUNT(*) FROM CUDA_UM_CPU_PAGE_FAULT_EVENTS")
+            row = cursor.fetchone()
+            if row and row[0]:
+                result['cpu_page_faults'] = row[0]
+                # Page size is typically 4KB per fault
+                result['cpu_pf_data_bytes'] = row[0] * 4096
+        except Exception as e:
+            print(f"    Warning: Error querying CPU page faults: {e}")
+    
+    # Try CUDA UM GPU page fault events (H100 format)
+    if 'CUDA_UM_GPU_PAGE_FAULT_EVENTS' in available_tables:
+        try:
+            cursor.execute("SELECT COUNT(*), SUM(numberOfPageFaults) FROM CUDA_UM_GPU_PAGE_FAULT_EVENTS")
+            row = cursor.fetchone()
+            if row:
+                event_count = row[0] or 0
+                fault_count = row[1] or 0
+                # Total GPU page faults = sum of fault counts
+                result['gpu_page_faults'] = fault_count
+                # Data = faults * 4KB
+                result['gpu_pf_data_bytes'] = fault_count * 4096
+        except Exception as e:
+            print(f"    Warning: Error querying GPU page faults: {e}")
+    
+    # Extract HtoD and DtoH migration data from MEMCPY table using copyKind
+    # copyKind 11 = UVM_HTOD, 12 = UVM_DTOH
+    if 'CUPTI_ACTIVITY_KIND_MEMCPY' in available_tables:
+        try:
+            cursor.execute("""
+                SELECT copyKind, SUM(bytes) 
+                FROM CUPTI_ACTIVITY_KIND_MEMCPY 
+                WHERE copyKind IN (11, 12)
+                GROUP BY copyKind
+            """)
+            for row in cursor.fetchall():
+                kind, total_bytes = row
+                mb = (total_bytes or 0) / (1024 * 1024)
+                if kind == 11:  # UVM_HTOD
+                    result['htod_migration_mb'] = mb
+                elif kind == 12:  # UVM_DTOH
+                    result['dtoh_migration_mb'] = mb
+        except Exception as e:
+            print(f"    Warning: Error querying migration data: {e}")
 
 
 def parse_filename(filename):
@@ -198,11 +280,22 @@ def parse_filename(filename):
     return None
 
 
-def process_results_dir(results_dir):
+def process_results_dir(results_dir, system_type=None):
     """
     Process all nsys-rep files in a results directory and create summary CSVs.
+    system_type: 'gh200' or 'h100' - if not provided, tries to auto-detect.
     """
     results_dir = Path(results_dir)
+    
+    # Auto-detect system type if not provided
+    if system_type is None:
+        system_type = get_system_type(str(results_dir))
+    
+    if system_type is None:
+        print("Warning: System type not detected, assuming h100")
+        system_type = 'h100'
+    else:
+        print(f"Using system type: {system_type}")
     
     # Find all nsys-rep files
     nsys_files = list(results_dir.glob('*.nsys-rep'))
@@ -228,10 +321,8 @@ def process_results_dir(results_dir):
         
         print(f"  Parsing {nsys_file.name}...")
         
-        # Try nsys stats first, fall back to SQLite
-        pf_data = parse_nsys_report(str(nsys_file))
-        if pf_data is None:
-            pf_data = parse_sqlite_report(str(nsys_file))
+        # Use system-specific parser
+        pf_data = parse_sqlite_report(str(nsys_file), system_type)
         
         if pf_data is None:
             pf_data = {
@@ -276,18 +367,25 @@ def process_results_dir(results_dir):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python3 parse_pagefault_results.py <results_dir>")
+        print("Usage: python3 parse_pagefault_results.py <results_dir> [system_type]")
         print("")
         print("Processes nsys-rep files and creates summary CSV files with page fault counts.")
+        print("system_type: 'gh200' or 'h100' (optional, auto-detected if not provided)")
         sys.exit(1)
     
     results_dir = sys.argv[1]
+    system_type = sys.argv[2].lower() if len(sys.argv) > 2 else None
+    
+    if system_type and system_type not in ['gh200', 'h100']:
+        print(f"Error: Invalid system type '{system_type}'")
+        print("Must be either 'gh200' or 'h100'")
+        sys.exit(1)
     
     if not os.path.isdir(results_dir):
         print(f"Error: {results_dir} is not a directory")
         sys.exit(1)
     
-    process_results_dir(results_dir)
+    process_results_dir(results_dir, system_type)
 
 
 if __name__ == '__main__':

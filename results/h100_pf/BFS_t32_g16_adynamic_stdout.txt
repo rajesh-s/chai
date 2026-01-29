@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA H100 PCIe	Allocation Time (ms): 0.389824
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 199.717819
+Kernel Time (ms): 4746.101562
+Deallocation Time (ms): 0.606112
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-b1b7.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] BFS_t32_g16_adynamic.nsys-rep[1/1] [0%                          ] BFS_t32_g16_adynamic.nsys-rep[1/1] [0%                          ] BFS_t32_g16_adynamic.nsys-rep[1/1] [8%                          ] BFS_t32_g16_adynamic.nsys-rep[1/1] [12%                         ] BFS_t32_g16_adynamic.nsys-rep[1/1] [=16%                        ] BFS_t32_g16_adynamic.nsys-rep[1/1] [==20%                       ] BFS_t32_g16_adynamic.nsys-rep[1/1] [===24%                      ] BFS_t32_g16_adynamic.nsys-rep[1/1] [====27%                     ] BFS_t32_g16_adynamic.nsys-rep[1/1] [=====31%                    ] BFS_t32_g16_adynamic.nsys-rep[1/1] [======35%                   ] BFS_t32_g16_adynamic.nsys-rep[1/1] [=======39%                  ] BFS_t32_g16_adynamic.nsys-rep[1/1] [=========43%                ] BFS_t32_g16_adynamic.nsys-rep[1/1] [==========47%               ] BFS_t32_g16_adynamic.nsys-rep[1/1] [===========50%              ] BFS_t32_g16_adynamic.nsys-rep[1/1] [========================100%] BFS_t32_g16_adynamic.nsys-rep[1/1] [========================100%] BFS_t32_g16_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/BFS_t32_g16_adynamic.nsys-rep

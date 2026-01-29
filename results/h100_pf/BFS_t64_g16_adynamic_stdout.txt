@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA H100 PCIe	Allocation Time (ms): 0.267424
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 176.918594
+Kernel Time (ms): 17670.601562
+Deallocation Time (ms): 0.617184
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-621d.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] BFS_t64_g16_adynamic.nsys-rep[1/1] [0%                          ] BFS_t64_g16_adynamic.nsys-rep[1/1] [5%                          ] BFS_t64_g16_adynamic.nsys-rep[1/1] [6%                          ] BFS_t64_g16_adynamic.nsys-rep[1/1] [7%                          ] BFS_t64_g16_adynamic.nsys-rep[1/1] [8%                          ] BFS_t64_g16_adynamic.nsys-rep[1/1] [10%                         ] BFS_t64_g16_adynamic.nsys-rep[1/1] [11%                         ] BFS_t64_g16_adynamic.nsys-rep[1/1] [13%                         ] BFS_t64_g16_adynamic.nsys-rep[1/1] [14%                         ] BFS_t64_g16_adynamic.nsys-rep[1/1] [=15%                        ] BFS_t64_g16_adynamic.nsys-rep[1/1] [=17%                        ] BFS_t64_g16_adynamic.nsys-rep[1/1] [==18%                       ] BFS_t64_g16_adynamic.nsys-rep[1/1] [==19%                       ] BFS_t64_g16_adynamic.nsys-rep[1/1] [==21%                       ] BFS_t64_g16_adynamic.nsys-rep[1/1] [===22%                      ] BFS_t64_g16_adynamic.nsys-rep[1/1] [===23%                      ] BFS_t64_g16_adynamic.nsys-rep[1/1] [====25%                     ] BFS_t64_g16_adynamic.nsys-rep[1/1] [====26%                     ] BFS_t64_g16_adynamic.nsys-rep[1/1] [====27%                     ] BFS_t64_g16_adynamic.nsys-rep[1/1] [=====29%                    ] BFS_t64_g16_adynamic.nsys-rep[1/1] [=====30%                    ] BFS_t64_g16_adynamic.nsys-rep[1/1] [=====32%                    ] BFS_t64_g16_adynamic.nsys-rep[1/1] [======33%                   ] BFS_t64_g16_adynamic.nsys-rep[1/1] [======34%                   ] BFS_t64_g16_adynamic.nsys-rep[1/1] [=======36%                  ] BFS_t64_g16_adynamic.nsys-rep[1/1] [=======37%                  ] BFS_t64_g16_adynamic.nsys-rep[1/1] [=======38%                  ] BFS_t64_g16_adynamic.nsys-rep[1/1] [========40%                 ] BFS_t64_g16_adynamic.nsys-rep[1/1] [========41%                 ] BFS_t64_g16_adynamic.nsys-rep[1/1] [========42%                 ] BFS_t64_g16_adynamic.nsys-rep[1/1] [=========44%                ] BFS_t64_g16_adynamic.nsys-rep[1/1] [=========45%                ] BFS_t64_g16_adynamic.nsys-rep[1/1] [=========46%                ] BFS_t64_g16_adynamic.nsys-rep[1/1] [==========48%               ] BFS_t64_g16_adynamic.nsys-rep[1/1] [==========49%               ] BFS_t64_g16_adynamic.nsys-rep[1/1] [===========50%              ] BFS_t64_g16_adynamic.nsys-rep[1/1] [========================100%] BFS_t64_g16_adynamic.nsys-rep[1/1] [========================100%] BFS_t64_g16_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/BFS_t64_g16_adynamic.nsys-rep

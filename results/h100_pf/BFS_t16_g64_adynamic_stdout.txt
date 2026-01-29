@@ -1,0 +1,16 @@
+WARNING: The version of the system or its configuration does not allow enabling CPU profiling:
+- CPU IP/backtrace sampling will be disabled.
+- CPU context switch tracing will be disabled.
+Try the 'nsys status --environment' command to learn more.
+
+NVIDIA H100 PCIe	Allocation Time (ms): 0.376320
+Number of nodes = 264346	Number of edges = 733846	Initialization Time (ms): 208.264832
+Kernel Time (ms): 1986.119141
+Deallocation Time (ms): 0.622976
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-a872.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] BFS_t16_g64_adynamic.nsys-rep[1/1] [0%                          ] BFS_t16_g64_adynamic.nsys-rep[1/1] [6%                          ] BFS_t16_g64_adynamic.nsys-rep[1/1] [12%                         ] BFS_t16_g64_adynamic.nsys-rep[1/1] [==18%                       ] BFS_t16_g64_adynamic.nsys-rep[1/1] [===24%                      ] BFS_t16_g64_adynamic.nsys-rep[1/1] [=====30%                    ] BFS_t16_g64_adynamic.nsys-rep[1/1] [=======36%                  ] BFS_t16_g64_adynamic.nsys-rep[1/1] [========42%                 ] BFS_t16_g64_adynamic.nsys-rep[1/1] [==========48%               ] BFS_t16_g64_adynamic.nsys-rep[1/1] [===========50%              ] BFS_t16_g64_adynamic.nsys-rep[1/1] [========================100%] BFS_t16_g64_adynamic.nsys-rep[1/1] [========================100%] BFS_t16_g64_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/BFS_t16_g64_adynamic.nsys-rep
