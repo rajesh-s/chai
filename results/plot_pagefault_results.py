@@ -103,6 +103,14 @@ def _ensure_migration_columns(df):
         df['htod_migration_mb'] = df.get('gpu_pf_data_mb', 0)
     if 'dtoh_migration_mb' not in df.columns:
         df['dtoh_migration_mb'] = df.get('cpu_pf_data_mb', 0)
+    # Ensure migration cause columns exist (default to 0)
+    for direction in ('htod', 'dtoh'):
+        for cause in ('coherence', 'prefetch', 'eviction', 'user'):
+            col = f'{direction}_{cause}_mb'
+            if col not in df.columns:
+                df[col] = 0
+            else:
+                df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
 
 
 def _normalize_gpu_blocks(df):
@@ -885,6 +893,148 @@ def plot_benchmark_dual_comparison(df1, df2, bench_name, output_dir, name1="GH20
     plt.close()
 
 
+def plot_migration_cause_breakdown(df, bench_name, output_dir, system_name="System"):
+    """
+    Plot stacked bar chart of migration volume broken down by cause
+    (coherence, prefetch, eviction, user) for each thread count.
+    Produces separate HtoD and DtoH plots.
+    """
+    df = df.copy()
+    _ensure_migration_columns(df)
+
+    cause_colors = {
+        'coherence': '#d62728',   # red - most interesting for HW vs SW coherence
+        'prefetch':  '#2ca02c',   # green
+        'eviction':  '#ff7f0e',   # orange
+        'user':      '#1f77b4',   # blue
+    }
+    causes = ['coherence', 'prefetch', 'eviction', 'user']
+
+    for direction, dir_label in [('htod', 'HtoD (GPU←CPU)'), ('dtoh', 'DtoH (CPU←GPU)')]:
+        cause_cols = [f'{direction}_{c}_mb' for c in causes]
+
+        # Skip if no data for this direction
+        if all(df[c].sum() == 0 for c in cause_cols):
+            continue
+
+        # Aggregate by threads (sum across partitions / gpu_blocks)
+        agg_cols = {c: 'sum' for c in cause_cols}
+        grouped = df.groupby('threads').agg(agg_cols).reset_index().sort_values('threads')
+
+        threads = grouped['threads'].values
+        x = np.arange(len(threads))
+        width = 0.6
+
+        fig, ax = plt.subplots(figsize=(10, 6))
+
+        bottom = np.zeros(len(threads))
+        for cause in causes:
+            col = f'{direction}_{cause}_mb'
+            vals = grouped[col].values
+            if vals.sum() == 0:
+                continue
+            ax.bar(x, vals, width, bottom=bottom, label=cause.capitalize(),
+                   color=cause_colors[cause], alpha=0.85)
+            bottom += vals
+
+        ax.set_xlabel('CPU Threads', fontsize=12)
+        ax.set_ylabel('Migration Volume (MB)', fontsize=12)
+        ax.set_title(f'{bench_name} - {dir_label} Migration by Cause\n{system_name}',
+                     fontsize=14, fontweight='bold')
+        ax.set_xticks(x)
+        ax.set_xticklabels([str(t) for t in threads])
+        ax.legend(title='Migration Cause', loc='upper left', fontsize=10)
+        ax.grid(True, alpha=0.3, axis='y')
+
+        plt.tight_layout()
+        plt.savefig(os.path.join(output_dir, f'{bench_name}_{direction}_cause_breakdown.png'),
+                    dpi=150, bbox_inches='tight')
+        plt.close()
+
+
+def plot_migration_cause_comparison(df1, df2, bench_name, output_dir,
+                                     name1="GH200", name2="x86+H100"):
+    """
+    Compare migration cause breakdown between two systems side-by-side.
+    Grouped bar chart: each thread count has two bars (one per system), stacked by cause.
+    """
+    df1 = df1.copy()
+    df2 = df2.copy()
+    _ensure_migration_columns(df1)
+    _ensure_migration_columns(df2)
+
+    cause_colors = {
+        'coherence': '#d62728',
+        'prefetch':  '#2ca02c',
+        'eviction':  '#ff7f0e',
+        'user':      '#1f77b4',
+    }
+    causes = ['coherence', 'prefetch', 'eviction', 'user']
+
+    for direction, dir_label in [('htod', 'HtoD (GPU←CPU)'), ('dtoh', 'DtoH (CPU←GPU)')]:
+        cause_cols = [f'{direction}_{c}_mb' for c in causes]
+
+        # Skip if no data
+        has_data1 = any(df1[c].sum() > 0 for c in cause_cols)
+        has_data2 = any(df2[c].sum() > 0 for c in cause_cols)
+        if not has_data1 and not has_data2:
+            continue
+
+        # Aggregate by threads
+        agg_cols = {c: 'sum' for c in cause_cols}
+        g1 = df1.groupby('threads').agg(agg_cols).reset_index().sort_values('threads')
+        g2 = df2.groupby('threads').agg(agg_cols).reset_index().sort_values('threads')
+
+        threads = sorted(set(g1['threads'].tolist()) | set(g2['threads'].tolist()))
+        # Reindex so both have all threads
+        g1 = g1.set_index('threads').reindex(threads).fillna(0).reset_index()
+        g2 = g2.set_index('threads').reindex(threads).fillna(0).reset_index()
+
+        x = np.arange(len(threads))
+        width = 0.35
+
+        fig, ax = plt.subplots(figsize=(12, 6))
+
+        for offset, grouped, sys_name, hatch in [(-width/2, g1, name1, None),
+                                                   (width/2, g2, name2, '///')]:
+            bottom = np.zeros(len(threads))
+            for cause in causes:
+                col = f'{direction}_{cause}_mb'
+                vals = grouped[col].values
+                if vals.sum() == 0:
+                    continue
+                ax.bar(x + offset, vals, width, bottom=bottom,
+                       color=cause_colors[cause], alpha=0.85,
+                       hatch=hatch, edgecolor='white', linewidth=0.5,
+                       label=f'{cause.capitalize()} ({sys_name})')
+                bottom += vals
+
+        ax.set_xlabel('CPU Threads', fontsize=12)
+        ax.set_ylabel('Migration Volume (MB)', fontsize=12)
+        ax.set_title(f'{bench_name} - {dir_label} Migration by Cause',
+                     fontsize=14, fontweight='bold')
+        ax.set_xticks(x)
+        ax.set_xticklabels([str(t) for t in threads])
+
+        # Build a compact legend: cause colors + system hatching
+        from matplotlib.patches import Patch
+        cause_handles = [Patch(facecolor=cause_colors[c], label=c.capitalize())
+                         for c in causes]
+        sys_handles = [Patch(facecolor='gray', label=name1),
+                       Patch(facecolor='gray', hatch='///', label=name2)]
+        legend1 = ax.legend(handles=cause_handles, loc='upper left', fontsize=9,
+                            title='Cause', framealpha=0.9)
+        ax.add_artist(legend1)
+        ax.legend(handles=sys_handles, loc='upper right', fontsize=9,
+                  title='System', framealpha=0.9)
+
+        ax.grid(True, alpha=0.3, axis='y')
+        plt.tight_layout()
+        plt.savefig(os.path.join(output_dir, f'{bench_name}_{direction}_cause_comparison.png'),
+                    dpi=200, bbox_inches='tight')
+        plt.close()
+
+
 def plot_all_benchmarks(data, output_dir, system_name="System"):
     """Generate page fault and migration plots for all benchmarks."""
     os.makedirs(output_dir, exist_ok=True)
@@ -904,6 +1054,13 @@ def plot_all_benchmarks(data, output_dir, system_name="System"):
         # Plot migration volumes (if data available)
         if 'htod_migration_mb' in df.columns or 'dtoh_migration_mb' in df.columns:
             plot_benchmark_dual_axis(df, bench_name, output_dir, system_name)
+        
+        # Plot migration cause breakdown (if cause data available)
+        _ensure_migration_columns(df)
+        cause_cols = ['htod_coherence_mb', 'dtoh_coherence_mb',
+                      'htod_eviction_mb', 'dtoh_eviction_mb']
+        if any(df[c].sum() > 0 for c in cause_cols if c in df.columns):
+            plot_migration_cause_breakdown(df, bench_name, output_dir, system_name)
         
         print(f"    Saved {bench_name} plots")
 
@@ -926,6 +1083,16 @@ def plot_all_comparisons(data1, data2, output_dir, name1="GH200", name2="x86+H10
 
         plot_comparison_dual_axis(df1, df2, bench_name, output_dir, name1, name2)
         plot_pagefault_reduction(df1, df2, bench_name, output_dir, name1, name2)
+        
+        # Migration cause comparison
+        _ensure_migration_columns(df1)
+        _ensure_migration_columns(df2)
+        cause_cols = ['htod_coherence_mb', 'dtoh_coherence_mb',
+                      'htod_eviction_mb', 'dtoh_eviction_mb']
+        has_cause1 = any(df1[c].sum() > 0 for c in cause_cols if c in df1.columns)
+        has_cause2 = any(df2[c].sum() > 0 for c in cause_cols if c in df2.columns)
+        if has_cause1 or has_cause2:
+            plot_migration_cause_comparison(df1, df2, bench_name, output_dir, name1, name2)
         
         print(f"    Saved {bench_name} comparison plots")
 

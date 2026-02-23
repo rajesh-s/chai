@@ -1,0 +1,65 @@
+=== Chai Page Fault Study (nsys) ===
+Host: 192-222-56-222
+Date: Mon Feb 23 08:59:52 UTC 2026
+GPU: NVIDIA GH200 480GB
+CUDA: Cuda compilation tools, release 12.8, V12.8.93
+nsys: NVIDIA Nsight Systems version 2026.1.1.204-261137176666v0
+Threads: 1 4 16 32 64
+GPU Blocks: 8 16 32 64
+Partitions: 0.0 0.1 0.25 0.5 0.75 0.9 1.0
+Warmup: 1, Reps: 3
+
+=== Running BS (with partition + GPU blocks sweep) ===
+  BS: threads=1, gpu_blocks=8, partition=0.0
+  BS: threads=1, gpu_blocks=8, partition=0.1
+  BS: threads=1, gpu_blocks=8, partition=0.25
+  BS: threads=1, gpu_blocks=8, partition=0.5
+  BS: threads=1, gpu_blocks=8, partition=0.75
+  BS: threads=1, gpu_blocks=8, partition=0.9
+  BS: threads=1, gpu_blocks=8, partition=1.0
+  BS: threads=1, gpu_blocks=16, partition=0.0
+  BS: threads=1, gpu_blocks=16, partition=0.1
+  BS: threads=1, gpu_blocks=16, partition=0.25
+  BS: threads=1, gpu_blocks=16, partition=0.5
+  BS: threads=1, gpu_blocks=16, partition=0.75
+  BS: threads=1, gpu_blocks=16, partition=0.9
+  BS: threads=1, gpu_blocks=16, partition=1.0
+  BS: threads=1, gpu_blocks=32, partition=0.0
+  BS: threads=1, gpu_blocks=32, partition=0.1
+  BS: threads=1, gpu_blocks=32, partition=0.25
+  BS: threads=1, gpu_blocks=32, partition=0.5
+  BS: threads=1, gpu_blocks=32, partition=0.75
+  BS: threads=1, gpu_blocks=32, partition=0.9
+  BS: threads=1, gpu_blocks=32, partition=1.0
+  BS: threads=1, gpu_blocks=64, partition=0.0
+  BS: threads=1, gpu_blocks=64, partition=0.1
+  BS: threads=1, gpu_blocks=64, partition=0.25
+  BS: threads=1, gpu_blocks=64, partition=0.5
+  BS: threads=1, gpu_blocks=64, partition=0.75
+  BS: threads=1, gpu_blocks=64, partition=0.9
+  BS: threads=1, gpu_blocks=64, partition=1.0
+  BS: threads=4, gpu_blocks=8, partition=0.0
+  BS: threads=4, gpu_blocks=8, partition=0.1
+  BS: threads=4, gpu_blocks=8, partition=0.25
+  BS: threads=4, gpu_blocks=8, partition=0.5
+  BS: threads=4, gpu_blocks=8, partition=0.75
+  BS: threads=4, gpu_blocks=8, partition=0.9
+  BS: threads=4, gpu_blocks=8, partition=1.0
+  BS: threads=4, gpu_blocks=16, partition=0.0
+  BS: threads=4, gpu_blocks=16, partition=0.1
+  BS: threads=4, gpu_blocks=16, partition=0.25
+  BS: threads=4, gpu_blocks=16, partition=0.5
+  BS: threads=4, gpu_blocks=16, partition=0.75
+  BS: threads=4, gpu_blocks=16, partition=0.9
+  BS: threads=4, gpu_blocks=16, partition=1.0
+  BS: threads=4, gpu_blocks=32, partition=0.0
+  BS: threads=4, gpu_blocks=32, partition=0.1
+  BS: threads=4, gpu_blocks=32, partition=0.25
+  BS: threads=4, gpu_blocks=32, partition=0.5
+  BS: threads=4, gpu_blocks=32, partition=0.75
+  BS: threads=4, gpu_blocks=32, partition=0.9
+  BS: threads=4, gpu_blocks=32, partition=1.0
+  BS: threads=4, gpu_blocks=64, partition=0.0
+  BS: threads=4, gpu_blocks=64, partition=0.1
+  BS: threads=4, gpu_blocks=64, partition=0.25
+  BS: threads=4, gpu_blocks=64, partition=0.5

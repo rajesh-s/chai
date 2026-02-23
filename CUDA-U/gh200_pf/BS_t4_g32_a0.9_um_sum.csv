@@ -1,0 +1,9 @@
+
+NOTICE: Existing SQLite export found: /home/ubuntu/Rajesh-FS/chai/CUDA-U/gh200_pf/BS_t4_g32_a0.9.sqlite
+        It is assumed file was previously exported from: /home/ubuntu/Rajesh-FS/chai/CUDA-U/gh200_pf/BS_t4_g32_a0.9.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/home/ubuntu/Rajesh-FS/chai/CUDA-U/gh200_pf/BS_t4_g32_a0.9.sqlite] with [/opt/nvidia/nsight-systems-cli/2026.1.1/target-linux-sbsa-armv8/reports/um_total_sum.py]... 
+Total HtoD Migration Size (MB),Total DtoH Migration Size (MB),Total CPU Page Faults,Total GPU PageFaults,Minimum Virtual Address,Maximum Virtual Address
+1.049,1.376,30,285,0xF86380000000,0xF863F9DE0000
+

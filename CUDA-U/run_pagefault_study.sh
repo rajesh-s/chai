@@ -133,8 +133,15 @@ extract_pagefaults() {
         nsys stats --report cuda_um_cpu_page_faults --format csv "${nsys_file}.nsys-rep" > "${csv_output}_cpu_pf.csv" 2>/dev/null
         nsys stats --report cuda_um_gpu_page_faults --format csv "${nsys_file}.nsys-rep" > "${csv_output}_gpu_pf.csv" 2>/dev/null
         
-        # Also export summary
+        # Export UM total summary (includes migration volumes)
+        nsys stats --report um_total_sum --format csv "${nsys_file}.nsys-rep" > "${csv_output}_um_sum.csv" 2>/dev/null
+        nsys stats --report um_sum --format csv "${nsys_file}.nsys-rep" > "${csv_output}_um_detail.csv" 2>/dev/null
+        
+        # Also export kernel summary
         nsys stats --report cuda_gpu_kern_sum --format csv "${nsys_file}.nsys-rep" > "${csv_output}_kern.csv" 2>/dev/null
+        
+        # Pre-export to SQLite for migration cause breakdown parsing
+        nsys export --type sqlite --force-overwrite=true --output "${nsys_file}.sqlite" "${nsys_file}.nsys-rep" 2>/dev/null
     fi
 }
 

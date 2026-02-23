@@ -3,6 +3,10 @@
 Parse nsys page fault reports and create summary CSVs.
 Processes raw nsys-rep files to extract CPU and GPU page fault counts and data sizes.
 Supports both GH200 and H100 systems with system-specific SQL queries.
+
+Migration cause breakdown:
+  - counterKind 0 = HtoD bytes, 1 = DtoH bytes, 2 = CPU PF, 3 = GPU PF
+  - migrationCause: 0 = USER, 1 = COHERENCE, 2 = PREFETCH, 3 = EVICTION
 """
 
 import os
@@ -12,6 +16,35 @@ import glob
 import subprocess
 from pathlib import Path
 import csv
+
+# Migration cause enum for CUPTI_ACTIVITY_KIND_MEMCPY.migrationCause
+# See ENUM_CUDA_UNIF_MEM_MIGRATION in nsys SQLite exports
+MEMCPY_MIGRATION_CAUSES = {
+    0: 'unknown',          # CUDA_UNIFIED_MEMORY_MIGRATION_CAUSE_UNKNOWN
+    1: 'user',             # CUDA_UNIFIED_MEMORY_MIGRATION_CAUSE_USER (prefetch)
+    2: 'coherence',        # CUDA_UNIFIED_MEMORY_MIGRATION_CAUSE_COHERENCE (page fault)
+    3: 'prefetch',         # CUDA_UNIFIED_MEMORY_MIGRATION_CAUSE_PREFETCH (speculative)
+    4: 'eviction',         # CUDA_UNIFIED_MEMORY_MIGRATION_CAUSE_EVICTION
+    5: 'access_counters',  # CUDA_UNIFIED_MEMORY_MIGRATION_CAUSE_ACCESS_COUNTERS
+}
+
+# Migration cause enum for CUPTI_ACTIVITY_KIND_UNIFIED_MEMORY_COUNTER.migrationCause
+# (0-indexed, different from the MEMCPY table enum)
+UM_COUNTER_MIGRATION_CAUSES = {
+    0: 'user',       # Explicit cudaMemPrefetchAsync / cudaMemAdvise
+    1: 'coherence',  # Migration to guarantee data coherence (SMs stall)
+    2: 'prefetch',   # Driver-initiated prefetch
+    3: 'eviction',   # Evicted to make room for another block
+}
+
+# CUPTI Unified Memory counter kind enum values
+# See CUpti_ActivityUnifiedMemoryCounterKind
+UM_COUNTER_KIND = {
+    0: 'htod_bytes',   # Bytes transferred Host-to-Device
+    1: 'dtoh_bytes',   # Bytes transferred Device-to-Host
+    2: 'cpu_pf',       # CPU page faults
+    3: 'gpu_pf',       # GPU page faults
+}
 
 
 def get_system_type(results_dir):
@@ -88,6 +121,7 @@ def parse_sqlite_report(nsys_file, system_type='h100'):
     """
     Parse nsys SQLite export for page fault data.
     Different query strategies for GH200 vs H100 systems.
+    Also extracts migration cause breakdown (coherence, prefetch, eviction, user).
     """
     import sqlite3
     
@@ -96,6 +130,15 @@ def parse_sqlite_report(nsys_file, system_type='h100'):
         'gpu_page_faults': 0,
         'cpu_pf_data_bytes': 0,
         'gpu_pf_data_bytes': 0,
+        # Migration cause breakdown (bytes)
+        'htod_coherence_mb': 0,
+        'htod_prefetch_mb': 0,
+        'htod_eviction_mb': 0,
+        'htod_user_mb': 0,
+        'dtoh_coherence_mb': 0,
+        'dtoh_prefetch_mb': 0,
+        'dtoh_eviction_mb': 0,
+        'dtoh_user_mb': 0,
     }
     
     sqlite_file = nsys_file.replace('.nsys-rep', '.sqlite')
@@ -139,15 +182,25 @@ def parse_sqlite_report(nsys_file, system_type='h100'):
     result['cpu_pf_data_mb'] = result['cpu_pf_data_bytes'] / (1024 * 1024)
     result['gpu_pf_data_mb'] = result['gpu_pf_data_bytes'] / (1024 * 1024)
     
+    # Compute total migration volumes from cause breakdown if available
+    result['htod_migration_mb'] = result.get('htod_migration_mb', 0) or (
+        result['htod_coherence_mb'] + result['htod_prefetch_mb'] +
+        result['htod_eviction_mb'] + result['htod_user_mb'])
+    result['dtoh_migration_mb'] = result.get('dtoh_migration_mb', 0) or (
+        result['dtoh_coherence_mb'] + result['dtoh_prefetch_mb'] +
+        result['dtoh_eviction_mb'] + result['dtoh_user_mb'])
+    
     return result
 
 
 def parse_gh200_tables(cursor, available_tables, result):
     """
     Parse GH200-style nsys tables for page fault data.
-    GH200 has hardware coherence, uses older table naming conventions.
+    GH200 has hardware coherence.  Newer nsys versions use the same
+    _EVENTS table names as H100, so we try both naming conventions.
     """
-    # Try CUDA UM CPU page fault events
+    # --- CPU page faults ---
+    # Try older table name first, then newer _EVENTS suffix
     if 'CUDA_UM_CPU_PAGE_FAULTS' in available_tables:
         try:
             cursor.execute("SELECT COUNT(*), SUM(size) FROM CUDA_UM_CPU_PAGE_FAULTS")
@@ -157,8 +210,17 @@ def parse_gh200_tables(cursor, available_tables, result):
                 result['cpu_pf_data_bytes'] = row[1] or 0
         except Exception as e:
             print(f"    Warning: Error querying CPU page faults: {e}")
+    elif 'CUDA_UM_CPU_PAGE_FAULT_EVENTS' in available_tables:
+        try:
+            cursor.execute("SELECT COUNT(*) FROM CUDA_UM_CPU_PAGE_FAULT_EVENTS")
+            row = cursor.fetchone()
+            if row and row[0]:
+                result['cpu_page_faults'] = row[0]
+                result['cpu_pf_data_bytes'] = row[0] * 4096
+        except Exception as e:
+            print(f"    Warning: Error querying CPU page fault events: {e}")
     
-    # Try CUDA UM GPU page faults
+    # --- GPU page faults ---
     if 'CUDA_UM_GPU_PAGE_FAULTS' in available_tables:
         try:
             cursor.execute("SELECT COUNT(*), SUM(size) FROM CUDA_UM_GPU_PAGE_FAULTS")
@@ -168,8 +230,18 @@ def parse_gh200_tables(cursor, available_tables, result):
                 result['gpu_pf_data_bytes'] = row[1] or 0
         except Exception as e:
             print(f"    Warning: Error querying GPU page faults: {e}")
+    elif 'CUDA_UM_GPU_PAGE_FAULT_EVENTS' in available_tables:
+        try:
+            cursor.execute("SELECT COUNT(*), SUM(numberOfPageFaults) FROM CUDA_UM_GPU_PAGE_FAULT_EVENTS")
+            row = cursor.fetchone()
+            if row:
+                fault_count = row[1] or 0
+                result['gpu_page_faults'] = fault_count
+                result['gpu_pf_data_bytes'] = fault_count * 4096
+        except Exception as e:
+            print(f"    Warning: Error querying GPU page fault events: {e}")
     
-    # Try unified memory counter table (older nsys versions)
+    # Try unified memory counter table as last resort (older nsys versions)
     if result['cpu_page_faults'] == 0 and result['gpu_page_faults'] == 0:
         if 'CUPTI_ACTIVITY_KIND_UNIFIED_MEMORY_COUNTER' in available_tables:
             try:
@@ -188,6 +260,28 @@ def parse_gh200_tables(cursor, available_tables, result):
                         result['gpu_pf_data_bytes'] = int(value or 0) * 4096
             except Exception as e:
                 print(f"    Warning: Error querying UM counter table: {e}")
+    
+    # --- HtoD / DtoH migration totals from MEMCPY table ---
+    if 'CUPTI_ACTIVITY_KIND_MEMCPY' in available_tables:
+        try:
+            cursor.execute("""
+                SELECT copyKind, SUM(bytes)
+                FROM CUPTI_ACTIVITY_KIND_MEMCPY
+                WHERE copyKind IN (11, 12)
+                GROUP BY copyKind
+            """)
+            for row in cursor.fetchall():
+                kind, total_bytes = row
+                mb = (total_bytes or 0) / (1024 * 1024)
+                if kind == 11:  # UVM_HTOD
+                    result['htod_migration_mb'] = mb
+                elif kind == 12:  # UVM_DTOH
+                    result['dtoh_migration_mb'] = mb
+        except Exception as e:
+            print(f"    Warning: Error querying migration data: {e}")
+    
+    # --- Migration cause breakdown ---
+    _extract_migration_cause_breakdown(cursor, available_tables, result)
 
 
 def parse_h100_tables(cursor, available_tables, result):
@@ -241,6 +335,81 @@ def parse_h100_tables(cursor, available_tables, result):
                     result['dtoh_migration_mb'] = mb
         except Exception as e:
             print(f"    Warning: Error querying migration data: {e}")
+    
+    # --- Migration cause breakdown ---
+    _extract_migration_cause_breakdown(cursor, available_tables, result)
+
+
+def _extract_migration_cause_breakdown(cursor, available_tables, result):
+    """
+    Extract per-migration-cause HtoD/DtoH byte counts.
+
+    Primary source: CUPTI_ACTIVITY_KIND_MEMCPY table
+      - copyKind 11 = UVM_HTOD, 12 = UVM_DTOH
+      - migrationCause uses ENUM_CUDA_UNIF_MEM_MIGRATION (1-indexed)
+
+    Fallback: CUPTI_ACTIVITY_KIND_UNIFIED_MEMORY_COUNTER table
+      - counterKind 0 = HtoD bytes, 1 = DtoH bytes
+      - migrationCause uses 0-indexed enum
+    """
+    extracted = False
+
+    # --- Primary: CUPTI_ACTIVITY_KIND_MEMCPY ---
+    if 'CUPTI_ACTIVITY_KIND_MEMCPY' in available_tables:
+        try:
+            cursor.execute("PRAGMA table_info(CUPTI_ACTIVITY_KIND_MEMCPY)")
+            columns = [row[1] for row in cursor.fetchall()]
+            if 'migrationCause' in columns:
+                cursor.execute("""
+                    SELECT copyKind, migrationCause, SUM(bytes)
+                    FROM CUPTI_ACTIVITY_KIND_MEMCPY
+                    WHERE copyKind IN (11, 12)
+                    GROUP BY copyKind, migrationCause
+                """)
+                for row in cursor.fetchall():
+                    ck, cause, total_bytes = row
+                    if total_bytes is None:
+                        continue
+                    mb = total_bytes / (1024 * 1024)
+                    cause_name = MEMCPY_MIGRATION_CAUSES.get(cause, f'unknown_{cause}')
+                    # Skip unknown / access_counters — not one of the 4 tracked causes
+                    if cause_name not in ('user', 'coherence', 'prefetch', 'eviction'):
+                        continue
+                    if ck == 11:  # UVM HtoD
+                        result[f'htod_{cause_name}_mb'] = mb
+                    elif ck == 12:  # UVM DtoH
+                        result[f'dtoh_{cause_name}_mb'] = mb
+                extracted = True
+        except Exception as e:
+            print(f"    Warning: Error querying MEMCPY migration causes: {e}")
+
+    # --- Fallback: CUPTI_ACTIVITY_KIND_UNIFIED_MEMORY_COUNTER ---
+    if not extracted and 'CUPTI_ACTIVITY_KIND_UNIFIED_MEMORY_COUNTER' in available_tables:
+        try:
+            cursor.execute("PRAGMA table_info(CUPTI_ACTIVITY_KIND_UNIFIED_MEMORY_COUNTER)")
+            columns = [row[1] for row in cursor.fetchall()]
+            if 'migrationCause' not in columns:
+                return
+            cursor.execute("""
+                SELECT counterKind, migrationCause, SUM(value)
+                FROM CUPTI_ACTIVITY_KIND_UNIFIED_MEMORY_COUNTER
+                WHERE counterKind IN (0, 1)
+                GROUP BY counterKind, migrationCause
+            """)
+            for row in cursor.fetchall():
+                kind, cause, total_bytes = row
+                if total_bytes is None:
+                    continue
+                mb = total_bytes / (1024 * 1024)
+                cause_name = UM_COUNTER_MIGRATION_CAUSES.get(cause, f'unknown_{cause}')
+                if cause_name not in ('user', 'coherence', 'prefetch', 'eviction'):
+                    continue
+                if kind == 0:  # HtoD bytes
+                    result[f'htod_{cause_name}_mb'] = mb
+                elif kind == 1:  # DtoH bytes
+                    result[f'dtoh_{cause_name}_mb'] = mb
+        except Exception as e:
+            print(f"    Warning: Error querying UM counter migration causes: {e}")
 
 
 def parse_filename(filename):
@@ -353,6 +522,10 @@ def process_results_dir(results_dir, system_type=None):
         fieldnames = ['benchmark', 'threads', 'gpu_blocks', 'partition',
                       'cpu_page_faults', 'gpu_page_faults', 
                       'htod_migration_mb', 'dtoh_migration_mb',
+                      'htod_coherence_mb', 'htod_prefetch_mb',
+                      'htod_eviction_mb', 'htod_user_mb',
+                      'dtoh_coherence_mb', 'dtoh_prefetch_mb',
+                      'dtoh_eviction_mb', 'dtoh_user_mb',
                       'cpu_pf_data_mb', 'gpu_pf_data_mb']
         
         with open(csv_file, 'w', newline='') as f:
