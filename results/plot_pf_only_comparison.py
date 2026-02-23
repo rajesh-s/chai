@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """
-Compare Page Fault & Migration Ratios: H100 (SW) / GH200 (HW)
+Compare Page Fault Metrics: H100 (SW Coherence) vs GH200 (HW Coherence)
 
-Produces a grouped bar chart with 3 bars per workload (all ratios H100/GH200):
-  Bar 1: Page Fault count ratio
-  Bar 2: Total UVM migration MB ratio  (HtoD + DtoH, all causes)
-  Bar 3: Page-fault-triggered migration MB ratio  (migrationCause = COHERENCE)
+Produces a single dual-axis bar chart:
+  Left y-axis  (log): Page Fault Count amplification ratio (H100 / GH200)
+  Right y-axis (log): H100 Coherence Migration in MB (HtoD + DtoH)
 
-Log y-axis, reference line at 1x.
+Bars are colored by workload partitioning group.
 Configuration: threads=64, gpu_blocks=64, partition=0.5 (static) or dynamic.
 """
 
@@ -29,7 +28,7 @@ plt.style.use('seaborn-v0_8-whitegrid')
 SCRIPT_DIR = Path(__file__).parent
 GH200_DIR  = SCRIPT_DIR / "gh200_pf"
 H100_DIR   = SCRIPT_DIR / "h100_pf"
-OUTPUT_DIR = SCRIPT_DIR / "comparison_plots_pf_all"
+OUTPUT_DIR = SCRIPT_DIR / "comparison_plots_pf"
 
 TARGET_THREADS    = 64
 TARGET_GPU_BLOCKS = 64
@@ -44,7 +43,7 @@ WORKLOAD_GROUPS = {
     'Coarse Task Partitioning': ['BFS', 'CEDT', 'SSSP'],
 }
 
-EXCLUDED_WORKLOADS = set(['TRNS', 'HSTI', 'RSCD', 'TQH'])
+EXCLUDED_WORKLOADS = set(['TRNS', 'HSTI', 'RSCD', 'TQH'])  # include all workloads
 
 # Flat ordering for x-axis
 WORKLOAD_ORDER = []
@@ -60,15 +59,13 @@ GROUP_COLORS = {
 
 # Per-metric bar colors
 METRIC_COLORS = {
-    'pf':        '#FFB3BA',   # blue
-    'migr':      '#A0C4FF',   # orange
-    'coh':       '#FFD6A5',   # green
+    'pf':        '#1f77b4',   # blue
+    'coh_total': '#ff7f0e',   # orange
 }
 
 METRIC_LABELS = {
-    'pf':        'Page Fault Count',
-    'migr':      'Total Migration',
-    'coh':       'Coherence/Page-Fault attributed Migration',
+    'pf':        'PF Count Ratio (H100 / GH200)',
+    'coh_total': 'H100 Coherence Migration MB',
 }
 
 
@@ -124,30 +121,30 @@ def compute_metrics(gh200_data, h100_data):
         gh200_pf = gr['cpu_page_faults'] + gr['gpu_page_faults']
         h100_pf  = hr['cpu_page_faults'] + hr['gpu_page_faults']
 
-        # Total migration MB (all causes)
-        gh200_total_mb = (gr.get('htod_migration_mb', 0) or 0) + \
-                         (gr.get('dtoh_migration_mb', 0) or 0)
-        h100_total_mb  = (hr.get('htod_migration_mb', 0) or 0) + \
-                         (hr.get('dtoh_migration_mb', 0) or 0)
+        gh200_htod_coh = gr.get('htod_coherence_mb', 0) or 0
+        h100_htod_coh  = hr.get('htod_coherence_mb', 0) or 0
+        gh200_dtoh_coh = gr.get('dtoh_coherence_mb', 0) or 0
+        h100_dtoh_coh  = hr.get('dtoh_coherence_mb', 0) or 0
 
-        # Coherence (page-fault-triggered) migration MB only
-        gh200_coh_mb = (gr.get('htod_coherence_mb', 0) or 0) + \
-                       (gr.get('dtoh_coherence_mb', 0) or 0)
-        h100_coh_mb  = (hr.get('htod_coherence_mb', 0) or 0) + \
-                       (hr.get('dtoh_coherence_mb', 0) or 0)
+        # Combined coherence migration (HtoD + DtoH)
+        gh200_coh_total = gh200_htod_coh + gh200_dtoh_coh
+        h100_coh_total  = h100_htod_coh  + h100_dtoh_coh
 
         rows.append({
-            'workload':        wl,
-            'pf_ratio':        safe_ratio(gh200_pf, h100_pf),
-            'migr_ratio':      safe_ratio(gh200_total_mb, h100_total_mb),
-            'coh_ratio':       safe_ratio(gh200_coh_mb, h100_coh_mb),
-            'gh200_pf':        gh200_pf,
-            'h100_pf':         h100_pf,
-            'gh200_total_mb':  gh200_total_mb,
-            'h100_total_mb':   h100_total_mb,
-            'gh200_coh_mb':    gh200_coh_mb,
-            'h100_coh_mb':     h100_coh_mb,
-            'is_dynamic':      wl in DYNAMIC_WORKLOADS,
+            'workload':       wl,
+            'pf_ratio':       safe_ratio(gh200_pf, h100_pf),
+            'coh_total_ratio': safe_ratio(gh200_coh_total, h100_coh_total),
+            'htod_coh_ratio': safe_ratio(gh200_htod_coh, h100_htod_coh),
+            'dtoh_coh_ratio': safe_ratio(gh200_dtoh_coh, h100_dtoh_coh),
+            'gh200_pf':       gh200_pf,
+            'h100_pf':        h100_pf,
+            'gh200_coh_total': gh200_coh_total,
+            'h100_coh_total':  h100_coh_total,
+            'gh200_htod_coh': gh200_htod_coh,
+            'h100_htod_coh':  h100_htod_coh,
+            'gh200_dtoh_coh': gh200_dtoh_coh,
+            'h100_dtoh_coh':  h100_dtoh_coh,
+            'is_dynamic':     wl in DYNAMIC_WORKLOADS,
         })
     return pd.DataFrame(rows)
 
@@ -156,7 +153,7 @@ def compute_metrics(gh200_data, h100_data):
 # Plotting
 # ---------------------------------------------------------------------------
 def plot_comparison(metrics_df, output_path):
-    """Grouped bar chart: 3 ratio bars per workload (H100/GH200), log y-axis."""
+    """Single-axis bar chart: PF count ratio (H100 / GH200), log y-axis."""
 
     df = metrics_df.copy()
     df['sort_order'] = df['workload'].apply(
@@ -165,48 +162,37 @@ def plot_comparison(metrics_df, output_path):
 
     workloads = df['workload'].values
     n         = len(workloads)
-    bar_width = 0.25
+    bar_width = 0.6
     x         = np.arange(n)
+    pf_vals   = df['pf_ratio'].values.copy()
 
-    metrics = ['pf', 'migr', 'coh']
-    ratio_cols = ['pf_ratio', 'migr_ratio', 'coh_ratio']
+    # Assign bar colour by partitioning group
+    bar_colors = [GROUP_COLORS.get(_workload_to_group(w), '#888888')
+                  for w in workloads]
 
-    fig, ax = plt.subplots(figsize=(24, 11))
+    fig, ax = plt.subplots(figsize=(22, 10))
 
-    all_bars = []
-    for idx, (met, col) in enumerate(zip(metrics, ratio_cols)):
-        vals   = df[col].values.copy()
-        offset = (idx - 1) * bar_width
-        b = ax.bar(x + offset, vals, bar_width,
-                   color=METRIC_COLORS[met], edgecolor='black',
-                   linewidth=0.6, label=METRIC_LABELS[met], zorder=3)
-        all_bars.append((b, vals, met))
+    bars = ax.bar(x, pf_vals, bar_width,
+                  color=bar_colors, edgecolor='black', linewidth=0.6, zorder=3)
 
     # --- value labels --------------------------------------------------------
-    for bar_group, vals, met in all_bars:
-        for bar, v in zip(bar_group, vals):
-            if v <= 0:
-                continue
-            if np.isinf(v):
-                label = '\u221e'
-            else:
-                label = f'{v:.1f}\u00d7'
-            ax.annotate(label,
-                        xy=(bar.get_x() + bar.get_width() / 2,
-                            bar.get_height()),
-                        xytext=(0, 4), textcoords='offset points',
-                        ha='center', va='bottom',
-                        fontsize=22, fontweight='bold', rotation=90)
+    for bar, v in zip(bars, pf_vals):
+        label = '\u221e' if np.isinf(v) else f'{v:.1f}\u00d7'
+        ax.annotate(label,
+                    xy=(bar.get_x() + bar.get_width() / 2,
+                        bar.get_height()),
+                    xytext=(0, 5), textcoords='offset points',
+                    ha='center', va='bottom',
+                    fontsize=22, fontweight='bold', rotation=90)
 
     # --- reference line at 1x ------------------------------------------------
     ax.axhline(y=1, color='gray', linestyle='--', linewidth=2.5, alpha=0.7)
 
     # --- log scale ------------------------------------------------------------
     ax.set_yscale('log')
-    all_finite = [v for _, vals, _ in all_bars for v in vals
-                  if np.isfinite(v) and v > 0]
-    if all_finite:
-        ax.set_ylim(bottom=min(all_finite) / 2, top=max(all_finite) * 5)
+    pf_finite = [v for v in pf_vals if np.isfinite(v) and v > 0]
+    if pf_finite:
+        ax.set_ylim(bottom=min(pf_finite) / 2, top=max(pf_finite) * 5)
 
     # --- group separator lines -----------------------------------------------
     cum = 0
@@ -223,23 +209,26 @@ def plot_comparison(metrics_df, output_path):
     # --- axes ----------------------------------------------------------------
     ax.set_xticks(x)
     ax.set_xticklabels(workloads, rotation=45, ha='right', fontsize=22,
-                       fontweight='bold')
+                       color='black')
+
     ax.tick_params(axis='y', labelsize=20)
     ax.set_xlabel('Workload', fontsize=26, fontweight='bold')
-    ax.set_ylabel('Ratio  (H100 / GH200)', fontsize=24, fontweight='bold')
+    ax.set_ylabel('Page-Fault Count Ratio  (H100 / GH200)',
+                  fontsize=24, fontweight='bold')
     ax.set_title(
-        'Page Fault & Migration Ratios:  x86 + H100 (SW)  /  GH200 (HW)\n'
+        'Page-Fault Amplification:  x86 + H100 (SW)  vs  GH200 (HW)\n'
         f'threads={TARGET_THREADS}, gpu_blocks={TARGET_GPU_BLOCKS}, '
         f'partition={TARGET_PARTITION_STATIC} (static) / dynamic',
-        fontsize=22, fontweight='bold')
+        fontsize=24, fontweight='bold')
 
-    # --- legend --------------------------------------------------------------
-    metric_handles = [Patch(facecolor=METRIC_COLORS[m], edgecolor='black',
-                            label=METRIC_LABELS[m]) for m in metrics]
+    # --- legend (one patch per group + reference line) -----------------------
+    group_handles = [Patch(facecolor=GROUP_COLORS[g], edgecolor='black',
+                           label=g)
+                     for g in WORKLOAD_GROUPS if g in GROUP_COLORS]
     ref_line = plt.Line2D([0], [0], color='gray', linestyle='--',
                           linewidth=2.5, label='Equal (1\u00d7)')
-    ax.legend(handles=metric_handles + [ref_line],
-              loc='upper left', fontsize=16, framealpha=0.9)
+    ax.legend(handles=group_handles + [ref_line],
+              loc='upper left', fontsize=18, framealpha=0.9)
 
     ax.yaxis.grid(True, linestyle='--', alpha=0.7)
     ax.set_axisbelow(True)
@@ -260,23 +249,19 @@ def print_summary(df):
           f"partition={TARGET_PARTITION_STATIC} (static) / dynamic")
     print("=" * 130)
     hdr = (f"{'Workload':<8} {'Type':<8} "
-           f"{'PF Ratio':>10} {'Migr Ratio':>11} {'Coh Ratio':>10}   "
+           f"{'PF Amp':>10} {'Coh Mig':>10}   "
            f"{'GH200 PF':>10} {'H100 PF':>10}   "
-           f"{'GH200 Tot':>10} {'H100 Tot':>10}   "
            f"{'GH200 Coh':>10} {'H100 Coh':>10}")
     print(hdr)
-    print("-" * 130)
+    print("-" * 100)
     for _, r in df.iterrows():
         tp = "Dyn" if r['is_dynamic'] else "Stat"
-        def fmt_r(v):
-            return f"{v:.2f}x" if np.isfinite(v) else "inf"
         print(f"{r['workload']:<8} {tp:<8} "
-              f"{fmt_r(r['pf_ratio']):>10} {fmt_r(r['migr_ratio']):>11} {fmt_r(r['coh_ratio']):>10}   "
+              f"{r['pf_ratio']:>9.2f}x {r['coh_total_ratio']:>9.2f}x   "
               f"{r['gh200_pf']:>10.0f} {r['h100_pf']:>10.0f}   "
-              f"{r['gh200_total_mb']:>10.2f} {r['h100_total_mb']:>10.2f}   "
-              f"{r['gh200_coh_mb']:>10.2f} {r['h100_coh_mb']:>10.2f}")
-    print("=" * 130)
-    print("All ratios = H100 / GH200  |  >1 means H100 has more\n")
+              f"{r['gh200_coh_total']:>10.2f} {r['h100_coh_total']:>10.2f}")
+    print("=" * 100)
+    print("Ratio > 1× → H100 has more  |  Ratio < 1× → GH200 has more\n")
 
 
 # ---------------------------------------------------------------------------
