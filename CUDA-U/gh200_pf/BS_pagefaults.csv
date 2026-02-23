@@ -1,1 +1,0 @@
-benchmark,threads,gpu_blocks,partition,cpu_page_faults,gpu_page_faults,cpu_pf_data_mb,gpu_pf_data_mb

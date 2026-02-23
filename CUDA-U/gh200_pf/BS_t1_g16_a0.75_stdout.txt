@@ -1,11 +1,0 @@
-NVIDIA GH200 480GB	Allocation Time (ms): 0.080448
-Initialization Time (ms): 1.818048
-Kernel Time (ms): 33.677353
-Deallocation Time (ms): 0.372544
-Test Passed
-Collecting data...
-Generating '/tmp/nsys-report-5b9c.qdstrm'
-Press Ctrl-C to stop symbol files downloading
-[1/1] [0%                          ] BS_t1_g16_a0.75.nsys-rep[1/1] [0%                          ] BS_t1_g16_a0.75.nsys-rep[1/1] [11%                         ] BS_t1_g16_a0.75.nsys-rep[1/1] [12%                         ] BS_t1_g16_a0.75.nsys-rep[1/1] [======34%                   ] BS_t1_g16_a0.75.nsys-rep[1/1] [============56%             ] BS_t1_g16_a0.75.nsys-rep[1/1] [============57%             ] BS_t1_g16_a0.75.nsys-rep[1/1] [=============58%            ] BS_t1_g16_a0.75.nsys-rep[1/1] [=============59%            ] BS_t1_g16_a0.75.nsys-rep[1/1] [================69%         ] BS_t1_g16_a0.75.nsys-rep[1/1] [====================83%     ] BS_t1_g16_a0.75.nsys-rep[1/1] [====================84%     ] BS_t1_g16_a0.75.nsys-rep[1/1] [========================100%] BS_t1_g16_a0.75.nsys-rep[1/1] [========================100%] BS_t1_g16_a0.75.nsys-rep
-Generated:
-	/home/ubuntu/Rajesh-FS/chai/CUDA-U/gh200_pf/BS_t1_g16_a0.75.nsys-rep

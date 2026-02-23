@@ -37,12 +37,12 @@ mkdir -p "$OUTDIR"
 echo "$SYSTEM_TYPE" > "$OUTDIR/system_type.txt"
 
 # Configuration
-THREADS=(1 4 16 32 64)
-PARTITIONS=(0.0 0.1 0.25 0.5 0.75 0.9 1.0)
-GPU_BLOCKS=(8 16 32 64)
+THREADS=(64) # 1 4 16 32 
+PARTITIONS=(0.5) # 0.0 0.1 0.25  0.75 0.9 1.0
+GPU_BLOCKS=(64) # 8 16 32 
 WARMUP=1
 REPS=3  # Fewer reps for profiling (slower)
-TIMEOUT=900  # 15 minutes timeout (profiling takes longer)
+TIMEOUT=9000  # 15 minutes timeout (profiling takes longer)
 
 # Check for nsys
 if ! command -v nsys &> /dev/null; then
