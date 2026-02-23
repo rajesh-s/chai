@@ -91,167 +91,175 @@ def _create_single_legend(ax, handles, labels, name, linestyle_desc, loc='upper 
     ax.legend(all_handles, all_labels, loc=loc, fontsize=10, framealpha=0.9)
 
 
-def plot_benchmark_dual_axis(df, bench_name, output_dir, system_name="System"):
-    """
-    Plot page faults and migration data on separate plots.
-    Plot 1: Page faults (CPU, GPU, Total with different shapes)
-    Plot 2: Migration volume (HtoD, DtoH)
-    """
-    from matplotlib.lines import Line2D
-    
-    # Check if we have numeric gpu_blocks column
-    has_gpu_blocks = False
-    if 'gpu_blocks' in df.columns:
-        numeric_gpu = pd.to_numeric(df['gpu_blocks'], errors='coerce')
-        has_gpu_blocks = numeric_gpu.notna().any()
-        if has_gpu_blocks:
-            df = df.copy()
-            df['gpu_blocks'] = numeric_gpu
-    
-    # Check if partition-based
-    has_partitions = 'partition' in df.columns and df['partition'].notna().any()
-    
-    # Ensure we have migration columns
+def _system_palette(system_name):
+    name_lower = system_name.lower()
+    if 'h100' in name_lower:
+        return COLORS_SYSTEM2
+    return COLORS_SYSTEM1
+
+
+def _ensure_migration_columns(df):
     if 'htod_migration_mb' not in df.columns:
         df['htod_migration_mb'] = df.get('gpu_pf_data_mb', 0)
     if 'dtoh_migration_mb' not in df.columns:
         df['dtoh_migration_mb'] = df.get('cpu_pf_data_mb', 0)
-    
-    df['total_page_faults'] = df['cpu_page_faults'].fillna(0) + df['gpu_page_faults'].fillna(0)
-    df['total_migration_mb'] = df['htod_migration_mb'].fillna(0) + df['dtoh_migration_mb'].fillna(0)
-    
+
+
+def _normalize_gpu_blocks(df):
+    if 'gpu_blocks' not in df.columns:
+        return df, False
+    numeric_gpu = pd.to_numeric(df['gpu_blocks'], errors='coerce')
+    has_gpu_blocks = numeric_gpu.notna().any()
+    if not has_gpu_blocks:
+        return df, False
+    df = df.copy()
+    df['gpu_blocks'] = numeric_gpu
+    df = df[df['gpu_blocks'].notna()]
+    return df, True
+
+
+def _subplot_grid(n_subplots):
+    if n_subplots <= 2:
+        return 1, n_subplots
+    if n_subplots <= 4:
+        return 2, 2
+    return 2, 3
+
+
+def _pick_palette_colors(palette, count):
+    if count <= 0:
+        return np.array([])
+    if count == 1:
+        return np.array([palette[len(palette)//2]])
+    idx = np.linspace(0, len(palette) - 1, count).astype(int)
+    return palette[idx]
+
+
+def _add_partition_and_metric_legends(ax, metric_styles, partitions, partition_colors):
+    from matplotlib.lines import Line2D
+
+    shape_handles = [
+        Line2D([0], [0], marker=style['marker'], color='gray',
+               linestyle='None', markersize=8, label=style['label'])
+        for style in metric_styles.values()
+    ]
+
+    partition_handles = [
+        Line2D([0], [0], marker='o', color=partition_colors[i],
+               linestyle='-', linewidth=2, markersize=8,
+               label=PARTITION_STYLES.get(p, {'label': f'α={p}'})['label'])
+        for i, p in enumerate(partitions)
+    ]
+
+    legend1 = ax.legend(handles=shape_handles, loc='upper left', fontsize=9,
+                        title='Metric Type', framealpha=0.9)
+    ax.add_artist(legend1)
+    ax.legend(handles=partition_handles, loc='upper right', fontsize=9,
+              title='Partition (α)', framealpha=0.9)
+
+
+def plot_benchmark_dual_axis(df, bench_name, output_dir, system_name="System"):
+    """
+    Plot page faults and migration data on separate plots.
+    Plot 1: CPU vs GPU page faults
+    Plot 2: HtoD vs DtoH migration volume
+    """
+    df = df.copy()
+    _ensure_migration_columns(df)
+    df, has_gpu_blocks = _normalize_gpu_blocks(df)
+    has_partitions = 'partition' in df.columns and df['partition'].notna().any()
+
     threads = sorted(df['threads'].unique())
-    
-    # Define styles for page fault types
+    palette = _system_palette(system_name)
+
     pf_styles = {
-        'cpu_page_faults': {'marker': 'o', 'color': 'blue', 'label': 'CPU Page Faults'},
-        'gpu_page_faults': {'marker': 's', 'color': 'green', 'label': 'GPU Page Faults'},
-        'total_page_faults': {'marker': '^', 'color': 'red', 'label': 'Total Page Faults'},
+        'cpu_page_faults': {'marker': 'o', 'label': 'CPU Page Faults'},
+        'gpu_page_faults': {'marker': 's', 'label': 'GPU Page Faults'},
     }
-    
-    # Define styles for migration types
+
     mig_styles = {
-        'htod_migration_mb': {'marker': 'o', 'color': 'purple', 'label': 'HtoD (GPU←CPU)'},
-        'dtoh_migration_mb': {'marker': 's', 'color': 'orange', 'label': 'DtoH (CPU←GPU)'},
-        'total_migration_mb': {'marker': '^', 'color': 'brown', 'label': 'Total Migration'},
+        'htod_migration_mb': {'marker': 'o', 'label': 'HtoD (GPU←CPU)'},
+        'dtoh_migration_mb': {'marker': 's', 'label': 'DtoH (CPU←GPU)'},
     }
-    
-    # =====================
-    # Plot 1: Page Faults
-    # =====================
-    fig, ax = plt.subplots(figsize=(12, 6))
-    
-    if has_partitions:
-        # If partitions exist, use different colors per partition, shapes per metric
-        partitions = sorted(df['partition'].dropna().unique())
-        
-        # Use distinct colors for each partition
-        partition_colors = plt.cm.tab10(np.linspace(0, 1, len(partitions)))
-        
-        for j, p in enumerate(partitions):
-            subset = df[df['partition'] == p].sort_values('threads')
-            if len(subset) == 0:
-                continue
-            
-            p_label = PARTITION_STYLES.get(p, {'label': f'α={p}'})['label']
-            
-            for metric, style in pf_styles.items():
-                ax.plot(subset['threads'], subset[metric],
-                       marker=style['marker'],
-                       linestyle='-',
-                       color=partition_colors[j],
-                       linewidth=2, markersize=8, alpha=0.8)
-        
-        # Create two-part legend: one for shapes (metrics), one for colors (partitions)
-        # Metric type legend (shapes)
-        shape_handles = [Line2D([0], [0], marker=s['marker'], color='gray', 
-                               linestyle='None', markersize=8, label=s['label'])
-                        for s in pf_styles.values()]
-        
-        # Partition legend (colors)
-        partition_handles = [Line2D([0], [0], marker='o', color=partition_colors[j], 
-                                   linestyle='-', linewidth=2, markersize=8, 
-                                   label=PARTITION_STYLES.get(p, {'label': f'α={p}'})['label'])
-                            for j, p in enumerate(partitions)]
-        
-        # Create two separate legends
-        legend1 = ax.legend(handles=shape_handles, loc='upper left', fontsize=9, 
-                           title='Metric Type', framealpha=0.9)
-        ax.add_artist(legend1)
-        ax.legend(handles=partition_handles, loc='upper right', fontsize=9, 
-                 title='Partition (α)', framealpha=0.9)
-    else:
-        # Simple case - just plot the three metrics
-        subset = df.sort_values('threads')
-        for metric, style in pf_styles.items():
-            ax.plot(subset['threads'], subset[metric],
-                   marker=style['marker'],
-                   linestyle='-',
-                   color=style['color'],
-                   linewidth=2, markersize=8,
-                   label=style['label'])
-        ax.legend(loc='best', fontsize=10)
-    
-    ax.set_xlabel('CPU Threads', fontsize=12)
-    ax.set_ylabel('Page Faults (count)', fontsize=12)
-    ax.set_title(f'{bench_name} - Page Faults\n{system_name}', fontsize=14, fontweight='bold')
-    ax.set_xticks(threads)
-    ax.grid(True, alpha=0.3)
-    
-    plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, f'{bench_name}_pagefaults.png'), dpi=150, bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, f'{bench_name}_pagefaults.pdf'), bbox_inches='tight')
-    plt.close()
-    
-    # =====================
-    # Plot 2: Migration Volume
-    # =====================
-    fig, ax = plt.subplots(figsize=(12, 6))
-    
-    if has_partitions:
-        partitions = sorted(df['partition'].dropna().unique())
-        
-        # Use distinct colors for each partition - focus on total migration only
-        partition_colors = plt.cm.tab10(np.linspace(0, 1, len(partitions)))
-        
-        for j, p in enumerate(partitions):
-            subset = df[df['partition'] == p].sort_values('threads')
-            if len(subset) == 0:
-                continue
-            
-            p_label = PARTITION_STYLES.get(p, {'label': f'α={p}'})['label']
-            
-            # Plot only total migration to avoid clutter
-            ax.plot(subset['threads'], subset['total_migration_mb'],
-                   marker='o',
-                   linestyle='-',
-                   color=partition_colors[j],
-                   linewidth=2.5, markersize=9,
-                   label=p_label)
-        
-        ax.legend(loc='best', fontsize=10, title='Partition (α)', framealpha=0.9)
-    else:
-        subset = df.sort_values('threads')
-        for metric, style in mig_styles.items():
-            ax.plot(subset['threads'], subset[metric],
-                   marker=style['marker'],
-                   linestyle='-',
-                   color=style['color'],
-                   linewidth=2, markersize=8,
-                   label=style['label'])
-        ax.legend(loc='best', fontsize=10)
-    
-    ax.set_xlabel('CPU Threads', fontsize=12)
-    ax.set_ylabel('Migration Volume (MB)', fontsize=12)
-    ax.set_title(f'{bench_name} - Data Migration\n{system_name}', fontsize=14, fontweight='bold')
-    ax.set_xticks(threads)
-    ax.grid(True, alpha=0.3)
-    
-    plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, f'{bench_name}_migration.png'), dpi=150, bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, f'{bench_name}_migration.pdf'), bbox_inches='tight')
-    plt.close()
-    
+
+    def plot_metric_set(metric_styles, ylabel, title_suffix, filename_suffix):
+        if has_gpu_blocks:
+            gpu_blocks_vals = sorted(df['gpu_blocks'].dropna().unique())
+            nrows, ncols = _subplot_grid(len(gpu_blocks_vals))
+            fig, axes = plt.subplots(nrows, ncols, figsize=(6*ncols, 5*nrows), squeeze=False)
+            axes = axes.flatten()
+        else:
+            fig, ax = plt.subplots(figsize=(12, 6))
+            axes = [ax]
+            gpu_blocks_vals = [None]
+
+        for idx, g in enumerate(gpu_blocks_vals):
+            ax = axes[idx]
+            subset_g = df if g is None else df[df['gpu_blocks'] == g]
+
+            if has_partitions:
+                partitions = sorted(subset_g['partition'].dropna().unique())
+                if partitions:
+                    partition_colors = _pick_palette_colors(palette, len(partitions))
+                    for p_idx, p in enumerate(partitions):
+                        subset = subset_g[subset_g['partition'] == p].sort_values('threads')
+                        if len(subset) == 0:
+                            continue
+                        for metric, style in metric_styles.items():
+                            ax.plot(subset['threads'], subset[metric],
+                                    marker=style['marker'],
+                                    linestyle='-',
+                                    color=partition_colors[p_idx],
+                                    linewidth=2, markersize=8, alpha=0.9)
+
+                    if idx == 0:
+                        _add_partition_and_metric_legends(ax, metric_styles, partitions, partition_colors)
+                else:
+                    subset = subset_g.sort_values('threads')
+                    for metric, style in metric_styles.items():
+                        ax.plot(subset['threads'], subset[metric],
+                                marker=style['marker'],
+                                linestyle='-',
+                                color=palette[3],
+                                linewidth=2, markersize=8,
+                                label=style['label'])
+                    if idx == 0:
+                        ax.legend(loc='best', fontsize=10)
+            else:
+                subset = subset_g.sort_values('threads')
+                metric_colors = _pick_palette_colors(palette, len(metric_styles))
+                for m_idx, (metric, style) in enumerate(metric_styles.items()):
+                    ax.plot(subset['threads'], subset[metric],
+                            marker=style['marker'],
+                            linestyle='-',
+                            color=metric_colors[m_idx],
+                            linewidth=2, markersize=8,
+                            label=style['label'])
+                if idx == 0:
+                    ax.legend(loc='best', fontsize=10)
+
+            ax.set_xlabel('CPU Threads', fontsize=10 if has_gpu_blocks else 12)
+            ax.set_ylabel(ylabel, fontsize=10 if has_gpu_blocks else 12)
+            if g is not None:
+                ax.set_title(f'GPU Blocks = {int(g)}', fontsize=11, fontweight='bold')
+            ax.set_xticks(threads)
+            ax.grid(True, alpha=0.3)
+
+        for idx in range(len(gpu_blocks_vals), len(axes)):
+            axes[idx].axis('off')
+
+        if has_gpu_blocks:
+            plt.suptitle(f'{bench_name} - {title_suffix}', fontsize=14, fontweight='bold')
+        else:
+            axes[0].set_title(f'{bench_name} - {title_suffix}', fontsize=14, fontweight='bold')
+
+        plt.tight_layout()
+        plt.savefig(os.path.join(output_dir, f'{bench_name}_{filename_suffix}.png'), dpi=150, bbox_inches='tight')
+        plt.close()
+
+    plot_metric_set(pf_styles, 'Page Faults (count)', 'Page Faults', 'pagefaults')
+    plot_metric_set(mig_styles, 'Migration Volume (MB)', 'Data Migration', 'migration')
+
     return True
 
 
@@ -260,105 +268,118 @@ def plot_comparison_dual_axis(df1, df2, bench_name, output_dir, name1="GH200", n
     Compare two systems with separate page fault and migration plots.
     """
     from matplotlib.lines import Line2D
-    
-    # Ensure migration columns
-    for df in [df1, df2]:
-        if 'htod_migration_mb' not in df.columns:
-            df['htod_migration_mb'] = df.get('gpu_pf_data_mb', 0)
-        if 'dtoh_migration_mb' not in df.columns:
-            df['dtoh_migration_mb'] = df.get('cpu_pf_data_mb', 0)
-        df['total_page_faults'] = df['cpu_page_faults'].fillna(0) + df['gpu_page_faults'].fillna(0)
-        df['total_migration_mb'] = df['htod_migration_mb'].fillna(0) + df['dtoh_migration_mb'].fillna(0)
-    
+
+    df1 = df1.copy()
+    df2 = df2.copy()
+    _ensure_migration_columns(df1)
+    _ensure_migration_columns(df2)
+
+    df1['total_page_faults'] = df1['cpu_page_faults'].fillna(0) + df1['gpu_page_faults'].fillna(0)
+    df2['total_page_faults'] = df2['cpu_page_faults'].fillna(0) + df2['gpu_page_faults'].fillna(0)
+    df1['total_migration_mb'] = df1['htod_migration_mb'].fillna(0) + df1['dtoh_migration_mb'].fillna(0)
+    df2['total_migration_mb'] = df2['htod_migration_mb'].fillna(0) + df2['dtoh_migration_mb'].fillna(0)
+
+    df1, has_gpu_blocks1 = _normalize_gpu_blocks(df1)
+    df2, has_gpu_blocks2 = _normalize_gpu_blocks(df2)
+    has_gpu_blocks = has_gpu_blocks1 and has_gpu_blocks2
+
+    has_partitions = ('partition' in df1.columns and df1['partition'].notna().any()) or \
+                     ('partition' in df2.columns and df2['partition'].notna().any())
     threads = sorted(set(df1['threads'].unique()) | set(df2['threads'].unique()))
-    
-    # Define styles
-    pf_styles = {
-        'cpu_page_faults': {'marker': 'o', 'label': 'CPU PF'},
-        'gpu_page_faults': {'marker': 's', 'label': 'GPU PF'},
-        'total_page_faults': {'marker': '^', 'label': 'Total PF'},
-    }
-    
-    mig_styles = {
-        'htod_migration_mb': {'marker': 'o', 'label': 'HtoD'},
-        'dtoh_migration_mb': {'marker': 's', 'label': 'DtoH'},
-        'total_migration_mb': {'marker': '^', 'label': 'Total'},
-    }
-    
-    # =====================
-    # Plot 1: Page Faults Comparison
-    # =====================
-    fig, ax = plt.subplots(figsize=(10, 6))
-    
-    subset1 = df1.sort_values('threads')
-    subset2 = df2.sort_values('threads')
-    
-    colors1 = {'cpu_page_faults': '#1f77b4', 'gpu_page_faults': '#2ca02c', 'total_page_faults': '#d62728'}
-    colors2 = {'cpu_page_faults': '#aec7e8', 'gpu_page_faults': '#98df8a', 'total_page_faults': '#ff9896'}
-    
-    for metric, style in pf_styles.items():
-        # System 1 - solid lines
-        ax.plot(subset1['threads'], subset1[metric],
-               marker=style['marker'],
-               linestyle='-',
-               color=colors1[metric],
-               linewidth=2, markersize=8,
-               label=f"{style['label']} ({name1})")
-        
-        # System 2 - dashed lines
-        ax.plot(subset2['threads'], subset2[metric],
-               marker=style['marker'],
-               linestyle='--',
-               color=colors2[metric],
-               linewidth=2, markersize=8,
-               label=f"{style['label']} ({name2})")
-    
-    ax.set_xlabel('CPU Threads', fontsize=12)
-    ax.set_ylabel('Page Faults (count)', fontsize=12)
-    ax.set_title(f'{bench_name} - Page Faults Comparison', fontsize=14, fontweight='bold')
-    ax.set_xticks(threads)
-    ax.legend(loc='best', fontsize=9, ncol=2)
-    ax.grid(True, alpha=0.3)
-    
-    plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, f'{bench_name}_pagefaults_comparison.png'), dpi=200, bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, f'{bench_name}_pagefaults_comparison.pdf'), bbox_inches='tight')
-    plt.close()
-    
-    # =====================
-    # Plot 2: Migration Volume Comparison
-    # =====================
-    fig, ax = plt.subplots(figsize=(10, 6))
-    
-    colors1 = {'htod_migration_mb': '#9467bd', 'dtoh_migration_mb': '#ff7f0e', 'total_migration_mb': '#8c564b'}
-    colors2 = {'htod_migration_mb': '#c5b0d5', 'dtoh_migration_mb': '#ffbb78', 'total_migration_mb': '#c49c94'}
-    
-    for metric, style in mig_styles.items():
-        ax.plot(subset1['threads'], subset1[metric],
-               marker=style['marker'],
-               linestyle='-',
-               color=colors1[metric],
-               linewidth=2, markersize=8,
-               label=f"{style['label']} ({name1})")
-        
-        ax.plot(subset2['threads'], subset2[metric],
-               marker=style['marker'],
-               linestyle='--',
-               color=colors2[metric],
-               linewidth=2, markersize=8,
-               label=f"{style['label']} ({name2})")
-    
-    ax.set_xlabel('CPU Threads', fontsize=12)
-    ax.set_ylabel('Migration Volume (MB)', fontsize=12)
-    ax.set_title(f'{bench_name} - Data Migration Comparison', fontsize=14, fontweight='bold')
-    ax.set_xticks(threads)
-    ax.legend(loc='best', fontsize=9, ncol=2)
-    ax.grid(True, alpha=0.3)
-    
-    plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, f'{bench_name}_migration_comparison.png'), dpi=200, bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, f'{bench_name}_migration_comparison.pdf'), bbox_inches='tight')
-    plt.close()
+
+    def plot_sum_comparison(metric, ylabel, title_suffix, filename_suffix):
+        if has_gpu_blocks:
+            gpu_blocks_vals = sorted(set(df1['gpu_blocks'].dropna().unique()) |
+                                     set(df2['gpu_blocks'].dropna().unique()))
+            nrows, ncols = _subplot_grid(len(gpu_blocks_vals))
+            fig, axes = plt.subplots(nrows, ncols, figsize=(6*ncols, 5*nrows), squeeze=False)
+            axes = axes.flatten()
+        else:
+            fig, ax = plt.subplots(figsize=(12, 6))
+            axes = [ax]
+            gpu_blocks_vals = [None]
+
+        for idx, g in enumerate(gpu_blocks_vals):
+            ax = axes[idx]
+            subset1 = df1 if g is None else df1[df1['gpu_blocks'] == g]
+            subset2 = df2 if g is None else df2[df2['gpu_blocks'] == g]
+
+            if has_partitions:
+                partitions = sorted(set(subset1['partition'].dropna().unique()) |
+                                   set(subset2['partition'].dropna().unique()))
+                if partitions:
+                    colors1 = _pick_palette_colors(COLORS_SYSTEM1, len(partitions))
+                    colors2 = _pick_palette_colors(COLORS_SYSTEM2, len(partitions))
+
+                    for p_idx, p in enumerate(partitions):
+                        s1 = subset1[subset1['partition'] == p].sort_values('threads')
+                        if len(s1) > 0:
+                            ax.plot(s1['threads'], s1[metric],
+                                    marker='o', linestyle='-',
+                                    color=colors1[p_idx], linewidth=2.5, markersize=8)
+                        s2 = subset2[subset2['partition'] == p].sort_values('threads')
+                        if len(s2) > 0:
+                            ax.plot(s2['threads'], s2[metric],
+                                    marker='o', linestyle=':',
+                                    color=colors2[p_idx], linewidth=2.5, markersize=8)
+
+                    if idx == 0:
+                        partition_handles = [
+                            Line2D([0], [0], marker='o', color=colors1[i],
+                                   linestyle='-', linewidth=2, markersize=8,
+                                   label=PARTITION_STYLES.get(p, {'label': f'α={p}'})['label'])
+                            for i, p in enumerate(partitions)
+                        ]
+                        style_handles = [
+                            Line2D([0], [0], color='black', linestyle='-', label=name1),
+                            Line2D([0], [0], color='black', linestyle=':', label=name2),
+                        ]
+                        legend1 = ax.legend(handles=style_handles, loc='upper left', fontsize=9,
+                                            title='System', framealpha=0.9)
+                        ax.add_artist(legend1)
+                        ax.legend(handles=partition_handles, loc='upper right', fontsize=9,
+                                  title='Partition (α)', framealpha=0.9)
+                else:
+                    s1 = subset1.sort_values('threads')
+                    s2 = subset2.sort_values('threads')
+                    ax.plot(s1['threads'], s1[metric], marker='o', linestyle='-',
+                            color=COLORS_SYSTEM1[3], linewidth=2.5, markersize=8, label=name1)
+                    ax.plot(s2['threads'], s2[metric], marker='o', linestyle=':',
+                            color=COLORS_SYSTEM2[3], linewidth=2.5, markersize=8, label=name2)
+                    if idx == 0:
+                        ax.legend(loc='best', fontsize=10)
+            else:
+                s1 = subset1.sort_values('threads')
+                s2 = subset2.sort_values('threads')
+                ax.plot(s1['threads'], s1[metric], marker='o', linestyle='-',
+                        color=COLORS_SYSTEM1[3], linewidth=2.5, markersize=8, label=name1)
+                ax.plot(s2['threads'], s2[metric], marker='o', linestyle=':',
+                        color=COLORS_SYSTEM2[3], linewidth=2.5, markersize=8, label=name2)
+                if idx == 0:
+                    ax.legend(loc='best', fontsize=10)
+
+            ax.set_xlabel('CPU Threads', fontsize=10 if has_gpu_blocks else 12)
+            ax.set_ylabel(ylabel, fontsize=10 if has_gpu_blocks else 12)
+            if g is not None:
+                ax.set_title(f'GPU Blocks = {int(g)}', fontsize=11, fontweight='bold')
+            ax.set_xticks(threads)
+            ax.grid(True, alpha=0.3)
+
+        for idx in range(len(gpu_blocks_vals), len(axes)):
+            axes[idx].axis('off')
+
+        if has_gpu_blocks:
+            plt.suptitle(f'{bench_name} - {title_suffix}', fontsize=14, fontweight='bold')
+        else:
+            axes[0].set_title(f'{bench_name} - {title_suffix}', fontsize=14, fontweight='bold')
+
+        plt.tight_layout()
+        plt.savefig(os.path.join(output_dir, f'{bench_name}_{filename_suffix}_comparison.png'),
+                    dpi=200, bbox_inches='tight')
+        plt.close()
+
+    plot_sum_comparison('total_page_faults', 'Page Faults (count)', 'Page Faults Comparison', 'pagefaults')
+    plot_sum_comparison('total_migration_mb', 'Migration Volume (MB)', 'Data Migration Comparison', 'migration')
 
 
 def plot_benchmark_pagefaults(df, bench_name, output_dir, system_name="System", metric='total_page_faults'):
@@ -507,7 +528,6 @@ def plot_benchmark_pagefaults(df, bench_name, output_dir, system_name="System", 
     # Save with metric in filename
     metric_short = metric.replace('_', '')
     plt.savefig(os.path.join(output_dir, f'{bench_name}_{metric_short}.png'), dpi=150, bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, f'{bench_name}_{metric_short}.pdf'), bbox_inches='tight')
     plt.close()
     
     return True
@@ -723,7 +743,6 @@ def plot_comparison_pagefaults(df1, df2, bench_name, output_dir, name1="GH200", 
     
     metric_short = metric.replace('_', '')
     plt.savefig(os.path.join(output_dir, f'{bench_name}_{metric_short}_comparison.png'), dpi=200, bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, f'{bench_name}_{metric_short}_comparison.pdf'), bbox_inches='tight')
     plt.close()
 
 
@@ -805,7 +824,6 @@ def plot_pagefault_reduction(df1, df2, bench_name, output_dir, name1="GH200", na
     
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, f'{bench_name}_pf_reduction.png'), dpi=150, bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, f'{bench_name}_pf_reduction.pdf'), bbox_inches='tight')
     plt.close()
 
 
@@ -864,7 +882,6 @@ def plot_benchmark_dual_comparison(df1, df2, bench_name, output_dir, name1="GH20
     
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, f'{bench_name}_migration_comparison.png'), dpi=200, bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, f'{bench_name}_migration_comparison.pdf'), bbox_inches='tight')
     plt.close()
 
 
@@ -906,17 +923,9 @@ def plot_all_comparisons(data1, data2, output_dir, name1="GH200", name2="x86+H10
         
         df1 = data1[bench_name]
         df2 = data2[bench_name]
-        
-        # Plot total page faults comparison
-        plot_comparison_pagefaults(df1, df2, bench_name, output_dir, name1, name2, 'total_page_faults')
-        
-        # Plot page fault reduction
+
+        plot_comparison_dual_axis(df1, df2, bench_name, output_dir, name1, name2)
         plot_pagefault_reduction(df1, df2, bench_name, output_dir, name1, name2)
-        
-        # Plot migration comparison (if data available)
-        if ('htod_migration_mb' in df1.columns or 'dtoh_migration_mb' in df1.columns) and \
-           ('htod_migration_mb' in df2.columns or 'dtoh_migration_mb' in df2.columns):
-            plot_benchmark_dual_comparison(df1, df2, bench_name, output_dir, name1, name2)
         
         print(f"    Saved {bench_name} comparison plots")
 
@@ -974,7 +983,6 @@ def plot_summary_bar_chart(data1, data2, output_dir, name1="GH200", name2="x86+H
     
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, 'pagefault_summary.png'), dpi=200, bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, 'pagefault_summary.pdf'), bbox_inches='tight')
     plt.close()
     
     print(f"  Saved page fault summary bar chart")
@@ -1030,7 +1038,6 @@ def plot_summary_bar_chart(data1, data2, output_dir, name1="GH200", name2="x86+H
         
         plt.tight_layout()
         plt.savefig(os.path.join(output_dir, 'migration_summary.png'), dpi=200, bbox_inches='tight')
-        plt.savefig(os.path.join(output_dir, 'migration_summary.pdf'), bbox_inches='tight')
         plt.close()
         
         print(f"  Saved migration volume summary bar chart")
