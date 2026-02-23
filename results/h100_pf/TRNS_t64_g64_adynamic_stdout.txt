@@ -1,0 +1,11 @@
+NVIDIA H100 PCIe	Allocation Time (ms): 0.212480
+Initialization Time (ms): 231.590881
+Kernel Time (ms): 248.142227
+Deallocation Time (ms): 4.070592
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-493b.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [0%                          ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [=====32%                    ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [======35%                   ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [=======38%                  ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [========41%                 ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [=========44%                ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [==========47%               ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [===========50%              ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [===========53%              ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [============55%             ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [============56%             ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [=============58%            ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [==============61%           ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [==============63%           ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [=================72%        ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [===================79%      ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [===================81%      ] TRNS_t64_g64_adynamic.nsys-rep[1/1] [========================100%] TRNS_t64_g64_adynamic.nsys-rep[1/1] [========================100%] TRNS_t64_g64_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/TRNS_t64_g64_adynamic.nsys-rep

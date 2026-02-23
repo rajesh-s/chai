@@ -1,0 +1,12 @@
+NVIDIA H100 PCIe	Allocation Time (ms): 4.135200
+Initialization Time (ms): 6.426144
+Kernel Time (ms): 22.000982
+Copy Back and Merge Time (ms): 0.000000
+Deallocation Time (ms): 0.494016
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-1f40.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] RSCD_t64_g64_a0.5.nsys-rep[1/1] [0%                          ] RSCD_t64_g64_a0.5.nsys-rep[1/1] [====27%                     ] RSCD_t64_g64_a0.5.nsys-rep[1/1] [=======36%                  ] RSCD_t64_g64_a0.5.nsys-rep[1/1] [=========46%                ] RSCD_t64_g64_a0.5.nsys-rep[1/1] [==========48%               ] RSCD_t64_g64_a0.5.nsys-rep[1/1] [==========49%               ] RSCD_t64_g64_a0.5.nsys-rep[1/1] [=================74%        ] RSCD_t64_g64_a0.5.nsys-rep[1/1] [=====================86%    ] RSCD_t64_g64_a0.5.nsys-rep[1/1] [========================100%] RSCD_t64_g64_a0.5.nsys-rep[1/1] [========================100%] RSCD_t64_g64_a0.5.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/RSCD_t64_g64_a0.5.nsys-rep

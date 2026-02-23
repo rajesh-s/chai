@@ -1,0 +1,18 @@
+
+NOTICE: Existing SQLite export found: /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/CEDD_t64_gdefault_a0.5.sqlite
+        It is assumed file was previously exported from: /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/CEDD_t64_gdefault_a0.5.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/CEDD_t64_gdefault_a0.5.sqlite] with [/opt/nvidia/nsight-systems-cli/2026.1.1/target-linux-x64/reports/um_sum.py]... 
+Virtual Address,HtoD Migration size (MB),DtoH Migration size (MB),CPU Page Faults, GPU Page Faults,Migration Throughput (MB/s)
+0x76AA00021000,,0.254,,,32793.330
+0x76AA00001000,,0.123,,,23558.185
+0x76AA00011000,0.008,0.123,,,14894.498
+0x76AA00036000,0.041,,,,11962.614
+0x76AA00033000,0.066,,,,8983.675
+0x76AA0002D000,0.025,,,,8172.921
+0x76AA00000000,0.098,0.008,3,22,7220.535
+0x76AA00020000,0.070,0.008,3,1,4615.586
+0x76AA00009000,0.029,,,,4525.961
+0x76AA00013000,0.016,,,,3507.585
+

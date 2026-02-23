@@ -1,0 +1,18 @@
+
+NOTICE: Existing SQLite export found: /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/TRNS_t64_g64_adynamic.sqlite
+        It is assumed file was previously exported from: /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/TRNS_t64_g64_adynamic.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/TRNS_t64_g64_adynamic.sqlite] with [/opt/nvidia/nsight-systems-cli/2026.1.1/target-linux-x64/reports/um_sum.py]... 
+Virtual Address,HtoD Migration size (MB),DtoH Migration size (MB),CPU Page Faults, GPU Page Faults,Migration Throughput (MB/s)
+0x735203F01000,,2.089,4,,50059.837
+0x735203301000,,3.133,,,49602.355
+0x735204F01000,,2.089,,,49564.754
+0x735203501000,,2.089,,,49416.438
+0x735203B01000,,2.871,,,48949.854
+0x735204304000,1.032,,,,48651.338
+0x735203901000,,3.072,1,,47975.424
+0x735202F01000,,2.736,,,47767.323
+0x735204301000,,3.322,,,47595.553
+0x735204101000,,2.093,6,,47292.600
+

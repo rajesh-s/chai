@@ -1,0 +1,11 @@
+NVIDIA H100 PCIe	Allocation Time (ms): 0.189792
+Initialization Time (ms): 5.600192
+Kernel Time (ms): 66.782761
+Deallocation Time (ms): 0.533664
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-917a.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] TQ_t64_g64_adynamic.nsys-rep[1/1] [0%                          ] TQ_t64_g64_adynamic.nsys-rep[1/1] [=====30%                    ] TQ_t64_g64_adynamic.nsys-rep[1/1] [=======36%                  ] TQ_t64_g64_adynamic.nsys-rep[1/1] [========41%                 ] TQ_t64_g64_adynamic.nsys-rep[1/1] [========42%                 ] TQ_t64_g64_adynamic.nsys-rep[1/1] [=========43%                ] TQ_t64_g64_adynamic.nsys-rep[1/1] [================68%         ] TQ_t64_g64_adynamic.nsys-rep[1/1] [=================72%        ] TQ_t64_g64_adynamic.nsys-rep[1/1] [=====================86%    ] TQ_t64_g64_adynamic.nsys-rep[1/1] [========================100%] TQ_t64_g64_adynamic.nsys-rep[1/1] [========================100%] TQ_t64_g64_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/TQ_t64_g64_adynamic.nsys-rep

@@ -1,0 +1,9 @@
+
+NOTICE: Existing SQLite export found: /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/HSTI_t64_g64_a0.5.sqlite
+        It is assumed file was previously exported from: /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/HSTI_t64_g64_a0.5.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/HSTI_t64_g64_a0.5.sqlite] with [/opt/nvidia/nsight-systems-cli/2026.1.1/target-linux-x64/reports/um_total_sum.py]... 
+Total HtoD Migration Size (MB),Total DtoH Migration Size (MB),Total CPU Page Faults,Total GPU PageFaults,Minimum Virtual Address,Maximum Virtual Address
+3.408,3.408,30,578,0x70441C000000,0x70441C601000
+

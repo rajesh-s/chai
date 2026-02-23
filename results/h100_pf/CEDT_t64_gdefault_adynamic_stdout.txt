@@ -1,0 +1,13 @@
+NVIDIA H100 PCIe	Allocation Time (ms): 1.238240
+Initialization Time (ms): 121.409119
+Total Proxies Time (ms): 156.766907
+CPU Proxy: Kernel Time (ms): 142.585190
+GPU Proxy: Kernel Time (ms): 9.066175
+Deallocation Time (ms): 0.857696
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-ccf1.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] CEDT_t64_gdefault_adynamic.nsys-rep[1/1] [0%                          ] CEDT_t64_gdefault_adynamic.nsys-rep[1/1] [====28%                     ] CEDT_t64_gdefault_adynamic.nsys-rep[1/1] [======35%                   ] CEDT_t64_gdefault_adynamic.nsys-rep[1/1] [========42%                 ] CEDT_t64_gdefault_adynamic.nsys-rep[1/1] [=========43%                ] CEDT_t64_gdefault_adynamic.nsys-rep[1/1] [=========44%                ] CEDT_t64_gdefault_adynamic.nsys-rep[1/1] [================71%         ] CEDT_t64_gdefault_adynamic.nsys-rep[1/1] [====================85%     ] CEDT_t64_gdefault_adynamic.nsys-rep[1/1] [========================100%] CEDT_t64_gdefault_adynamic.nsys-rep[1/1] [========================100%] CEDT_t64_gdefault_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/CEDT_t64_gdefault_adynamic.nsys-rep

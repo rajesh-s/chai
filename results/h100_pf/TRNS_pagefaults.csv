@@ -1,0 +1,2 @@
+benchmark,threads,gpu_blocks,partition,cpu_page_faults,gpu_page_faults,htod_migration_mb,dtoh_migration_mb,htod_coherence_mb,htod_prefetch_mb,htod_eviction_mb,htod_user_mb,dtoh_coherence_mb,dtoh_prefetch_mb,dtoh_eviction_mb,dtoh_user_mb,cpu_pf_data_mb,gpu_pf_data_mb
+TRNS,64,64,dynamic,5005,17611,413.97265625,413.84765625,29.48046875,384.4921875,0,0,13.8125,400.03515625,0,0,19.55078125,68.79296875

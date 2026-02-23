@@ -1,0 +1,13 @@
+NVIDIA H100 PCIe	Allocation Time (ms): 0.153760
+Initialization Time (ms): 2.993856
+Kernel Time (ms): 27.523520
+Deallocation Time (ms): 0.742368
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-a2ee.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[17/21] Downloaded symbol information for /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+[20/21] Downloaded symbol information for /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33
+[1/1] [0%                          ] BS_t64_g64_a0.5.nsys-rep[1/1] [0%                          ] BS_t64_g64_a0.5.nsys-rep[1/1] [====27%                     ] BS_t64_g64_a0.5.nsys-rep[1/1] [=======36%                  ] BS_t64_g64_a0.5.nsys-rep[1/1] [=========45%                ] BS_t64_g64_a0.5.nsys-rep[1/1] [=========46%                ] BS_t64_g64_a0.5.nsys-rep[1/1] [==========47%               ] BS_t64_g64_a0.5.nsys-rep[1/1] [==========48%               ] BS_t64_g64_a0.5.nsys-rep[1/1] [=================73%        ] BS_t64_g64_a0.5.nsys-rep[1/1] [=====================86%    ] BS_t64_g64_a0.5.nsys-rep[1/1] [========================100%] BS_t64_g64_a0.5.nsys-rep[1/1] [========================100%] BS_t64_g64_a0.5.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/BS_t64_g64_a0.5.nsys-rep

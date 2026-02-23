@@ -1,0 +1,11 @@
+NVIDIA H100 PCIe	Allocation Time (ms): 0.131136
+Initialization Time (ms): 32.336735
+Kernel Time (ms): 62.852810
+Deallocation Time (ms): 0.611680
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-e7cf.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] SC_t64_g64_a0.5.nsys-rep[1/1] [0%                          ] SC_t64_g64_a0.5.nsys-rep[1/1] [=====29%                    ] SC_t64_g64_a0.5.nsys-rep[1/1] [======35%                   ] SC_t64_g64_a0.5.nsys-rep[1/1] [========40%                 ] SC_t64_g64_a0.5.nsys-rep[1/1] [========41%                 ] SC_t64_g64_a0.5.nsys-rep[1/1] [========42%                 ] SC_t64_g64_a0.5.nsys-rep[1/1] [===============67%          ] SC_t64_g64_a0.5.nsys-rep[1/1] [================70%         ] SC_t64_g64_a0.5.nsys-rep[1/1] [====================84%     ] SC_t64_g64_a0.5.nsys-rep[1/1] [========================100%] SC_t64_g64_a0.5.nsys-rep[1/1] [========================100%] SC_t64_g64_a0.5.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/SC_t64_g64_a0.5.nsys-rep

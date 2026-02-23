@@ -1,0 +1,11 @@
+NVIDIA H100 PCIe	Allocation Time (ms): 0.164768
+Initialization Time (ms): 267.083282
+Kernel Time (ms): 90.551537
+Deallocation Time (ms): 0.453440
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-c18d.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] HSTO_t64_g64_a0.5.nsys-rep[1/1] [0%                          ] HSTO_t64_g64_a0.5.nsys-rep[1/1] [======33%                   ] HSTO_t64_g64_a0.5.nsys-rep[1/1] [=======36%                  ] HSTO_t64_g64_a0.5.nsys-rep[1/1] [========40%                 ] HSTO_t64_g64_a0.5.nsys-rep[1/1] [========41%                 ] HSTO_t64_g64_a0.5.nsys-rep[1/1] [=========46%                ] HSTO_t64_g64_a0.5.nsys-rep[1/1] [==========47%               ] HSTO_t64_g64_a0.5.nsys-rep[1/1] [==============63%           ] HSTO_t64_g64_a0.5.nsys-rep[1/1] [===================79%      ] HSTO_t64_g64_a0.5.nsys-rep[1/1] [===================80%      ] HSTO_t64_g64_a0.5.nsys-rep[1/1] [=====================86%    ] HSTO_t64_g64_a0.5.nsys-rep[1/1] [========================100%] HSTO_t64_g64_a0.5.nsys-rep[1/1] [========================100%] HSTO_t64_g64_a0.5.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/HSTO_t64_g64_a0.5.nsys-rep

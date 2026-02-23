@@ -1,0 +1,12 @@
+
+NOTICE: Existing SQLite export found: /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/CEDD_t64_gdefault_a0.5.sqlite
+        It is assumed file was previously exported from: /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/CEDD_t64_gdefault_a0.5.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/CEDD_t64_gdefault_a0.5.sqlite] with [/opt/nvidia/nsight-systems-cli/2026.1.1/target-linux-x64/reports/cuda_gpu_kern_sum.py]... 
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Name
+99.2,2823991,2,1411995.5,1411995.5,964744,1859247,632509.1,"gaussian_kernel(unsigned char *, unsigned char *, int, int)"
+0.4,10240,2,5120.0,5120.0,5056,5184,90.5,"sobel_kernel(unsigned char *, unsigned char *, unsigned char *, int, int)"
+0.2,6976,2,3488.0,3488.0,3456,3520,45.3,"non_max_supp_kernel(unsigned char *, unsigned char *, unsigned char *, int, int)"
+0.2,4928,2,2464.0,2464.0,2432,2496,45.3,"hyst_kernel(unsigned char *, unsigned char *, int, int)"
+

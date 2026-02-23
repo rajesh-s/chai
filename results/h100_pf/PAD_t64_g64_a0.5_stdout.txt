@@ -1,0 +1,11 @@
+NVIDIA H100 PCIe	Allocation Time (ms): 0.210560
+Initialization Time (ms): 32.969982
+Kernel Time (ms): 64.788536
+Deallocation Time (ms): 0.816544
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-7725.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] PAD_t64_g64_a0.5.nsys-rep[1/1] [0%                          ] PAD_t64_g64_a0.5.nsys-rep[1/1] [=====30%                    ] PAD_t64_g64_a0.5.nsys-rep[1/1] [=======36%                  ] PAD_t64_g64_a0.5.nsys-rep[1/1] [========41%                 ] PAD_t64_g64_a0.5.nsys-rep[1/1] [========42%                 ] PAD_t64_g64_a0.5.nsys-rep[1/1] [=========43%                ] PAD_t64_g64_a0.5.nsys-rep[1/1] [===============67%          ] PAD_t64_g64_a0.5.nsys-rep[1/1] [=================72%        ] PAD_t64_g64_a0.5.nsys-rep[1/1] [====================85%     ] PAD_t64_g64_a0.5.nsys-rep[1/1] [=====================86%    ] PAD_t64_g64_a0.5.nsys-rep[1/1] [========================100%] PAD_t64_g64_a0.5.nsys-rep[1/1] [========================100%] PAD_t64_g64_a0.5.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/PAD_t64_g64_a0.5.nsys-rep

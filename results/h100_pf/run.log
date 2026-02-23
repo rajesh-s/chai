@@ -1,0 +1,64 @@
+=== Chai Page Fault Study (nsys) ===
+Host: 209-20-158-61
+Date: Mon Feb 23 09:11:12 UTC 2026
+GPU: NVIDIA H100 PCIe
+CUDA: Cuda compilation tools, release 12.8, V12.8.93
+nsys: NVIDIA Nsight Systems version 2026.1.1.204-261137176666v0
+Threads: 64
+GPU Blocks: 64
+Partitions: 0.5
+Warmup: 1, Reps: 3
+
+=== Running BS (with partition + GPU blocks sweep) ===
+  BS: threads=64, gpu_blocks=64, partition=0.5
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+=== Running HSTI (with partition + GPU blocks sweep) ===
+  HSTI: threads=64, gpu_blocks=64, partition=0.5
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+=== Running HSTO (with partition + GPU blocks sweep) ===
+  HSTO: threads=64, gpu_blocks=64, partition=0.5
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+=== Running PAD (with partition + GPU blocks sweep) ===
+  PAD: threads=64, gpu_blocks=64, partition=0.5
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+=== Running RSCD (with partition + GPU blocks sweep) ===
+  RSCD: threads=64, gpu_blocks=64, partition=0.5
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+=== Running SC (with partition + GPU blocks sweep) ===
+  SC: threads=64, gpu_blocks=64, partition=0.5
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+=== Running CEDD (partition sweep, no GPU blocks) ===
+  CEDD: threads=64, partition=0.5
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+=== Running BFS (threads + GPU blocks sweep) ===
+  BFS: threads=64, gpu_blocks=64
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+=== Running SSSP (threads + GPU blocks sweep) ===
+  SSSP: threads=64, gpu_blocks=64
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+=== Running RSCT (threads + GPU blocks sweep) ===
+  RSCT: threads=64, gpu_blocks=64
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+=== Running TQ (threads + GPU blocks sweep) ===
+  TQ: threads=64, gpu_blocks=64
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+=== Running TQH (threads + GPU blocks sweep) ===
+  TQH: threads=64, gpu_blocks=64
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+=== Running TRNS (threads + GPU blocks sweep) ===
+  TRNS: threads=64, gpu_blocks=64
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+=== Running CEDT (threads only, no GPU blocks) ===
+  CEDT: threads=64
+  Raw nsys reports saved to /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+
+=== Post-processing nsys reports ===
+
+=== Complete ===
+Results directory: /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf
+
+To plot results:
+  python3 plot_pagefault_results.py /home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf 'GH200 (HW Coherence)'
+
+To compare two systems:
+  python3 plot_pagefault_results.py <gh200_dir> <x86_h100_dir> 'GH200' 'x86+H100'

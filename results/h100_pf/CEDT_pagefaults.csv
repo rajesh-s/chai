@@ -1,0 +1,2 @@
+benchmark,threads,gpu_blocks,partition,cpu_page_faults,gpu_page_faults,htod_migration_mb,dtoh_migration_mb,htod_coherence_mb,htod_prefetch_mb,htod_eviction_mb,htod_user_mb,dtoh_coherence_mb,dtoh_prefetch_mb,dtoh_eviction_mb,dtoh_user_mb,cpu_pf_data_mb,gpu_pf_data_mb
+CEDT,64,default,dynamic,24,292,2.3125,3.5,0.7109375,1.6015625,0,0,0.06640625,3.43359375,0,0,0.09375,1.140625

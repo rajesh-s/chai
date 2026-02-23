@@ -1,0 +1,11 @@
+NVIDIA H100 PCIe	Allocation Time (ms): 5.705824
+Initialization Time (ms): 7.505632
+Kernel Time (ms): 76.785828
+Deallocation Time (ms): 0.499168
+Test Passed
+Collecting data...
+Generating '/tmp/nsys-report-5f86.qdstrm'
+Press Ctrl-C to stop symbol files downloading
+[1/1] [0%                          ] RSCT_t64_g64_adynamic.nsys-rep[1/1] [0%                          ] RSCT_t64_g64_adynamic.nsys-rep[1/1] [====25%                     ] RSCT_t64_g64_adynamic.nsys-rep[1/1] [====28%                     ] RSCT_t64_g64_adynamic.nsys-rep[1/1] [=====32%                    ] RSCT_t64_g64_adynamic.nsys-rep[1/1] [======33%                   ] RSCT_t64_g64_adynamic.nsys-rep[1/1] [==========49%               ] RSCT_t64_g64_adynamic.nsys-rep[1/1] [============57%             ] RSCT_t64_g64_adynamic.nsys-rep[1/1] [==================78%       ] RSCT_t64_g64_adynamic.nsys-rep[1/1] [========================100%] RSCT_t64_g64_adynamic.nsys-rep[1/1] [========================100%] RSCT_t64_g64_adynamic.nsys-rep
+Generated:
+	/home/ubuntu/rajesh-fs-utah/chai/CUDA-U/h100_pf/RSCT_t64_g64_adynamic.nsys-rep
